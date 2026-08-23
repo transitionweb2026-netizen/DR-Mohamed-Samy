@@ -1,0 +1,804 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Base setup shared by every page. The original 7 source pages each ran
+ * standalone with their own <body> tag; here they share one <body> (Next.js
+ * App Router), so the common baseline lives here once instead of being
+ * duplicated per page.
+ */
+body {
+  overflow-x: hidden;
+}
+
+/*
+ * Required for the Material Symbols icon font to actually render as icons
+ * instead of literal text (e.g. "calendar_month" showing as a word). None
+ * of the source pages' exported HTML included this rule even though every
+ * page uses dozens of <span class="material-symbols-outlined"> icons and
+ * their reference screenshots (screen.png) clearly show real icons -- the
+ * design tool's preview evidently injected this boilerplate invisibly. This
+ * is the standard rule Google's Material Symbols docs require; without it
+ * the migrated site would visibly regress from the original screenshots.
+ */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* ==========================================================================
+   Per-page custom CSS below.
+   Each source page was a standalone HTML document with its own <style>
+   block, and several pages reuse the same class name (e.g. `.glass-card`)
+   for visually different rules. Since Next.js now shares one stylesheet
+   across every route, each page's block is scoped under that page's own
+   `.route-*` wrapper class (added to that page's root element) so the
+   rules can never bleed into another route. This is a structural
+   necessity of the migration -- none of the actual rule values were
+   changed.
+   ========================================================================== */
+
+/* Home page (route: /) */
+.route-home .glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+}
+.route-home .glow-hover:hover {
+  box-shadow: 0 0 20px rgba(24, 213, 184, 0.4);
+}
+
+.route-home .perspective-container {
+  perspective: 1200px;
+}
+
+.route-home .glass-capsule {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.2),
+    inset 0 0 20px rgba(24, 213, 184, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.route-home .glass-capsule::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 213, 184, 0.6),
+    transparent,
+    rgba(24, 213, 184, 0.3)
+  );
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.route-home .glass-capsule:hover {
+  transform: translateY(-10px) rotate3d(1, 1, 0, 15deg) !important;
+  box-shadow:
+    0 15px 45px 0 rgba(0, 107, 91, 0.3),
+    inset 0 0 30px rgba(24, 213, 184, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+.route-home .glass-capsule:hover::before {
+  opacity: 1;
+}
+
+.route-home .neon-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 10s linear infinite;
+}
+
+/* Keyframe names below are left unscoped (matching the source exactly) --
+   they don't collide with any other page's keyframes, and this page also
+   references `float` directly via an inline Tailwind arbitrary value
+   (`animate-[float_3s_ease-in-out_infinite]`), so renaming it would break
+   that usage. */
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.route-home .float-anim {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.route-home .dark-glass-capsule {
+  background: linear-gradient(
+    135deg,
+    rgba(24, 213, 184, 0.1) 0%,
+    rgba(2, 23, 24, 0.6) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(24, 213, 184, 0.2);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(24, 213, 184, 0.1),
+    inset 0 1px 0 0 rgba(24, 213, 184, 0.3);
+}
+
+/* About page (route: /about) */
+.route-about {
+  font-family: "Archivo Narrow", sans-serif;
+}
+
+.route-about .glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+}
+
+.route-about .glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.1),
+    inset 0 0 20px rgba(24, 213, 184, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.route-about .glass-card:hover {
+  box-shadow:
+    0 15px 45px 0 rgba(0, 107, 91, 0.2),
+    inset 0 0 30px rgba(24, 213, 184, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+  transform: translateY(-5px);
+}
+
+.route-about .luminous-glow {
+  text-shadow: 0 0 20px rgba(24, 213, 184, 0.4);
+}
+
+.route-about .btn-primary-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 107, 91, 0.9),
+    rgba(24, 213, 184, 0.9)
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+    0 8px 20px rgba(24, 213, 184, 0.3);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.route-about .btn-primary-glass:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
+    0 12px 25px rgba(24, 213, 184, 0.5);
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.route-about .btn-secondary-glass {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(24, 213, 184, 0.4);
+  color: #006b5b;
+  box-shadow: 0 4px 15px rgba(0, 107, 91, 0.05);
+  transition: all 0.3s ease;
+}
+
+.route-about .btn-secondary-glass:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #18d5b8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 107, 91, 0.1);
+}
+
+.route-about .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.route-about .hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.route-about .icon-fill {
+  font-variation-settings: "FILL" 1, "wght" 300;
+}
+
+.route-about .glass-connector {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(24, 213, 184, 0.5);
+  box-shadow:
+    0 0 10px rgba(24, 213, 184, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+}
+
+.route-about .cable-pulse {
+  stroke-dasharray: 200 400;
+  animation: pulse-cable 4s linear infinite;
+}
+
+@keyframes pulse-cable {
+  0% {
+    stroke-dashoffset: 600;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.2;
+  }
+}
+
+.route-about .liquid-text-embossed {
+  color: transparent;
+  background: linear-gradient(180deg, #ffffff 0%, #18d5b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow:
+    2px 2px 4px rgba(0, 107, 91, 0.2),
+    -1px -1px 2px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(24, 213, 184, 0.4);
+  filter: drop-shadow(0px 10px 15px rgba(0, 107, 91, 0.15));
+}
+
+.route-about .capsule-shape {
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    10px 10px 30px rgba(0, 107, 91, 0.08),
+    -10px -10px 30px rgba(255, 255, 255, 0.8),
+    inset 0 0 30px rgba(24, 213, 184, 0.2);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.route-about .capsule-shape:nth-child(even) {
+  border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+}
+
+.route-about .capsule-shape:hover {
+  border-radius: 45% 55% 55% 45% / 50% 50% 50% 50%;
+  transform: translateY(-12px) scale(1.05) translateZ(20px);
+  box-shadow:
+    15px 15px 40px rgba(0, 107, 91, 0.15),
+    -15px -15px 40px rgba(255, 255, 255, 1),
+    inset 0 0 40px rgba(24, 213, 184, 0.6);
+  border-color: #ffffff;
+}
+
+.route-about .straight-capsule {
+  border-radius: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.1),
+    inset 0 0 20px rgba(24, 213, 184, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.route-about .straight-capsule::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s;
+  z-index: 10;
+}
+
+.route-about .straight-capsule:hover {
+  box-shadow:
+    0 20px 50px 0 rgba(0, 107, 91, 0.15),
+    0 0 30px rgba(24, 213, 184, 0.4),
+    inset 0 0 30px rgba(24, 213, 184, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 1);
+  transform: translateY(-8px);
+  border-color: rgba(24, 213, 184, 0.8);
+}
+
+.route-about .straight-capsule:hover::before {
+  transform: translateX(100%);
+}
+
+.route-about .straight-capsule img {
+  transition: transform 0.6s ease;
+}
+
+.route-about .straight-capsule:hover img {
+  transform: scale(1.05);
+}
+
+.route-about .glass-core {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(24, 213, 184, 0.5) 100%
+  );
+  backdrop-filter: blur(30px);
+  border: 3px solid rgba(255, 255, 255, 1);
+  box-shadow:
+    0 0 50px rgba(24, 213, 184, 0.5),
+    inset 0 0 30px rgba(255, 255, 255, 0.9);
+  animation: core-pulse 4s infinite alternate ease-in-out;
+}
+
+@keyframes core-pulse {
+  0% {
+    box-shadow:
+      0 0 40px rgba(24, 213, 184, 0.4),
+      inset 0 0 30px rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    box-shadow:
+      0 0 70px rgba(24, 213, 184, 0.7),
+      inset 0 0 40px rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+  }
+}
+
+.route-about #conference-popup {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  background: rgba(228, 255, 251, 0.7);
+}
+
+.route-about #conference-popup.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.route-about #conference-popup .popup-content {
+  transform: scale(0.95) translateY(20px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.1s;
+}
+
+.route-about #conference-popup.active .popup-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Services page (route: /services) */
+.route-services .glass-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+    0 20px 40px -10px rgba(0, 107, 91, 0.1);
+}
+.route-services .text-glow {
+  text-shadow: 0 0 20px rgba(24, 213, 184, 0.5);
+}
+.route-services .primary-btn {
+  background: linear-gradient(135deg, #77f8e2 0%, #006b5b 100%);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+    0 10px 20px -5px rgba(0, 107, 91, 0.4);
+}
+.route-services .primary-btn:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
+    0 15px 30px -5px rgba(24, 213, 184, 0.6);
+}
+
+/* Reviews page (route: /reviews) */
+.route-reviews {
+  color: theme("colors.on-background");
+}
+
+.route-reviews .glass-panel {
+  background: rgba(198, 248, 241, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.route-reviews .glass-capsule {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(198, 248, 241, 0.3) 100%
+  );
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(24, 213, 184, 0.3);
+  border-right: 1px solid rgba(24, 213, 184, 0.3);
+  border-radius: 40px 10px 40px 10px;
+  box-shadow:
+    0 20px 40px -10px rgba(0, 107, 91, 0.1),
+    inset 0 2px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.route-reviews .glass-capsule:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 30px 50px -15px rgba(24, 213, 184, 0.25),
+    inset 0 2px 2px rgba(255, 255, 255, 0.9),
+    0 0 20px rgba(24, 213, 184, 0.3);
+  border-color: rgba(24, 213, 184, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(198, 248, 241, 0.4) 100%
+  );
+}
+
+.route-reviews .waveform-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background:
+    linear-gradient(90deg, transparent 50%, rgba(24, 213, 184, 0.2) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(24, 213, 184, 0.2) 50%);
+  background-size:
+    10px 100%,
+    14px 100%;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.route-reviews .glass-capsule:hover .waveform-bg {
+  opacity: 0.3;
+  animation: waveform-pulse 2s infinite linear;
+}
+
+@keyframes waveform-pulse {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  100% {
+    background-position:
+      20px 0,
+      28px 0;
+  }
+}
+
+.route-reviews .hologram-quote {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-family: "Anton", sans-serif;
+  font-size: 120px;
+  color: rgba(24, 213, 184, 0.1);
+  line-height: 1;
+  z-index: 1;
+  transition: all 0.5s ease;
+  text-shadow: 0 0 20px rgba(24, 213, 184, 0);
+  pointer-events: none;
+}
+
+.route-reviews .glass-capsule:hover .hologram-quote {
+  color: rgba(24, 213, 184, 0.25);
+  transform: translate3d(-10px, 10px, 20px) scale(1.1);
+  text-shadow: 0 0 30px rgba(24, 213, 184, 0.4);
+}
+
+.route-reviews .btn-primary {
+  background: linear-gradient(
+    135deg,
+    theme("colors.secondary") 0%,
+    theme("colors.primary") 100%
+  );
+  color: white;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 10px 20px -5px rgba(0, 107, 91, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.route-reviews .btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(24, 213, 184, 0);
+  transition: box-shadow 0.3s ease;
+}
+
+.route-reviews .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 15px 25px -5px rgba(24, 213, 184, 0.5);
+}
+
+.route-reviews .btn-primary:hover::after {
+  box-shadow: 0 0 20px rgba(24, 213, 184, 0.6);
+}
+
+.route-reviews .btn-secondary {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 107, 91, 0.2);
+  color: theme("colors.primary");
+  transition: all 0.3s ease;
+}
+
+.route-reviews .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: theme("colors.primary-container");
+  box-shadow: 0 5px 15px rgba(24, 213, 184, 0.2);
+}
+
+.route-reviews .reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.route-reviews .reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.route-reviews .nav-link {
+  position: relative;
+}
+.route-reviews .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: theme("colors.primary");
+  transition: width 0.3s ease;
+}
+.route-reviews .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Videos page (route: /videos) */
+.route-videos .glass-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 107, 91, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+.route-videos .video-pod {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.route-videos .video-pod:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(0, 107, 91, 0.2),
+    inset 0 2px 0 0 rgba(255, 255, 255, 1);
+}
+.route-videos .video-pod .play-btn {
+  transition: all 0.3s ease;
+  transform: translateZ(20px);
+}
+.route-videos .video-pod:hover .play-btn {
+  transform: translateZ(40px) scale(1.1);
+  color: #18d5b8;
+}
+.route-videos .video-pod .thumbnail {
+  transition: transform 0.5s ease;
+}
+.route-videos .video-pod:hover .thumbnail {
+  transform: scale(1.05);
+}
+.route-videos .glow-text {
+  text-shadow: 0 0 15px rgba(24, 213, 184, 0.6);
+}
+
+/* Articles page (route: /articles) */
+.route-articles .glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 8px 32px 0 rgba(0, 107, 91, 0.1);
+}
+.route-articles .text-glow {
+  text-shadow: 0 0 20px rgba(24, 213, 184, 0.5);
+}
+.route-articles .btn-primary-glow {
+  box-shadow:
+    0 0 20px rgba(24, 213, 184, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.route-articles .hover-lift {
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.route-articles .hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 107, 91, 0.2);
+}
+
+/* Contact page (route: /contact) */
+.route-contact .glass-panel {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+    0 8px 32px 0 rgba(0, 107, 91, 0.1);
+}
+
+.route-contact .glass-panel-deep {
+  background: rgba(0, 55, 52, 0.7);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(119, 248, 226, 0.2);
+  box-shadow:
+    inset 0 1px 0 0 rgba(119, 248, 226, 0.2),
+    0 8px 32px 0 rgba(0, 32, 30, 0.3);
+  color: #ffffff;
+}
+
+.route-contact .hologram-glow {
+  filter: drop-shadow(0 0 15px rgba(24, 213, 184, 0.6));
+}
+
+.route-contact .btn-primary {
+  background: linear-gradient(135deg, #006b5e 0%, #006b5b 100%);
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+    0 4px 15px rgba(0, 107, 91, 0.3);
+  transition: all 0.3s ease;
+}
+.route-contact .btn-primary:hover {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+    0 6px 20px rgba(24, 213, 184, 0.5);
+  transform: translateY(-2px);
+}
+
+.route-contact .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.route-contact .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(24, 213, 184, 0.6);
+  box-shadow: 0 0 15px rgba(24, 213, 184, 0.2);
+}
+
+.route-contact .input-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+.route-contact .input-glass:focus {
+  outline: none;
+  border-color: #18d5b8;
+  box-shadow: 0 0 10px rgba(24, 213, 184, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+.route-contact .input-glass::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.route-contact .input-glass-light {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #00201e;
+  transition: all 0.3s ease;
+}
+.route-contact .input-glass-light:focus {
+  outline: none;
+  border-color: #18d5b8;
+  box-shadow: 0 0 10px rgba(24, 213, 184, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+}

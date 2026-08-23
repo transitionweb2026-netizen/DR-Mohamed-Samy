@@ -1,0 +1,841 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dr. Mohamed Samy Abdelwahid - About the Doctor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#00201e",
+                        "outline": "#6b7a75",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#2edec1",
+                        "on-primary-fixed-variant": "#005144",
+                        "inverse-surface": "#003734",
+                        "tertiary-container": "#ffab56",
+                        "on-tertiary-fixed": "#2d1600",
+                        "surface-container-highest": "#bbece6",
+                        "surface-container-high": "#c0f2ec",
+                        "surface-variant": "#bbece6",
+                        "surface": "#e4fffb",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#ccfdf7",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#e4fffb",
+                        "on-surface": "#00201e",
+                        "outline-variant": "#bacac4",
+                        "surface-tint": "#006b5b",
+                        "primary-container": "#18d5b8",
+                        "tertiary": "#8c5000",
+                        "primary": "#006b5b",
+                        "on-secondary-container": "#007164",
+                        "on-surface-variant": "#3b4a46",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdcbf",
+                        "secondary-fixed-dim": "#57dbc6",
+                        "on-secondary-fixed": "#00201b",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#b3e4de",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#2edec1",
+                        "on-primary-container": "#00574a",
+                        "background": "#e4fffb",
+                        "secondary-container": "#77f8e2",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#c9faf4",
+                        "secondary": "#006b5e",
+                        "surface-container": "#c6f8f1",
+                        "on-tertiary-container": "#724000",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#77f8e2",
+                        "tertiary-fixed-dim": "#ffb874",
+                        "on-secondary-fixed-variant": "#005047",
+                        "on-primary-fixed": "#00201a",
+                        "primary-fixed": "#59fbdc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1450px",
+                        "stack-sm": "12px",
+                        "card-gap": "24px",
+                        "glass-padding": "40px",
+                        "stack-md": "20px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "hero-headline": ["Anton"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "hero-headline-mobile": ["Anton"],
+                        "body-lg": ["Archivo Narrow"],
+                        "section-title": ["Anton"],
+                        "card-title": ["Anton"],
+                        "body-md": ["Archivo Narrow"]
+                    },
+                    "fontSize": {
+                        "hero-headline": ["64px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "hero-headline-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "section-title": ["32px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "card-title": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Archivo Narrow', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Glassmorphism Utilities tailored for luminous light teal aesthetic */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(0, 107, 91, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+        }
+        
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 107, 91, 0.1),
+                inset 0 0 20px rgba(24, 213, 184, 0.1),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            box-shadow: 
+                0 15px 45px 0 rgba(0, 107, 91, 0.2),
+                inset 0 0 30px rgba(24, 213, 184, 0.3),
+                inset 0 1px 0 0 rgba(255, 255, 255, 1);
+            transform: translateY(-5px);
+        }
+
+        .luminous-glow {
+            text-shadow: 0 0 20px rgba(24, 213, 184, 0.4);
+        }
+        
+        .btn-primary-glass {
+            background: linear-gradient(135deg, rgba(0, 107, 91, 0.9), rgba(24, 213, 184, 0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.5), 0 8px 20px rgba(24, 213, 184, 0.3);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-glass:hover {
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.6), 0 12px 25px rgba(24, 213, 184, 0.5);
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary-glass {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(24, 213, 184, 0.4);
+            color: #006b5b;
+            box-shadow: 0 4px 15px rgba(0, 107, 91, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-glass:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: #18d5b8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 107, 91, 0.1);
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Material Symbols Base */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 300;
+        }
+
+        /* Certificate Cable Animation */
+        .glass-connector {
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(24, 213, 184, 0.5);
+            box-shadow: 0 0 10px rgba(24, 213, 184, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .cable-pulse {
+            stroke-dasharray: 200 400;
+            animation: pulse-cable 4s linear infinite;
+        }
+
+        @keyframes pulse-cable {
+            0% {
+                stroke-dashoffset: 600;
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                stroke-dashoffset: 0;
+                opacity: 0.2;
+            }
+        }
+
+        /* Career Orbit Styles */
+        .liquid-text-embossed {
+            color: transparent;
+            background: linear-gradient(180deg, #ffffff 0%, #18d5b8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 
+                2px 2px 4px rgba(0, 107, 91, 0.2), 
+                -1px -1px 2px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(24, 213, 184, 0.4);
+            filter: drop-shadow(0px 10px 15px rgba(0, 107, 91, 0.15));
+        }
+
+        .capsule-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 2px solid rgba(255,255,255,0.95);
+            box-shadow: 
+                10px 10px 30px rgba(0,107,91,0.08),
+                -10px -10px 30px rgba(255,255,255,0.8),
+                inset 0 0 30px rgba(24,213,184,0.2);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .capsule-shape:nth-child(even) {
+            border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+        }
+
+        .capsule-shape:hover {
+            border-radius: 45% 55% 55% 45% / 50% 50% 50% 50%;
+            transform: translateY(-12px) scale(1.05) translateZ(20px);
+            box-shadow: 
+                15px 15px 40px rgba(0,107,91,0.15),
+                -15px -15px 40px rgba(255,255,255,1),
+                inset 0 0 40px rgba(24,213,184,0.6);
+            border-color: #ffffff;
+        }
+        
+        /* Straight Capsule for Conferences */
+        .straight-capsule {
+            border-radius: 2rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.2) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                0 8px 32px 0 rgba(0, 107, 91, 0.1),
+                inset 0 0 20px rgba(24, 213, 184, 0.1),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .straight-capsule::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.3) 50%, transparent 80%);
+            transform: translateX(-100%);
+            transition: transform 0.8s;
+            z-index: 10;
+        }
+
+        .straight-capsule:hover {
+            box-shadow: 
+                0 20px 50px 0 rgba(0, 107, 91, 0.15),
+                0 0 30px rgba(24, 213, 184, 0.4),
+                inset 0 0 30px rgba(24, 213, 184, 0.3),
+                inset 0 1px 0 0 rgba(255, 255, 255, 1);
+            transform: translateY(-8px);
+            border-color: rgba(24, 213, 184, 0.8);
+        }
+
+        .straight-capsule:hover::before {
+            transform: translateX(100%);
+        }
+
+        .straight-capsule img {
+            transition: transform 0.6s ease;
+        }
+
+        .straight-capsule:hover img {
+            transform: scale(1.05);
+        }
+
+        .glass-core {
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95) 0%, rgba(24,213,184,0.5) 100%);
+            backdrop-filter: blur(30px);
+            border: 3px solid rgba(255,255,255,1);
+            box-shadow: 
+                0 0 50px rgba(24,213,184,0.5),
+                inset 0 0 30px rgba(255,255,255,0.9);
+            animation: core-pulse 4s infinite alternate ease-in-out;
+        }
+
+        @keyframes core-pulse {
+            0% { box-shadow: 0 0 40px rgba(24,213,184,0.4), inset 0 0 30px rgba(255,255,255,0.9); }
+            100% { box-shadow: 0 0 70px rgba(24,213,184,0.7), inset 0 0 40px rgba(255,255,255,1); transform: scale(1.02); }
+        }
+
+        /* Popup overlay */
+        #conference-popup {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            background: rgba(228, 255, 251, 0.7); /* Surface color with transparency */
+        }
+
+        #conference-popup.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        #conference-popup .popup-content {
+            transform: scale(0.95) translateY(20px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition-delay: 0.1s;
+        }
+        
+        #conference-popup.active .popup-content {
+            transform: scale(1) translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+<!-- Top Navigation -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-container-max rounded-full border border-outline-variant bg-surface-container-lowest/60 backdrop-blur-[40px] shadow-[0_20px_50px_rgba(2,23,24,0.05)] z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-glass-padding py-4 w-full">
+<div class="font-hero-headline text-2xl text-primary">Dr. Liver</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200" href="#">Home</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 duration-200" href="#">About the Doctor</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200" href="#">Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200" href="#">Why Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200" href="#">Patient Reviews</a>
+</div>
+<button class="bg-gradient-to-r from-secondary to-primary text-on-primary font-body-md text-body-md px-6 py-2 rounded-full active:scale-95 hover:shadow-[0_0_15px_rgba(24,213,184,0.5)] transition-all duration-200">
+                Contact Us
+            </button>
+</div>
+</nav>
+<!-- 1. About Hero Section -->
+<section class="relative min-h-screen flex items-center pt-32 pb-section-gap overflow-hidden">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full mix-blend-overlay opacity-80" data-alt="A cinematic, high-end portrait of a distinguished surgeon in a modern, dark teal clinical setting. The lighting is dramatic, highlighting the subject with a soft, luminous teal glow. The aesthetic is premium, futuristic, and evokes a sense of deep trust and medical precision. Liquid glass refractions subtly frame the composition." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAD0wqrfjQ9g2JRCSs7dSqzQMJ2tnTvwnLgQZqC8DlGLUodc2reAIPs4L7rh3gbjVEHIq5B3eLBvFmVUEma9c828HEyvPSt2FLoB0IEiBqP-XZUsafAwnQIKGnWZ1D7bqqXNtZo1dAb55V6rYwEycCtXQGmjSRAuIXzJyh93YEIkjgiP67VBBN9EikiAesFmw2RrbHuKZiqzcS6goqyltAMQAyIl92z9DNububL1KbVZ8XhMDG-Ji8W&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/40"></div>
+</div>
+<div class="max-w-container-max mx-auto px-4 md:px-glass-padding w-full relative z-10">
+<div class="max-w-3xl">
+<div class="inline-block glass-card px-4 py-2 rounded-full mb-6 border border-primary/30">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold">Pioneering Liver Surgery</span>
+</div>
+<h1 class="font-hero-headline-mobile md:font-hero-headline text-hero-headline-mobile md:text-hero-headline text-primary mb-4 leading-tight">
+                    Dr. Mohamed Samy<br>Abdelwahid
+                </h1>
+<p class="font-body-lg text-body-lg text-surface-container-lowest mb-10 max-w-2xl opacity-90">Consultant Hepatobiliary &amp; Liver Transplant Surgeon</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="btn-primary-glass font-body-md text-body-md px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+                        Book an Appointment
+                    </button>
+<button class="btn-secondary-glass font-body-md text-body-md px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-bold">
+<span class="material-symbols-outlined icon-fill">play_circle</span>
+                        Watch His Videos
+                    </button>
+</div>
+<!-- Floating Social Strip -->
+<div class="mt-16 inline-flex gap-4 glass-card p-3 rounded-2xl items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant px-2 font-bold">Connect:</span>
+<a class="w-10 h-10 rounded-full bg-white/40 flex items-center justify-center hover:bg-white/80 hover:text-primary transition-colors border border-white/60" href="#">
+<span class="material-symbols-outlined text-primary">link</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/40 flex items-center justify-center hover:bg-white/80 hover:text-primary transition-colors border border-white/60" href="#">
+<span class="material-symbols-outlined text-primary">mail</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Certificates & Credentials (The Glass Archive) -->
+<section class="py-section-gap relative overflow-hidden bg-surface">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
+<!-- Background SVG Cable -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden h-[600px] flex items-center justify-center -mt-20">
+<svg class="w-[200%] md:w-full h-full min-w-[2000px] drop-shadow-[0_0_15px_rgba(24,213,184,0.4)]" preserveAspectRatio="xMidYMid slice" viewBox="0 0 2000 200">
+<!-- Base thick glowing cable -->
+<path class="cable-path" d="M -100 100 Q 250 50, 500 100 T 1000 100 T 1500 100 T 2100 100" fill="none" id="main-cable" stroke="rgba(24, 213, 184, 0.2)" stroke-linecap="round" stroke-width="12"></path>
+<!-- Inner bright core -->
+<path class="cable-path" d="M -100 100 Q 250 50, 500 100 T 1000 100 T 1500 100 T 2100 100" fill="none" id="core-cable" stroke="rgba(255, 255, 255, 0.5)" stroke-linecap="round" stroke-width="4"></path>
+<!-- Animated pulse -->
+<path class="cable-path cable-pulse" d="M -100 100 Q 250 50, 500 100 T 1000 100 T 1500 100 T 2100 100" fill="none" id="pulse-cable" stroke="#18D5B8" stroke-linecap="round" stroke-width="6" style="animation-duration: 4s;"></path>
+</svg>
+</div>
+<div class="relative z-10 w-full overflow-hidden py-12 pt-24">
+<div class="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory px-[20vw] pb-20 items-start md:px-[10vw] gap-6" id="certificate-gallery">
+<!-- Cert 1 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(0.989551) translateY(26.5078px) rotate(-3.77deg); opacity: 0.734922; z-index: 56;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.2209);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 1" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk297I1X_W5nS2VIsPWnsE0bk-qqWLARHh8xdBKXTWsN7Wjg-HqRGHlf3TzWQHlG_Iu2NoxMQ36q5nrdgjEtCXrZTB7NDM4X4VsGVXxyoZ2RBEilxjAfwCN-IRKJeCX52ND-p4UAdtEgiGfc9fmQ0QyJ730BYamktuD2xQ1nNk2a28nbg_2MclUER1n9xXURsYD2zbs5VQ2Jrsp4PVqPr8J77U_9Ty-6pCTAbUTpb4cdKjylV9XXUz">
+</div>
+</div>
+<!-- Cert 2 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(1.07568) translateY(5.83594px) rotate(-0.83deg); opacity: 0.941641; z-index: 90;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.04863);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 2" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqPdul2m9MRblYIDKNvwQ_qEo5Rn8o4qcSEslDUXdfRAFoEx2RiaQQ8Erct_ovd4tatag6UnH-jPlAZ5tRHcSNa7De2cxg8AIu2_6TpmdGb_ZwjkaZNa8YO1YZo0TiFmM06zKoPniUBnvOt3GEkm1kTPXP2gYCzhOn7rNt--LEdAD740UG08StaPJ26684ko9iHw4_HRe15rqCwQKI2ufnhvcLEAnwDz0pugXuCU5uEPYUgTR2BWWW">
+</div>
+</div>
+<!-- Cert 3 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(1.03818) translateY(14.8359px) rotate(2.11deg); opacity: 0.851641; z-index: 75;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.12363);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 3" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe1vg4MmYsd3RF8lFzM7Gu0Nz8li973SS99uh5OFqn0fL59zfvWU3LyMCY6VTN-UEB79Fau9dZKWMKBxzzsq26arcKd2NMNL6yYdz5HomrDdFwWwGQMPh0QsTZu7BB_BZXbjMC_dinfbHMpHTUFqLWQeg2sx13VQEVEjrHO7b-1kejvjntErAuqKRFgNbEGp5gPcX8qeKukVpH2eOXPFhNLKtSSGVUcX3iEXJ2QQYDszmX5Wk5NEZ5">
+</div>
+</div>
+<!-- Cert 4 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(0.952051) translateY(35.5078px) rotate(5.05deg); opacity: 0.644922; z-index: 41;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.2959);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 4" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc">
+</div>
+</div>
+<!-- Cert 5 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(0.865918) translateY(56.1797px) rotate(7.99deg); opacity: 0.438203; z-index: 6;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.46816);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 5" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc">
+</div>
+</div>
+<!-- Cert 6 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(0.85) translateY(60px) rotate(10.93deg); opacity: 0.4; z-index: 0;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.5);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 6" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc">
+</div>
+</div>
+<!-- Cert 7 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(0.85) translateY(60px) rotate(13.87deg); opacity: 0.4; z-index: 0;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.5);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 7" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc">
+</div>
+</div>
+<!-- Cert 8 -->
+<div class="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]" style="transform: scale(0.85) translateY(60px) rotate(16.81deg); opacity: 0.4; z-index: 0;">
+<div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top" style="transform: translateX(-50%) scaleY(1.5);"></div>
+<div class="absolute -inset-4 bg-gradient-to-br from-white/40 to-transparent rounded-[2rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity z-10"></div>
+<div class="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<img alt="Certificate 8" class="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc">
+</div>
+</div>
+</div>
+</div>
+<script>
+    const gallery = document.getElementById('certificate-gallery');
+    const paths = document.querySelectorAll('.cable-path');
+    let lastScroll = 0;
+
+    gallery.addEventListener('scroll', () => {
+        const cards = gallery.querySelectorAll('.cert-card');
+        const galleryCenter = gallery.scrollLeft + gallery.offsetWidth / 2;
+        const scrollDelta = gallery.scrollLeft - lastScroll;
+        lastScroll = gallery.scrollLeft;
+
+        // Animate paths wave effect based on scroll
+        const waveOffset = Math.sin(gallery.scrollLeft / 200) * 20;
+        const currentPath = `M -100 ${100 + waveOffset} Q 250 ${50 - waveOffset}, 500 ${100 + waveOffset} T 1000 ${100 - waveOffset} T 1500 ${100 + waveOffset} T 2100 ${100 - waveOffset}`;
+        
+        paths.forEach(p => {
+            p.setAttribute('d', currentPath);
+            // Speed up pulse based on scroll velocity
+            if(p.id === 'pulse-cable') {
+               const currentSpeed = Math.max(1, 4 - Math.abs(scrollDelta) / 50);
+               p.style.animationDuration = `${currentSpeed}s`;
+            }
+        });
+
+        cards.forEach((card, index) => {
+            const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+            const distanceFromCenter = Math.abs(galleryCenter - cardCenter);
+            const normalizedDistance = Math.min(1, distanceFromCenter / (gallery.offsetWidth / 1.5));
+            
+            // Core scale and opacity
+            const scale = Math.max(0.85, 1.1 - (normalizedDistance * 0.25));
+            const opacity = Math.max(0.4, 1 - (normalizedDistance * 0.6));
+            
+            // Hanging Spring Motion
+            // Centered item is highest (0 translateY), edge items drop down
+            const translateY = normalizedDistance * 60; // Max drop of 60px
+            // Rotation based on scroll direction and distance from center
+            const rotation = (cardCenter - galleryCenter) / 100;
+            
+            card.style.transform = `scale(${scale}) translateY(${translateY}px) rotate(${rotation}deg)`;
+            card.style.opacity = opacity;
+            card.style.zIndex = Math.round(100 - normalizedDistance * 100);
+
+            // Animate connector stretch to maintain connection to cable
+            const connector = card.querySelector('.connector');
+            if (connector) {
+                // Stretch connector slightly more when dropped down
+                const stretch = 1 + (normalizedDistance * 0.5);
+                connector.style.transform = `translateX(-50%) scaleY(${stretch})`;
+            }
+        });
+    });
+    
+    // Trigger initial calculation
+    gallery.dispatchEvent(new Event('scroll'));
+</script>
+</section>
+<!-- 4. Career Journey (The Career Orbit) -->
+<section class="py-section-gap relative overflow-hidden bg-surface">
+<div class="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">BEHIND THE WHITE COAT</span>
+<h2 class="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">MEET DR. MOHAMED SAMY ABDELWAHID</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
+<!-- Subtle Flowing Ribbon Element -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-3xl pointer-events-none z-0"></div>
+<!-- Left Column: Video Frame -->
+<div class="relative z-10">
+<div class="aspect-[16/9] rounded-2xl overflow-hidden border-[8px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] relative group">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
+<div class="w-full h-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-6xl opacity-40 group-hover:scale-110 transition-transform duration-500">play_circle</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Introduction -->
+<div class="relative z-10 flex flex-col items-start">
+<h3 class="font-hero-headline text-3xl text-primary mb-2">Dr. Mohamed Samy Abdelwahid</h3>
+<p class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold mb-6">CONSULTANT HEPATOBILIARY &amp; LIVER TRANSPLANT SURGEON</p>
+<p class="font-body-lg text-body-lg mb-8 opacity-90 leading-relaxed text-on-background">With over two decades of specialized experience in complex liver surgeries and transplants, Dr. Abdelwahid combines surgical precision with a compassionate, patient-centered approach. His commitment to pioneering minimally invasive techniques has transformed outcomes for hundreds of patients worldwide.</p>
+<button class="btn-primary-glass font-body-md text-body-md px-8 py-3 rounded-full flex items-center justify-center gap-2 font-bold">
+          Discover His Experience
+          <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section><section class="py-section-gap relative bg-background overflow-hidden" style="perspective: 1000px;">
+<div class="absolute inset-0 z-0 opacity-40 pointer-events-none mix-blend-screen">
+    {{DATA:ANIMATION:ANIMATION_1}}
+  </div>
+<div class="max-w-container-max mx-auto px-glass-padding relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">A Journey Built on Experience</span>
+<h2 class="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">CAREER JOURNEY</h2>
+</div>
+<div class="relative">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-primary/20 -translate-y-1/2 z-0 overflow-hidden">
+<div class="h-full bg-primary w-1/4 animate-[pulse_3s_infinite] shadow-[0_0_15px_#18d5b8]"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10">
+<div class="group relative glass-panel p-8 rounded-[2rem] border border-white/60 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary shadow-[0_0_15px_#18d5b8] group-hover:scale-125 transition-transform"></div>
+<div class="text-center">
+<span class="font-label-sm text-label-sm text-primary/60 block mb-2 font-bold">01 | 2020 - Present</span>
+<h3 class="font-card-title text-xl text-on-surface mb-1">Lead Transplant Surgeon</h3>
+<p class="font-body-md text-sm text-primary/80">Dr. Liver Medical Center</p>
+</div>
+</div>
+<div class="group relative glass-panel p-8 rounded-[2rem] border border-white/60 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125 transition-all"></div>
+<div class="text-center">
+<span class="font-label-sm text-label-sm text-primary/60 block mb-2 font-bold">02 | 2012 - 2020</span>
+<h3 class="font-card-title text-xl text-on-surface mb-1">Consultant Hepatobiliary Surgeon</h3>
+<p class="font-body-md text-sm text-primary/80">Advanced Surgical Institute</p>
+</div>
+</div>
+<div class="group relative glass-panel p-8 rounded-[2rem] border border-white/60 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125 transition-all"></div>
+<div class="text-center">
+<span class="font-label-sm text-label-sm text-primary/60 block mb-2 font-bold">03 | 2008 - 2012</span>
+<h3 class="font-card-title text-xl text-on-surface mb-1">Senior Surgical Fellow</h3>
+<p class="font-body-md text-sm text-primary/80">Global Transplant Academy</p>
+</div>
+</div>
+<div class="group relative glass-panel p-8 rounded-[2rem] border border-white/60 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125 transition-all"></div>
+<div class="text-center">
+<span class="font-label-sm text-label-sm text-primary/60 block mb-2 font-bold">04 | 2005 - 2008</span>
+<h3 class="font-card-title text-xl text-on-surface mb-1">Surgical Residency</h3>
+<p class="font-body-md text-sm text-primary/80">Central University Hospital</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Scientific Conferences -->
+<section class="py-section-gap relative overflow-hidden bg-surface">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">KNOWLEDGE BEYOND THE OPERATING ROOM</span>
+<h2 class="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">SCIENTIFIC CONFERENCES</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Conference 1 -->
+<div class="straight-capsule flex flex-col h-[400px] group" onclick="openConferencePopup('Global Health Innovations Congress', 'London, UK | 2023', 'https://lh3.googleusercontent.com/aida-public/AB6AXuC_ic0FcgaYbWg9VwdyLiXUcETwNWPElIq_6uy-UDM2P2T_YGXZd1LmM4t_ouGgXeO20qTSN5EUCubEiAsOTBcHPyDkmP_Rtku5CixmEudFxrV0nOScv0p1X0cFZAUqm7JWxVE7MxoP43OdAJ0p2gX0Kd5ZVtiW-0Qk6mbLXdjjdEF_zlTrmRN43ctkj3xdFC5bHUOmpwuFICDzwqijeYOH0c5NZjtvnmuc_gHp1R9e92xlk1eAE628')">
+<div class="h-2/3 w-full relative overflow-hidden">
+<img alt="Global Health Innovations Congress" class="w-full h-full object-cover relative z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_ic0FcgaYbWg9VwdyLiXUcETwNWPElIq_6uy-UDM2P2T_YGXZd1LmM4t_ouGgXeO20qTSN5EUCubEiAsOTBcHPyDkmP_Rtku5CixmEudFxrV0nOScv0p1X0cFZAUqm7JWxVE7MxoP43OdAJ0p2gX0Kd5ZVtiW-0Qk6mbLXdjjdEF_zlTrmRN43ctkj3xdFC5bHUOmpwuFICDzwqijeYOH0c5NZjtvnmuc_gHp1R9e92xlk1eAE628">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+</div>
+<div class="h-1/3 flex flex-col justify-center items-center p-4 text-center relative z-20 bg-white/10 backdrop-blur-sm border-t border-white/30">
+<h3 class="font-card-title text-lg text-primary mb-1 group-hover:text-white transition-colors duration-300">Global Health Innovations Congress</h3>
+<p class="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-surface-container-lowest">London, UK | 2023</p>
+</div>
+</div>
+<!-- Conference 2 -->
+<div class="straight-capsule flex flex-col h-[400px] group" onclick="openConferencePopup('Advances in Neuroscience', 'Berlin, Germany | 2024', 'https://lh3.googleusercontent.com/aida-public/AB6AXuA4BOCSJElut3dGe9gPW9a_8V1CoQwsGwkVI70e7gRuOhd1hdHbzLvcyYMqlOiJYxkchc89i3hcslb_l0iqTMajUSO4ek4x2KNFEktrjfoOcZ727CVzqrX0BGUmaanJ1zzq2UwN-2REIPWRzY6qBOa_4776thBXSFw1q2tsrkCQxN5k0mEKXH9eOYxzs6bag9ykF5vAj-I-GXCgCMV9eIQAT481HChSPbgUu5l1fxDoaT0tNVylvj43')">
+<div class="h-2/3 w-full relative overflow-hidden">
+<img alt="Advances in Neuroscience" class="w-full h-full object-cover relative z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4BOCSJElut3dGe9gPW9a_8V1CoQwsGwkVI70e7gRuOhd1hdHbzLvcyYMqlOiJYxkchc89i3hcslb_l0iqTMajUSO4ek4x2KNFEktrjfoOcZ727CVzqrX0BGUmaanJ1zzq2UwN-2REIPWRzY6qBOa_4776thBXSFw1q2tsrkCQxN5k0mEKXH9eOYxzs6bag9ykF5vAj-I-GXCgCMV9eIQAT481HChSPbgUu5l1fxDoaT0tNVylvj43">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+</div>
+<div class="h-1/3 flex flex-col justify-center items-center p-4 text-center relative z-20 bg-white/10 backdrop-blur-sm border-t border-white/30">
+<h3 class="font-card-title text-lg text-primary mb-1 group-hover:text-white transition-colors duration-300">Advances in Neuroscience</h3>
+<p class="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-surface-container-lowest">Berlin, Germany | 2024</p>
+</div>
+</div>
+<!-- Conference 3 -->
+<div class="straight-capsule flex flex-col h-[400px] group" onclick="openConferencePopup('Global Innovations in Surgery', 'New York, USA | 2022', 'https://lh3.googleusercontent.com/aida-public/AB6AXuD3OMB5p7K-bK5F1r894DXzzD2A4KK_K21dBjKIG-W9JXrTZgBl95GbSCfwq9yFcA1ikD16hJOPYjpbY8q6bvCMRJCawllfiWBiEYq32OGfbCh-4U-2RMnYjgIYIa4Uxfnm0q0KXDe81v2xdQ5nC3HmRFJjPD14tbeCgjNf6imoBogsQfopnxB-sxH3ONxIJRr74wXQJkFeAZ6U-dfpdEPLdLZ1PA535umdiZrVNSfM4sI0L9fTL6mL')">
+<div class="h-2/3 w-full relative overflow-hidden">
+<img alt="Global Innovations in Surgery" class="w-full h-full object-cover relative z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3OMB5p7K-bK5F1r894DXzzD2A4KK_K21dBjKIG-W9JXrTZgBl95GbSCfwq9yFcA1ikD16hJOPYjpbY8q6bvCMRJCawllfiWBiEYq32OGfbCh-4U-2RMnYjgIYIa4Uxfnm0q0KXDe81v2xdQ5nC3HmRFJjPD14tbeCgjNf6imoBogsQfopnxB-sxH3ONxIJRr74wXQJkFeAZ6U-dfpdEPLdLZ1PA535umdiZrVNSfM4sI0L9fTL6mL">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+</div>
+<div class="h-1/3 flex flex-col justify-center items-center p-4 text-center relative z-20 bg-white/10 backdrop-blur-sm border-t border-white/30">
+<h3 class="font-card-title text-lg text-primary mb-1 group-hover:text-white transition-colors duration-300">Global Innovations in Surgery</h3>
+<p class="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-surface-container-lowest">New York, USA | 2022</p>
+</div>
+</div>
+<!-- Conference 4 -->
+<div class="straight-capsule flex flex-col h-[400px] group" onclick="openConferencePopup('Advanced Medicine Summit', 'Tokyo, Japan | 2021', 'https://lh3.googleusercontent.com/aida-public/AB6AXuDG16N8uLzVLj-yJphc24dZVB3cKmR3Kq2CGqwnd8kxzuZcebLBufaKYv5_XORd8wMULK0DkzInh5MtphckJVM7Y29DcHzL8aYU4NTIXzwIv6xy6_KiUMZb7d-UWsTLwD8x42GbzTc9bP_t-D28WMzU-da9o31BjUgJXLqSx483ezOSndphOGwS5cyz9Hl51NRC4yFHBCn2ohGStMHkm9Q9sT-rOSdnhnStNdwUWnVgVufsPbc_UoPm')">
+<div class="h-2/3 w-full relative overflow-hidden">
+<img alt="Advanced Medicine Summit" class="w-full h-full object-cover relative z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG16N8uLzVLj-yJphc24dZVB3cKmR3Kq2CGqwnd8kxzuZcebLBufaKYv5_XORd8wMULK0DkzInh5MtphckJVM7Y29DcHzL8aYU4NTIXzwIv6xy6_KiUMZb7d-UWsTLwD8x42GbzTc9bP_t-D28WMzU-da9o31BjUgJXLqSx483ezOSndphOGwS5cyz9Hl51NRC4yFHBCn2ohGStMHkm9Q9sT-rOSdnhnStNdwUWnVgVufsPbc_UoPm">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+</div>
+<div class="h-1/3 flex flex-col justify-center items-center p-4 text-center relative z-20 bg-white/10 backdrop-blur-sm border-t border-white/30">
+<h3 class="font-card-title text-lg text-primary mb-1 group-hover:text-white transition-colors duration-300">Advanced Medicine Summit</h3>
+<p class="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-surface-container-lowest">Tokyo, Japan | 2021</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Full-screen Conference Popup -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8" id="conference-popup">
+<div class="absolute inset-0 bg-gradient-to-br from-surface/80 to-surface/90" onclick="closeConferencePopup()"></div>
+<div class="popup-content relative w-full max-w-5xl bg-white/40 backdrop-blur-2xl rounded-3xl border border-white/60 shadow-[0_30px_60px_rgba(0,107,91,0.15),inset_0_0_40px_rgba(24,213,184,0.2)] overflow-hidden flex flex-col md:flex-row">
+<button class="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/50 flex items-center justify-center hover:bg-white/80 text-primary transition-colors border border-white/60 shadow-lg" onclick="closeConferencePopup()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="w-full md:w-3/5 h-[40vh] md:h-[70vh] relative">
+<img alt="Conference Details" class="w-full h-full object-cover" id="popup-image" src="">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 pointer-events-none"></div>
+</div>
+<div class="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center relative">
+<div class="absolute inset-0 bg-gradient-to-br from-white/60 to-white/20 pointer-events-none -z-10"></div>
+<span class="font-label-sm text-sm text-primary tracking-widest uppercase font-bold mb-3 block" id="popup-location"></span>
+<h3 class="font-hero-headline text-4xl text-primary mb-6 leading-tight" id="popup-title"></h3>
+<p class="font-body-md text-on-surface-variant opacity-90 leading-relaxed mb-8">
+                Detailed presentation and symposium highlights from this prestigious medical gathering. Dr. Abdelwahid shared groundbreaking insights on minimally invasive surgical techniques, engaging with global experts to advance the field of hepatobiliary surgery.
+            </p>
+<div class="flex gap-4 mt-auto">
+<button class="btn-primary-glass font-body-md text-sm px-6 py-3 rounded-xl flex-1 font-bold text-center">View Full Gallery</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function openConferencePopup(title, location, imageSrc) {
+        document.getElementById('popup-title').textContent = title;
+        document.getElementById('popup-location').textContent = location;
+        document.getElementById('popup-image').src = imageSrc;
+        document.getElementById('conference-popup').classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeConferencePopup() {
+        document.getElementById('conference-popup').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+</script>
+<!-- Footer -->
+<section class="py-section-gap relative overflow-hidden bg-surface" id="doctor-philosophy">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-10">
+<!-- Heading -->
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">THE PHILOSOPHY BEHIND THE CARE</span>
+<h2 class="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">A WORD FROM THE DOCTOR</h2>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-16 relative">
+<!-- Left: Portrait with Layered Glass -->
+<div class="w-full md:w-[45%] relative group">
+<!-- Floating Glass Sheets Background -->
+<div class="absolute -inset-8 z-0">
+<div class="absolute top-0 left-4 w-full h-full bg-white/10 backdrop-blur-sm border border-white/40 rounded-[3rem] transform -rotate-3 transition-transform duration-700 group-hover:-rotate-6"></div>
+<div class="absolute top-4 -left-4 w-full h-full bg-white/10 backdrop-blur-sm border border-white/40 rounded-[3rem] transform rotate-2 transition-transform duration-700 group-hover:rotate-4"></div>
+<div class="absolute -top-4 -right-4 w-full h-full bg-white/5 backdrop-blur-md border border-white/20 rounded-[3rem] transform rotate-1 transition-transform duration-700 group-hover:rotate-2"></div>
+</div>
+<!-- Main Portrait Frame -->
+<div class="relative z-10 aspect-[3/4] rounded-[3rem] overflow-hidden border-[12px] border-white/60 shadow-[0_30px_60px_rgba(0,107,91,0.15),inset_0_0_40px_rgba(24,213,184,0.2)] backdrop-blur-md">
+<img alt="Dr. Mohamed Samy Abdelwahid Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD0wqrfjQ9g2JRCSs7dSqzQMJ2tnTvwnLgQZqC8DlGLUodc2reAIPs4L7rh3gbjVEHIq5B3eLBvFmVUEma9c828HEyvPSt2FLoB0IEiBqP-XZUsafAwnQIKGnWZ1D7bqqXNtZo1dAb55V6rYwEycCtXQGmjSRAuIXzJyh93YEIkjgiP67VBBN9EikiAesFmw2RrbHuKZiqzcS6goqyltAMQAyIl92z9DNububL1KbVZ8XhMDG-Ji8W">
+<!-- Luminous Edge Glow -->
+<div class="absolute inset-0 border-[1px] border-primary/30 rounded-[3rem] pointer-events-none shadow-[inset_0_0_30px_rgba(24,213,184,0.4)]"></div>
+<!-- Reflection Pass -->
+<div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+</div>
+</div>
+<!-- Right: Philosophy Content -->
+<div class="w-full md:w-[55%] relative">
+<!-- Ghost Background Words -->
+<div class="absolute inset-0 -z-10 flex flex-col justify-around opacity-10 pointer-events-none select-none">
+<span class="font-hero-headline text-8xl text-primary transform -translate-x-10 transition-transform duration-1000 hover:translate-x-0">UNDERSTANDING</span>
+<span class="font-hero-headline text-8xl text-primary self-end translate-x-10 transition-transform duration-1000 hover:-translate-x-0">PRECISION</span>
+<span class="font-hero-headline text-8xl text-primary transform -translate-x-5 transition-transform duration-1000 hover:translate-x-5">TRUST</span>
+</div>
+<!-- Philosophy Text Container -->
+<div class="glass-panel p-12 rounded-[2.5rem] border border-white/80 relative overflow-hidden">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold mb-6 block">MY APPROACH TO PATIENT CARE</span>
+<blockquote class="font-body-lg text-2xl md:text-3xl text-on-surface leading-relaxed mb-10 italic">
+            ‘Every patient is more than a diagnosis. The right decision begins with understanding the whole story — then choosing the safest, most precise path forward.’
+          </blockquote>
+<div class="mt-auto">
+<div class="h-px w-32 bg-gradient-to-r from-primary to-transparent mb-4"></div>
+<p class="font-hero-headline text-2xl text-primary">Dr. Mohamed Samy Abdelwahid</p>
+<p class="font-label-sm text-label-sm text-surface-container-lowest uppercase tracking-widest">Consultant Hepatobiliary &amp; Liver Transplant Surgeon</p>
+</div>
+<!-- Subtle Refraction Highlight -->
+<div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="relative py-section-gap overflow-hidden bg-surface min-h-[60vh] flex items-center" id="glass-gateway">
+<!-- Background Horizon Light -->
+<div class="absolute inset-0 z-0">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150%] h-[150%] bg-gradient-to-t from-primary/20 via-transparent to-transparent blur-[120px] opacity-60"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(24,213,184,0.15)_0%,_transparent_70%)]"></div>
+</div>
+<!-- Architectural Glass Gateway Structures -->
+<div class="absolute inset-0 pointer-events-none z-10">
+<!-- Left Structure -->
+<div class="absolute -left-4 top-0 h-full w-1/4 bg-white/10 backdrop-blur-2xl border-r-[8px] border-white/60 rounded-r-[10rem] transform -rotate-2 transition-transform duration-1000 group-hover:rotate-0 shadow-[20px_0_50px_rgba(24,213,184,0.1)]"></div>
+<!-- Right Structure -->
+<div class="absolute -right-4 top-0 h-full w-1/4 bg-white/10 backdrop-blur-2xl border-l-[8px] border-white/60 rounded-l-[10rem] transform rotate-2 transition-transform duration-1000 group-hover:rotate-0 shadow-[-20px_0_50px_rgba(24,213,184,0.1)]"></div>
+</div>
+<!-- Luminous Pathway -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-32 bg-gradient-to-t from-primary/30 to-transparent blur-3xl opacity-40 z-0"></div>
+<div class="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-20 text-center">
+<div class="max-w-3xl mx-auto">
+<span class="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-6 transition-all duration-700 delay-100 reveal-on-scroll opacity-100 translate-y-0">YOUR NEXT STEP</span>
+<h2 class="font-hero-headline text-4xl md:text-6xl text-primary mb-6 leading-tight transition-all duration-700 delay-300 reveal-on-scroll opacity-100 translate-y-0">
+        READY TO TAKE THE <span class="liquid-text-embossed">NEXT STEP</span> WITH CONFIDENCE?
+      </h2>
+<p class="font-body-lg text-body-lg mb-12 opacity-0 translate-y-4 transition-all duration-700 delay-500 reveal-on-scroll text-black">Get expert guidance and a personalized approach to your care.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-8 transition-all duration-700 delay-700 reveal-on-scroll opacity-100 translate-y-0">
+<!-- Book Appointment Button -->
+<button class="group relative px-10 py-5 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105">
+<div class="absolute inset-0 bg-white/40 backdrop-blur-md border-[4px] border-white/80 shadow-[0_20px_40px_rgba(0,107,91,0.1),inset_0_0_20px_rgba(24,213,184,0.2)]"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+<span class="relative z-10 font-hero-headline text-xl text-primary flex items-center gap-3">
+<span class="material-symbols-outlined">calendar_month</span>
+            BOOK AN APPOINTMENT
+          </span>
+</button>
+<!-- WhatsApp Button -->
+<button class="group relative px-10 py-5 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105">
+<div class="absolute inset-0 bg-white/40 backdrop-blur-md border-[4px] border-white/80 shadow-[0_20px_40px_rgba(0,107,91,0.1),inset_0_0_20px_rgba(24,213,184,0.2)]"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+<span class="relative z-10 font-hero-headline text-xl text-primary flex items-center gap-3">
+<span class="material-symbols-outlined">chat</span>
+            WHATSAPP US
+          </span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    // Simple Intersection Observer for reveal animations
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</section><footer class="bg-surface-container-low/80 backdrop-blur-[30px] w-full mt-section-gap border-t border-outline-variant py-stack-md z-20 relative">
+<div class="max-w-container-max mx-auto px-glass-padding flex flex-col md:flex-row justify-between items-center gap-card-gap">
+<div class="font-hero-headline text-xl text-primary">Dr. Liver</div>
+<div class="flex gap-4">
+<a class="font-body-md text-body-md hover:text-primary transition-colors text-surface-container-lowest" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md hover:text-primary transition-colors text-surface-container-lowest" href="#">Terms &amp; Conditions</a>
+</div>
+<p class="font-body-md text-body-md text-surface-container-lowest text-sm">© 2024 Dr. Liver - Advanced Liver Surgery Center. All rights reserved.</p>
+</div>
+</footer>
+
+
+</body></html>

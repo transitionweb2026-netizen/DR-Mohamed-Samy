@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services - Dr. Mohamed Samy Abdelwahid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#77f8e2",
+                        "primary": "#006b5b",
+                        "surface-tint": "#006b5b",
+                        "surface-dim": "#b3e4de",
+                        "outline-variant": "#bacac4",
+                        "inverse-surface": "#003734",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#bbece6",
+                        "surface-container": "#c6f8f1",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#c9faf4",
+                        "error-container": "#ffdad6",
+                        "background": "#e4fffb",
+                        "on-primary-fixed": "#00201a",
+                        "secondary-container": "#77f8e2",
+                        "inverse-primary": "#2edec1",
+                        "tertiary-container": "#ffab56",
+                        "on-secondary-fixed-variant": "#005047",
+                        "secondary-fixed-dim": "#57dbc6",
+                        "on-primary-container": "#00574a",
+                        "surface": "#e4fffb",
+                        "tertiary-fixed-dim": "#ffb874",
+                        "on-background": "#00201e",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "surface-container-high": "#c0f2ec",
+                        "surface-container-low": "#ccfdf7",
+                        "on-surface": "#00201e",
+                        "primary-container": "#18d5b8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#bbece6",
+                        "primary-fixed": "#59fbdc",
+                        "primary-fixed-dim": "#2edec1",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#007164",
+                        "secondary": "#006b5e",
+                        "tertiary": "#8c5000",
+                        "tertiary-fixed": "#ffdcbf",
+                        "on-primary-fixed-variant": "#005144",
+                        "outline": "#6b7a75",
+                        "surface-bright": "#e4fffb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#724000",
+                        "on-surface-variant": "#3b4a46",
+                        "on-secondary-fixed": "#00201b",
+                        "on-tertiary-fixed": "#2d1600",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "20px",
+                        "container-max": "1450px",
+                        "card-gap": "24px",
+                        "glass-padding": "40px",
+                        "stack-sm": "12px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "section-title": ["Anton"],
+                        "hero-headline-mobile": ["Anton"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "hero-headline": ["Anton"],
+                        "body-md": ["Archivo Narrow"],
+                        "body-lg": ["Archivo Narrow"],
+                        "card-title": ["Anton"]
+                    },
+                    "fontSize": {
+                        "section-title": ["32px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "hero-headline-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "hero-headline": ["64px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "card-title": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #e4fffb; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.4), 0 20px 40px -10px rgba(0, 107, 91, 0.1);
+        }
+        .text-glow { text-shadow: 0 0 20px rgba(24, 213, 184, 0.5); }
+        .primary-btn {
+            background: linear-gradient(135deg, #77f8e2 0%, #006b5b 100%);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.4), 0 10px 20px -5px rgba(0, 107, 91, 0.4);
+        }
+        .primary-btn:hover {
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.6), 0 15px 30px -5px rgba(24, 213, 184, 0.6);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background antialiased relative min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-container-max rounded-full border border-border-glass bg-glass-surface/60 backdrop-blur-[40px] z-50 flex justify-between items-center px-glass-padding py-4 shadow-[0_20px_50px_rgba(2,23,24,0.4)] border border-border-glass shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),inset_0_-1px_0_0_rgba(128,255,238,0.2)]">
+<div class="font-hero-headline text-2xl text-luminous-glow text-primary">د. كبد</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-text-secondary hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">الرئيسية</a>
+<a class="text-text-secondary hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">عن الدكتور</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">الخدمات</a>
+<a class="text-text-secondary hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">لماذا نحن</a>
+<a class="text-text-secondary hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">آراء المرضى</a>
+</div>
+<button class="primary-btn text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-wider active:scale-95 duration-200">تواصل معنا</button>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-[150px] pb-section-gap min-h-[90vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 w-full h-full bg-white/30 backdrop-blur-sm z-0"></div>
+<div class="absolute inset-0 w-full h-full bg-cover bg-center mix-blend-overlay opacity-30 z-[-1]" data-alt="A cinematic, ultra-realistic 3D rendering of a futuristic medical operating room viewed from a wide angle. The room features gleaming liquid glass surfaces, soft glowing teal holographic displays floating in mid-air, and advanced robotic surgical arms arranged symmetrically around a pristine central table. The lighting is bright, high-key light mode, creating a pristine, advanced, and highly sterile environment. The mood is authoritative and life-saving, showcasing cutting-edge medical technology." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFYpJdfsOtVmShSnLB7zvs_KZz0NlTMMlxgnZO7HaQVouILpI1_ONbF5XRE9E1Q7gxoyLI32Oj5uZlkFnmKXbPujw70tZcnxgGU_Aa61AMJ9S3ldw-M6pAv5OMg6yFhSleBY3gRmmnqrMB1VAZBHsuAnCstHGKReyB52KxB3xLG5ZiRnCnsgPfx0aCnvaPJTzUvAkrcgNYT2UPc4DwwVXmJEeaCRXizNs6YvRw0eTMDtVtn6cqvbVk");'></div>
+<div class="max-w-container-max mx-auto px-6 w-full z-10 relative">
+<div class="max-w-3xl">
+<span class="inline-block px-4 py-1 rounded-full border border-primary-container text-primary-container font-label-sm text-label-sm uppercase tracking-[0.2em] mb-6 backdrop-blur-md bg-white/10">SPECIALIZED SURGICAL CARE</span>
+<h1 class="font-hero-headline text-hero-headline text-primary mb-8 text-glow leading-tight">ADVANCED CARE.<br/>PRECISE SURGERY.<br/>PERSONALIZED DECISIONS.</h1>
+<div class="flex flex-wrap gap-4 mt-10">
+<button class="primary-btn text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 hover:scale-105 transition-transform">
+                        Explore Surgical Procedures <span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</button>
+<button class="glass-card text-primary px-8 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-wider hover:bg-white/50 transition-colors">
+                        Book an Appointment
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Surgical Procedures Section -->
+<section class="py-section-gap relative z-10 max-w-container-max mx-auto w-full px-6">
+<div class="mb-12 text-center">
+<h2 class="font-section-title text-section-title text-primary">SURGICAL PROCEDURES</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mt-4">Pioneering techniques in complex hepatobiliary surgery.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap">
+<!-- Card 1 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual of a holographic human liver undergoing a delicate surgical procedure. Glowing teal surgical tools interact with the translucent, liquid-glass organ. Floating inside a high-tech transparent chamber with medical UI elements and soft volumetric lighting in a pristine, bright environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYkoDWxYm9pmiQfT4Juo4vTOIym3nTyXBevciF8C2cXkUOFSBQ4wR3KuTour8KK7wnyybXPCZCbeogxFvGiMkUlOP9cuQrG32HywJboYRi3RY688nk1hWts7rmoXsPcEU2erx1TMkAL1daSEntVaM42JRcv9uZV69xgJ7az2G1skwjOWKitfw2J3gGMMjxJfnAzvK1TPRpLipFANpEO9b4GSu0dSCi8E5peVihWA9fIi9HjPWJ78xT"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Liver Transplantation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Advanced living and deceased donor liver transplantation.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual of a complex Whipple procedure focusing on the pancreas, bile duct, and small intestine. The organs are depicted as glowing liquid glass structures suspended in a high-tech medical environment. Volumetric lighting and soft teal highlights emphasize the precision of the surgery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBshnm5nKH3j7bLu9YLwPpVc0VU2ttuF5HjTG-mk2_x8OoNuMzndvnGQEgW7Et3mX2cyvMHTt7beeyUc65r57Qu7HuogTZxi1X4h_gam6SH3uOZmiYJlL5ZM7a-18SQ6S-eAD0S_wxZ1Vh59VZNvNL42d3vO34CHqmni4pImrbnG_oP_fe_z-Dbk7_x4cN7p0LhL7o5zOyMXNUKf6nvvfFbPB94OTrJ_8iap72k9AKVNT3DudYWCT6-"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Whipple Procedure</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Complex pancreaticoduodenectomy for tumors.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Liver Resection" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLu6-ZyWk8_X0sF-Rj3deaTmlASOnQI3V-tzd2e2xvOoRUEJXu44rKlazhOXd6-wskJOKQbkPbnbai0-E2bZVUV_ZPiYQfSGHkpDAeW--gmHr-aCJj6KuRnZniE0wv8RuYp5WRBoSGRg6GBNRfH0SmjATfzeDR286J1P4G3tvLR8I_kv3MstjGzSIbGb8RogRIE3G6LQdyPJooUW60QIO5eabUGw3MPSD7ukyjJJ_7Mp-QkWf-vk7l2pGXg"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Liver Resection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Precise surgical removal of liver sections for various conditions.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Liver Tumor Surgery" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLs9iBCjL-D7QPB7sv-KBdd7tn7NDCjs7eJDknFA7xtWqG7AN2nLgmVZ_YR40IE7asadbHxnI6DFxH6ZTx9N3NtidwGDjKXk7u4ORp8V2wLh6jrgHfNhdUJaDABdXQCN3g8yBltSDNjg7-w_VTuniNlKZtZu7G7sy5rrek6UbiNoYTkvvjjtwuO8lDDd6hdKJi6ARKkaVNyiCtnhTunmh1PwdEhlTWbd2zIND7NAgcN47gnxvXhKual2Llk"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Liver Tumor Surgery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Targeted surgical interventions for benign and malignant liver tumors.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Pancreatic Surgery" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLv1SWE3jrbaedGpAG_db3F9ZOFxwOjun064pR-a-1sxkV1PQZ-5FjYrKRn39S7NMCNrnvg14ljEJ6s_4XXyxqU5mhrL7A-jtknWKOWjAtnSLLBUi36PcnAwwe301nlLuTLBglG6G3sn2uQbuyMleMqxyvFevJ0C85RUNjvGzHgTHuEvAcc6VHyM69EmRXQtIDJsfPmfqHWZBTXJ5gzdHUeKepuS3_yDlvmSIpuEd2YKJLQmgsKRzeGuI1g"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Pancreatic Surgery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Comprehensive surgical management of pancreatic diseases.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Biliary Tract Surgery" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLuyA6p_ZrR-RO5osIZIWrNAdBWEXXT0_tqDEKREXvc6FqgXDc4ZU8A9wZUmsbHMLPXk6VsAdgOIHmP0eZc7-DuhqwnoaesTRYD-cgOcSIJmzL0BAffmat_kI-CutiZF5ho-Y8d8khblzB0Ix9-XmcNK_ZD-8QlvWsLJk3B2CYvdnDxvSxZsJoNRrgU7W4ckq6s5328SkommCQ0iRa7V6LaVoW0Ue5tFjbEn0g7A4GiOW7RDkfW9Zwoi_MA"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Biliary Tract Surgery</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Advanced interventions for complex biliary tract disorders.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual of a holographic gallbladder suspended in a liquid glass chamber, highlighting complex surgical approaches. The organ features internal illuminated structures and is surrounded by subtle medical data rings. Soft volumetric lighting against a bright clinical background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYwohRGdYUsFwXQesTOseD6EbqpUmnyy9VPsRp83CeqoK-5ekHA5TMeXbYavzXJ0R41MzIUfsUQ4r_fs-qtS78CAzQVpI08ifR_SvAGhS2rravKlGlwHZu_if9WFVHXgaZcXFLJnswmTOXI7ROaOEPq-rdemDeaMtcSmvsIKo60CpgqnT_PGv-ZTik0Dw4gTbhLVnb_sWlQlwPhgAeMzRuNsVAO8TITRaEuG6yBHeRgMeu5P4lL8IZ"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Complex Gallbladder</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Specialized surgery for challenging gallbladder conditions.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual representing advanced hepatobiliary surgery, showing a holistic view of the liver, pancreas, and biliary system intertwined as glowing liquid glass structures. High-end medical aesthetic with subtle holographic data layers and a clean, bright background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPlGxkvnE9qvFPYI94_eHWaG9yV8nm_03gSdEIGsNIcFW7CUOmka1MecHrrQ-8N6PMzSI11kFJ_xg51FBd3tKbi1XVAzfLeW7jcDESvoOGJ0YpUvWWcP1-bwFJKxDmzy6hNOfeLt0lFKSvXoRpKuMEF8gG3_kzZVxIzpFPrE-XAhiNJS4ozbrrnUQtgPeTMlOJFlcoFlAFWBuS-P6lEfWJeojKe3y_FDPaEI0Ego9cybOcUx1eiV__"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Adv. Hepatobiliary</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Cutting-edge surgical approaches for integrated system diseases.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Specialized Treatments Section -->
+<section class="py-section-gap relative z-10 max-w-container-max mx-auto w-full px-6">
+<div class="mb-12 text-center">
+<h2 class="font-section-title text-section-title text-primary">SPECIALIZED TREATMENTS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto mt-4">Targeted therapies for complex oncological and functional conditions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap">
+<!-- Card 1 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Liver Tumors" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLvqaH9gsagiS3FWqCA15KaK6b9lp9KFz_2heZZRdn_xUQCn_xHLI5vXqbd8NQmam9dylQIS3B3EwPqpG7-8N-BhiOC6CpBsa93jHxXaaAzwkuFLgop-Urr4SXKXpFwvm0hH1KtJ0YR-vbVVzc_Txl25ZFNkUS_z9ax-e37oFu62Ih8qI1TNJ_NjdYpTovhkZtJiw9FQ4TPUUDZ_SBJTGXKrL2t2oIWC6AL5oUCOXK7Azo1tD3yIxIpa0Hg"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Liver Tumors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Comprehensive management of primary and metastatic liver tumors.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Liver Cancer" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLt_A-YmBGMy-djlFnpuD2OT6rWJptYbcHKNwd61rChdX9CWg-eRlYwNa_g0xVpoZyFxcSGDtkLT5oYQ7vlHovVP7eeqtYgqGPQSrtWr8kVahLYK_kJ9tKgZ_3XEcLxAgTAdJnpSYkXHQTzXesb37JDYnd_0wTK8SvezQMXsq9qGz_f6tDgbpDeLagjrQxvbkh5fSp41AkMK75UqZnLgL0ty_P_2Qm2fiJPHQLKciA5Z5v4-rkYdB33qmw"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Liver Cancer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Advanced oncological treatments for hepatocellular carcinoma.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Pancreatic Cancer" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLswCfC7ZHXACjZT4uM7K9ZSzzd98a7smCLib_sUWc5iDsLamotyJNIxDLobE-p781iTETzbUJwhaRqYaI3YJGN_yHCec4qLYJou6RP9toBymF0HE5rj7rjJg9pl42KiJ-PU8oCJc0kK7lNu3VKNNHmuek8im09z1wTO-nSCXanZIiHQHEcVm5zORtP61Tv-P6yQ6-Vn1-6DHQzuxAEFbixpHFWuztdN9cMBIygI3fcDaAd0xuXTktqqEfM"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Pancreatic Cancer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Multidisciplinary surgical approach for pancreatic malignancies.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img alt="Bile Duct Tumors" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/AP1WRLtx6aFjwj1uLC1aKxpWpLstALK4NauFVaLdd8ILgdoi6UWNktZ4yh-FELn_NN2BBiF0Kf5zczJmXqlyGkBJT5S74Wy9e2wW4B4VdH_GOIqC3kMyB0TBvKPRNVfOIChqANZ8avAzkPFHaFxPtZwG6PRzpsm5Ios1oUVgrPidbr0P2gPUmb12QuxuE1Tb9s0y9oS6zrFBdfmkXVteLUvRO-Sw4gGihXLLYojpf2-TiWBn1X11pFBeOZschg"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Bile Duct Tumors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Specialized interventions for cholangiocarcinoma and related tumors.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual of a holographic pancreas highlighting tumor locations with bright teal pulsing lights. Suspended in a liquid glass chamber, showcasing advanced diagnostics and treatment planning. Clean, bright, and highly professional medical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxRzIthFOQ1wxRAEiFwNiSAPE1y0EB-VBAAOibsHaNO5tdij_25Uf1c3J2y8b_tJzzVCOEbPo_qvMGjUPSSUljrPNwvn41_D4oZaJfJnVJoLiGoE00IZayok-0QUhjurJq_w0067kkklbchnKdpHw3WK8KNYLy2p3n1fjfrnfqyNL59C94VuWqrUUPnOgvVV-0XaF8LupiSHlPdVEW_XdGSgI6SmOghCCdwwt4l9h3jB9U-bA2ijSs"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Pancreatic Tumors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Expert care for benign and malignant pancreatic neoplasms.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual of a holographic gallbladder exhibiting complex pathology, rendered in glowing liquid glass. Suspended in a transparent high-tech vault with floating medical data and soft volumetric lighting, emphasizing a sophisticated clinical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1-OysxlYeqn-kSiHRC94Z7-0lmIJDVKS2XrSUH4f3LIyzEWppgg15XOSt5OKCnzBjhIlW9oK9dbmZPkID-rwspzarU6Cw5ws8EP4r1jSAH94smYpL5dqOHfJC_p5NY10_48gnfEWh-1wvRBj3tL_vckjD88rzburkJ87GqmedbHWbqa2sS9gE_vx4J07WurCA3UMSkg9MWAc7fF6cqfXGt7Ln7uAynoMpRRNxsN9p5Y0wgfzVxKJB"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Gallbladder Tumors</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Precision surgical techniques for gallbladder cancers and masses.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D visual of a human liver displaying signs of complex disease, conceptualized with intricate inner lighting and structural anomalies rendered in semi-transparent teal glass. Floating in a pristine, bright medical space with holographic overlays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvDfcd11dyBbeuKiOhbatvlI3n8T5Zs4U1fyHN8HKMJ9C3T1xLu9jy4uEJvnIdf1wl_iR9fVScU-zAHXmCBYKWBt8wKWzgDb4B6hVvYNOt3tDRNuMGDY3ajvYLFkDDmbgoXvvvPoES_cneY2XH_H4iWgkVwxYoaoZEpfAh18Ebsez8vG6dKsCdmdRm9YG_pHlit3wLZMtru_UX2KQk63N6iSbln7P8AzU6s7ROQi77k44NTQMK5UQd"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Complex Liver Diseases</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Advanced management of non-malignant but severe liver conditions.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="glass-card rounded-3xl p-4 flex flex-col h-[450px] group cursor-pointer hover:-translate-y-2 transition-transform duration-500">
+<div class="relative w-full flex-1 rounded-2xl overflow-hidden mb-4 bg-black/5">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A cinematic 3D medical illustration showing the interconnected hepatobiliary system—liver, pancreas, and bile ducts—all glowing as a unified functional unit in liquid glass. Housed within a sleek, modern, transparent medical display interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAArBDnEy6HK0Y3nmttdP6zRTzIYgcl5OuQAJKE-O--YDFaDZSbBwFSibJfrK8CUwpAuG5XcxpevVFAkk1EEzrgAIRoyqRIRFjkljfzJjJUmgoC46jbsM2xpZhhay4C8iEi5mXhHjj5l1KWO8tT_7d6xf7DOJfdHEyTOCKWrSXv-uxx4DM2t41H_WX3_mTws04G_oLyHsMswchQdTiBl0ctJXU-bp1rgnyPCX7ZEpKEOTCFKJmostPt"/>
+</div>
+<h3 class="font-card-title text-card-title text-primary mb-2">Hepatobiliary Conditions</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Holistic surgical care for interrelated system disorders.</p>
+<div class="mt-auto flex justify-between items-center text-primary font-label-sm text-label-sm uppercase tracking-widest border-t border-white/20 pt-4">
+<span class="">Explore</span>
+<span class="material-symbols-outlined">add</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA - The Decision Point -->
+<section class="relative py-24 min-h-[600px] flex items-center justify-center overflow-hidden mt-12">
+
+<div class="relative z-10 max-w-container-max mx-auto px-6 w-full text-center">
+<h2 class="font-hero-headline text-[48px] text-primary mb-16 text-glow leading-tight max-w-4xl mx-auto">EVERY CASE STARTS WITH<br/>THE RIGHT DECISION.</h2>
+<div class="flex flex-col md:flex-row justify-center items-stretch gap-6 max-w-5xl mx-auto">
+<!-- Capsule 1 -->
+<button class="glass-card flex-1 rounded-[40px] p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 group border-primary/30 hover:border-primary">
+<span class="font-section-title text-4xl text-primary opacity-50 group-hover:opacity-100 transition-opacity">01</span>
+<span class="font-card-title text-card-title text-primary text-center">I HAVE A DIAGNOSIS</span>
+<span class="material-symbols-outlined text-primary mt-4">arrow_forward</span>
+</button>
+<!-- Capsule 2 -->
+<button class="glass-card flex-1 rounded-[40px] p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 group border-primary/30 hover:border-primary">
+<span class="font-section-title text-4xl text-primary opacity-50 group-hover:opacity-100 transition-opacity">02</span>
+<span class="font-card-title text-card-title text-primary text-center">I NEED A SECOND OPINION</span>
+<span class="material-symbols-outlined text-primary mt-4">arrow_forward</span>
+</button>
+<!-- Capsule 3 -->
+<button class="primary-btn flex-1 rounded-[40px] p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 group">
+<span class="font-section-title text-4xl text-on-primary opacity-70 group-hover:opacity-100 transition-opacity">03</span>
+<span class="font-card-title text-card-title text-on-primary text-center">I WANT TO BOOK</span>
+<span class="material-symbols-outlined text-on-primary mt-4">calendar_month</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component) -->
+<footer class="w-full mt-section-gap border-t border-border-glass bg-surface-container-low/80 backdrop-blur-[30px] py-8">
+<div class="max-w-container-max mx-auto px-glass-padding flex flex-col md:flex-row justify-between items-center gap-card-gap">
+<div class="font-hero-headline text-xl text-primary">د. كبد</div>
+<div class="font-body-md text-body-md text-text-secondary text-primary">© ٢٠٢٤ د. كبد - مركز جراحة الكبد المتطور. جميع الحقوق محفوظة.</div>
+<div class="flex gap-6">
+<a class="font-body-md text-body-md text-text-secondary hover:text-luminous-glow transition-all" href="#">سياسة الخصوصية</a>
+<a class="font-body-md text-body-md text-text-secondary hover:text-luminous-glow transition-all" href="#">الشروط والأحكام</a>
+<a class="font-body-md text-body-md text-text-secondary hover:text-luminous-glow transition-all" href="#">خريطة الموقع</a>
+</div>
+</div>
+</footer>
+</body></html>

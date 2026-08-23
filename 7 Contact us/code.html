@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Contact Us - LIVERCARE ELITE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#00574a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#2edec1",
+                        "inverse-on-surface": "#c9faf4",
+                        "tertiary": "#8c5000",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#77f8e2",
+                        "background": "#e4fffb",
+                        "tertiary-fixed-dim": "#ffb874",
+                        "primary-fixed": "#59fbdc",
+                        "secondary-fixed": "#77f8e2",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#e4fffb",
+                        "on-primary-fixed-variant": "#005144",
+                        "surface-dim": "#b3e4de",
+                        "primary": "#006b5b",
+                        "on-tertiary-container": "#724000",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "on-background": "#00201e",
+                        "secondary": "#006b5e",
+                        "outline-variant": "#bacac4",
+                        "tertiary-container": "#ffab56",
+                        "tertiary-fixed": "#ffdcbf",
+                        "inverse-surface": "#003734",
+                        "surface-variant": "#bbece6",
+                        "error-container": "#ffdad6",
+                        "outline": "#6b7a75",
+                        "primary-fixed-dim": "#2edec1",
+                        "surface-container": "#c6f8f1",
+                        "secondary-fixed-dim": "#57dbc6",
+                        "on-secondary-fixed-variant": "#005047",
+                        "surface-container-highest": "#bbece6",
+                        "primary-container": "#18d5b8",
+                        "on-tertiary-fixed": "#2d1600",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#3b4a46",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#00201a",
+                        "on-surface": "#00201e",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#c0f2ec",
+                        "surface-tint": "#006b5b",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#00201b",
+                        "on-secondary-container": "#007164",
+                        "surface-container-low": "#ccfdf7",
+                        "surface": "#e4fffb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "card-gap": "24px",
+                        "glass-padding": "40px",
+                        "stack-md": "20px",
+                        "section-gap": "64px",
+                        "container-max": "1450px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Archivo Narrow", "sans-serif"],
+                        "card-title": ["Anton", "sans-serif"],
+                        "hero-headline": ["Anton", "sans-serif"],
+                        "section-title": ["Anton", "sans-serif"],
+                        "label-sm": ["Be Vietnam Pro", "sans-serif"],
+                        "body-lg": ["Archivo Narrow", "sans-serif"],
+                        "hero-headline-mobile": ["Anton", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "card-title": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "hero-headline": ["64px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "section-title": ["32px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "hero-headline-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #b4e5df;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(24, 213, 184, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 107, 91, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: #00201e;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+                0 8px 32px 0 rgba(0, 107, 91, 0.1);
+        }
+
+        .glass-panel-deep {
+            background: rgba(0, 55, 52, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(119, 248, 226, 0.2);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(119, 248, 226, 0.2),
+                0 8px 32px 0 rgba(0, 32, 30, 0.3);
+            color: #ffffff;
+        }
+
+        .hologram-glow {
+            filter: drop-shadow(0 0 15px rgba(24, 213, 184, 0.6));
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #006b5e 0%, #006b5b 100%);
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+                0 4px 15px rgba(0, 107, 91, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.5),
+                0 6px 20px rgba(24, 213, 184, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(24, 213, 184, 0.6);
+            box-shadow: 0 0 15px rgba(24, 213, 184, 0.2);
+        }
+
+        .input-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        .input-glass:focus {
+            outline: none;
+            border-color: #18d5b8;
+            box-shadow: 0 0 10px rgba(24, 213, 184, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .input-glass::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .input-glass-light {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #00201e;
+            transition: all 0.3s ease;
+        }
+        .input-glass-light:focus {
+            outline: none;
+            border-color: #18d5b8;
+            box-shadow: 0 0 10px rgba(24, 213, 184, 0.3);
+            background: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased min-h-screen flex flex-col relative overflow-x-hidden" style="background-color: rgb(228, 255, 251); background-image: radial-gradient(at 0% 0%, rgba(24, 213, 184, 0.1) 0px, transparent 50%); background-attachment: fixed; color: rgb(0, 32, 30);">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-[1450px] rounded-full border-glass border-[1px] border-white/40 shadow-[0_8px_32px_0_rgba(0,107,91,0.1)] shadow-2xl flex justify-between items-center px-8 py-3 z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-[40px]">
+<div class="font-hero-headline text-[24px] tracking-tighter text-primary dark:text-primary-fixed cursor-pointer">
+            LIVERCARE ELITE
+        </div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:scale-105 transition-all duration-300 ease-out font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:scale-105 transition-all duration-300 ease-out font-label-sm text-label-sm" href="#">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:scale-105 transition-all duration-300 ease-out font-label-sm text-label-sm" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:scale-105 transition-all duration-300 ease-out font-label-sm text-label-sm" href="#">Why Us</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary hover:scale-105 transition-all duration-300 ease-out font-label-sm text-label-sm" href="#">Reviews</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary hover:scale-105 transition-all duration-300 ease-out font-label-sm text-label-sm" href="#">Contact</a>
+</div>
+<button class="hidden md:flex btn-primary text-on-primary rounded-full px-6 py-2 font-label-sm text-label-sm items-center gap-2 active:scale-95 duration-150">
+            Book an Appointment
+        </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</nav>
+<main class="flex-grow pt-[100px]">
+<!-- 1. CONTACT HERO -->
+<section class="relative w-full max-w-container-max mx-auto px-4 md:px-8 py-section-gap min-h-[60vh] flex items-center justify-center mt-8">
+<div class="absolute inset-0 z-0 rounded-3xl overflow-hidden glass-panel mx-4 md:mx-8">
+<img class="w-full h-full object-cover opacity-60 mix-blend-overlay" data-alt="A modern, high-tech medical consultation room with bright, daybreak clinical lighting. Soft luminous teal accents. A sense of pristine, world-class healthcare." src="https://lh3.googleusercontent.com/aida/AEtjO1XAtVkhZ5wAhuvhtor1wxnqiGWPbPCiwDyTVOrYQgqjX103ysP6BPYCg5Hh0cIBQBVs-Mgsf3n9Owr0ImAPkYPTmNhM2joOSI28Lu7fzJhpY_4nyCscT-HEHj2l0H6BLp5oyOrkIBHAwjIfI31JFLYc01mgndhml9zpDhRHpQEUcGiApLgIeKLKg0ZVZHRnhs3S7_EX2RMTPv3SyNbsUoMb0wN8EDDfnyPxXg88epqYjbDPEZd7tS4E8Fo">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center max-w-3xl px-6">
+<span class="inline-block font-label-sm text-label-sm text-primary-container bg-inverse-surface/10 px-3 py-1 rounded-full mb-4 border border-primary-container/30 backdrop-blur-md uppercase tracking-widest">WE'RE HERE TO HELP</span>
+<h1 class="font-hero-headline text-hero-headline-mobile md:text-hero-headline text-on-surface mb-6 uppercase">LET'S START THE CONVERSATION.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">Whether you're nearby or contacting us from abroad, our team is ready to guide you.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="btn-primary text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center gap-2 w-full sm:w-auto justify-center">
+<span class="material-symbols-outlined">send</span> Send Your Inquiry
+                    </button>
+<button class="btn-secondary text-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center gap-2 w-full sm:w-auto justify-center bg-white/40">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                        WhatsApp Us
+                    </button>
+</div>
+</div>
+<!-- Floating Social Strip -->
+<div class="hidden xl:flex absolute right-4 top-1/2 -translate-y-1/2 flex-col gap-4 glass-panel p-3 rounded-full z-20">
+<a class="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">share</span></a>
+<a class="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">video_library</span></a>
+<a class="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+<a class="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">call</span></a>
+</div>
+</section>
+<!-- 2. CONTACT & INTERNATIONAL PATIENT HUB -->
+<section class="w-full max-w-container-max mx-auto px-4 md:px-8 py-section-gap">
+<h2 class="font-section-title text-section-title text-center text-on-surface mb-12 uppercase tracking-wide">CONNECT WITH OUR TEAM</h2>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<!-- LEFT SIDE: Clinic Info & Map -->
+<div class="flex flex-col gap-6">
+<!-- Map Frame -->
+<div class="glass-panel rounded-2xl p-2 relative overflow-hidden h-64 sm:h-80 group">
+<img class="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500" data-alt="A stylized, luminous 3D map interface centered on Cairo, Egypt. Glassy topographical elements with glowing teal markers indicating a premium medical facility location. Futuristic UI aesthetic." data-location="Cairo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8srw1Lb4N7R_MBT75J4ZHOQ2jvVLE4_Xdrpss4YJaefSTcFE0hwNnr-r9Wr8QVAxwXHTd_lT3PzOXCrKchczWzpWauU-0jt8uN3Y55y67nH-esPxU2o5_fBrsBuK7ejTM14O7WnmRMzoj1B5Fwj6_2QJYsJ5DsTne3NJNiP7rEZs_eeAkKNX6x6SYKSIjAaNF_5thJumH9UvUDR0EmZQKlPl8rTzfnp2sQRXB7jSETtd3qNuN0CTX">
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<button class="btn-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm shadow-xl flex items-center gap-2">
+<span class="material-symbols-outlined">map</span> View Location
+                            </button>
+</div>
+</div>
+<!-- Info Objects -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined hologram-glow">location_on</span>
+</div>
+<div>
+<h4 class="font-card-title text-card-title text-on-surface mb-1">Address</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">123 Clinical Axis Blvd, Medical District, Cairo, Egypt</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined hologram-glow">schedule</span>
+</div>
+<div>
+<h4 class="font-card-title text-card-title text-on-surface mb-1">Working Hours</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Sun - Thu: 9:00 AM - 6:00 PM<br>Fri - Sat: Closed</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined hologram-glow">call</span>
+</div>
+<div>
+<h4 class="font-card-title text-card-title text-on-surface mb-1">Phone</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">+20 123 456 7890</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined hologram-glow">mail</span>
+</div>
+<div>
+<h4 class="font-card-title text-card-title text-on-surface mb-1">Email</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">care@livercareelite.com</p>
+</div>
+</div>
+</div>
+<!-- International Patient Note -->
+<div class="glass-panel p-5 rounded-2xl border-l-4 border-l-primary-container bg-gradient-to-r from-surface-variant/50 to-transparent flex items-start gap-3">
+<span class="material-symbols-outlined text-primary-container mt-1">flight</span>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-wide text-primary font-bold mb-1">International Patient Support</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-tight">Traveling from abroad? Please use the form to submit your medical records prior to travel for a preliminary consultation.</p>
+</div>
+</div>
+</div>
+<!-- RIGHT SIDE: Inquiry Form -->
+<div class="glass-panel-deep p-8 md:p-10 rounded-3xl relative overflow-hidden">
+<!-- Subtle background glow for depth -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-container rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+<h3 class="font-card-title text-[24px] text-white mb-8 border-b border-white/10 pb-4">International Patient Inquiry</h3>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">Full Name</label>
+<input class="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md" placeholder="John Doe" type="text">
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">Phone</label>
+<div class="flex gap-2">
+<select class="input-glass rounded-xl px-2 py-3 font-body-md text-body-md w-32 appearance-none text-center cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+<option value="">Code</option>
+<option value="+20">🇪🇬 +20</option>
+<option value="+971">🇦🇪 +971</option>
+<option value="+966">🇸🇦 +966</option>
+<option value="+1">🇺🇸 +1</option>
+<option value="+44">🇬🇧 +44</option>
+<option value="+33">🇫🇷 +33</option>
+<option value="+49">🇩🇪 +49</option>
+<option value="+91">🇮🇳 +91</option>
+<option value="+234">🇳🇬 +234</option>
+<option value="+27">🇿🇦 +27</option>
+<option value="+61">🇦🇺 +61</option>
+<option value="+81">🇯🇵 +81</option>
+<option value="+86">🇨🇳 +86</option>
+<option value="+55">🇧🇷 +55</option>
+</select>
+<input class="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md flex-grow" placeholder="555-0123" type="tel">
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">Country of Residence</label>
+<select class="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md appearance-none cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+<option value="">Select Country</option>
+<option value="EG">🇪🇬 Egypt</option>
+<option value="AE">🇦🇪 United Arab Emirates</option>
+<option value="SA">🇸🇦 Saudi Arabia</option>
+<option value="US">🇺🇸 United States</option>
+<option value="GB">🇬🇧 United Kingdom</option>
+<option value="FR">🇫🇷 France</option>
+<option value="DE">🇩🇪 Germany</option>
+<option value="IN">🇮🇳 India</option>
+<option value="NG">🇳🇬 Nigeria</option>
+<option value="ZA">🇿🇦 South Africa</option>
+<option value="AU">🇦🇺 Australia</option>
+<option value="JP">🇯🇵 Japan</option>
+<option value="CN">🇨🇳 China</option>
+<option value="BR">🇧🇷 Brazil</option>
+<option value="CA">🇨🇦 Canada</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">State/Province</label>
+<select class="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md appearance-none cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+<option value="">Select State/Province</option>
+<option value="manual">Enter Manually...</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">Procedure/Service Interest</label>
+<select class="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md appearance-none cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+<option>Select Procedure</option>
+<option>Liver Transplant Evaluation</option>
+<option>Hepatobiliary Surgery</option>
+<option>Second Opinion</option>
+<option>General Consultation</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">Medical Notes</label>
+<textarea class="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md h-32 resize-none" placeholder="Briefly describe your condition or inquiry..."></textarea>
+</div>
+<!-- File Upload -->
+<div>
+<label class="block font-label-sm text-label-sm text-inverse-on-surface mb-2">Medical Upload Vault</label>
+<div class="border-2 border-dashed border-white/20 rounded-xl p-6 text-center hover:border-primary-container/50 hover:bg-white/5 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-white/50 group-hover:text-primary-container mb-2 transition-colors">cloud_upload</span>
+<p class="font-body-md text-body-md text-white/70">Drag &amp; drop files here, or <span class="text-primary-container underline">browse</span></p>
+<p class="font-label-sm text-[11px] text-white/40 mt-1 uppercase tracking-wider">Supports PDF, JPG, DICOM (Max 50MB)</p>
+</div>
+<!-- Uploaded Chips Mockup -->
+<div class="flex gap-2 mt-3 flex-wrap">
+<div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 flex items-center gap-2 text-[12px] font-label-sm text-white">
+<span class="material-symbols-outlined text-[14px] text-primary-container">description</span> lab_results_2023.pdf
+                                    <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error transition-colors">close</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 pt-4 border-t border-white/10">
+<button class="btn-primary text-on-primary px-6 py-3 rounded-xl font-label-sm text-label-sm flex-grow flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined">mail</span> Send via Email
+                            </button>
+<button class="btn-secondary text-primary-container px-6 py-3 rounded-xl font-label-sm text-label-sm flex-grow sm:flex-grow-0 flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                                WhatsApp
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+<!-- 3. FINAL CONTACT CTA -->
+<section class="w-full max-w-container-max mx-auto px-4 md:px-8 py-16 mb-section-gap text-center">
+<div class="glass-panel p-10 md:p-16 rounded-3xl relative overflow-hidden inline-block w-full max-w-4xl">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent"></div>
+<span class="inline-block font-label-sm text-label-sm text-primary mb-3 tracking-widest uppercase">NEED QUICK HELP?</span>
+<h2 class="font-hero-headline text-[32px] md:text-[48px] text-on-surface mb-8 uppercase leading-tight">SPEAK DIRECTLY WITH OUR TEAM.</h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="btn-primary text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">call</span> Call the Clinic
+                    </button>
+<button class="btn-secondary bg-white/40 text-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path></svg>
+                        WhatsApp Us
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full max-w-[1450px] mx-auto rounded-t-xl mb-0 border-t border-glass bg-surface-container-low/60 dark:bg-surface-container-lowest/10 backdrop-blur-[30px] flex flex-col md:flex-row justify-between items-center px-10 py-8 gap-4 z-10 mt-auto">
+<div class="font-hero-headline text-lg text-primary text-secondary dark:text-secondary-fixed">
+            LIVERCARE ELITE
+        </div>
+<div class="flex flex-wrap justify-center gap-4 md:gap-6 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-opacity hover:opacity-80" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-opacity hover:opacity-80" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-opacity hover:opacity-80" href="#">International Patient Guide</a>
+</div>
+<div class="font-label-sm text-label-sm text-secondary dark:text-secondary-fixed">
+            © 2024 LiverCare Elite Surgery Hub. All Rights Reserved.
+        </div>
+</footer>
+
+
+</body></html>

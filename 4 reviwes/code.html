@@ -1,0 +1,604 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Patient Reviews - Lumina Liver Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#c6f8f1",
+                        "tertiary": "#8c5000",
+                        "on-surface": "#00201e",
+                        "on-surface-variant": "#3b4a46",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#2edec1",
+                        "on-background": "#00201e",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "on-tertiary-container": "#724000",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#00201a",
+                        "primary-fixed": "#59fbdc",
+                        "surface": "#e4fffb",
+                        "secondary-fixed-dim": "#57dbc6",
+                        "tertiary-fixed": "#ffdcbf",
+                        "surface-dim": "#b3e4de",
+                        "primary-container": "#18d5b8",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-variant": "#005144",
+                        "outline": "#6b7a75",
+                        "on-secondary-container": "#007164",
+                        "secondary-fixed": "#77f8e2",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#bbece6",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#bbece6",
+                        "primary-fixed-dim": "#2edec1",
+                        "outline-variant": "#bacac4",
+                        "secondary-container": "#77f8e2",
+                        "tertiary-container": "#ffab56",
+                        "surface-tint": "#006b5b",
+                        "background": "#e4fffb",
+                        "surface-container-low": "#ccfdf7",
+                        "on-secondary-fixed-variant": "#005047",
+                        "surface-bright": "#e4fffb",
+                        "tertiary-fixed-dim": "#ffb874",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#00574a",
+                        "surface-container-high": "#c0f2ec",
+                        "inverse-surface": "#003734",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#00201b",
+                        "on-tertiary-fixed": "#2d1600",
+                        "secondary": "#006b5e",
+                        "inverse-on-surface": "#c9faf4",
+                        "primary": "#006b5b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "glass": "24px"
+                    },
+                    "spacing": {
+                        "glass-padding": "40px",
+                        "stack-md": "20px",
+                        "section-gap": "64px",
+                        "stack-sm": "12px",
+                        "container-max": "1450px",
+                        "card-gap": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Be Vietnam Pro"],
+                        "card-title": ["Anton"],
+                        "hero-headline-mobile": ["Anton"],
+                        "body-lg": ["Archivo Narrow"],
+                        "body-md": ["Archivo Narrow"],
+                        "hero-headline": ["Anton"],
+                        "section-title": ["Anton"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "card-title": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "hero-headline-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "hero-headline": ["64px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "section-title": ["32px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(198, 248, 241, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(0, 107, 91, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .glass-capsule {
+            background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(198, 248, 241, 0.3) 100%);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(24, 213, 184, 0.3);
+            border-right: 1px solid rgba(24, 213, 184, 0.3);
+            border-radius: 40px 10px 40px 10px;
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 107, 91, 0.1),
+                inset 0 2px 2px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-capsule:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 30px 50px -15px rgba(24, 213, 184, 0.25),
+                inset 0 2px 2px rgba(255, 255, 255, 0.9),
+                0 0 20px rgba(24, 213, 184, 0.3);
+            border-color: rgba(24, 213, 184, 0.6);
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(198, 248, 241, 0.4) 100%);
+        }
+
+        .waveform-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background: 
+                linear-gradient(90deg, transparent 50%, rgba(24, 213, 184, 0.2) 50%),
+                linear-gradient(90deg, transparent 50%, rgba(24, 213, 184, 0.2) 50%);
+            background-size: 10px 100%, 14px 100%;
+            mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+            transition: opacity 0.3s ease;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .glass-capsule:hover .waveform-bg {
+            opacity: 0.3;
+            animation: waveform-pulse 2s infinite linear;
+        }
+
+        @keyframes waveform-pulse {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 20px 0, 28px 0; }
+        }
+
+        .hologram-quote {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-family: 'Anton', sans-serif;
+            font-size: 120px;
+            color: rgba(24, 213, 184, 0.1);
+            line-height: 1;
+            z-index: 1;
+            transition: all 0.5s ease;
+            text-shadow: 0 0 20px rgba(24, 213, 184, 0.0);
+            pointer-events: none;
+        }
+
+        .glass-capsule:hover .hologram-quote {
+            color: rgba(24, 213, 184, 0.25);
+            transform: translate3d(-10px, 10px, 20px) scale(1.1);
+            text-shadow: 0 0 30px rgba(24, 213, 184, 0.4);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, theme('colors.secondary') 0%, theme('colors.primary') 100%);
+            color: white;
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.4),
+                0 10px 20px -5px rgba(0, 107, 91, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: 0 0 20px rgba(24, 213, 184, 0);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                inset 0 1px 0 rgba(255,255,255,0.6),
+                0 15px 25px -5px rgba(24, 213, 184, 0.5);
+        }
+        
+        .btn-primary:hover::after {
+            box-shadow: 0 0 20px rgba(24, 213, 184, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 107, 91, 0.2);
+            color: theme('colors.primary');
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.8);
+            border-color: theme('colors.primary-container');
+            box-shadow: 0 5px 15px rgba(24, 213, 184, 0.2);
+        }
+        
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav specific styles inherited from JSON instructions */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: theme('colors.primary');
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-[1450px] rounded-full z-50 bg-surface-container/60 backdrop-blur-[40px] border border-white/40 shadow-xl shadow-[0_8px_32px_0_rgba(0,107,91,0.2)]">
+<div class="flex justify-between items-center px-8 py-3 w-full">
+<a class="font-hero-headline text-primary text-xl tracking-tight" href="#">Lumina Liver Care</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors nav-link" href="#">Our Expertise</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors nav-link" href="#">Patient Journey</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors nav-link" href="#">Technologies</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors nav-link" href="#">Research</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors nav-link" href="#">International</a>
+<a class="font-body-md text-body-md text-primary font-bold border-b-2 border-primary pb-1" href="#">About Us</a> <!-- Assumed Active for Reviews/Testimonials loosely -->
+</div>
+<div class="flex gap-4 items-center">
+<button class="hidden lg:block font-label-sm text-label-sm text-primary hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 px-4 py-2 rounded-full">Patient Portal</button>
+<button class="font-label-sm text-label-sm btn-primary px-6 py-2 rounded-full Active: scale-95 duration-200 transition-transform">Contact Us</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- 1. HERO SECTION -->
+<section class="relative pt-40 pb-20 min-h-[60vh] flex items-center justify-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A luminous, high-key clinical daybreak aesthetic image showing an abstract, elegant representation of a human liver made of glowing teal glass, softly illuminated by warm morning light in a pristine, futuristic medical sanctuary space. The mood conveys immense trust, cutting-edge precision, and profound emotional care. Smooth reflections and shallow depth of field." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuABr8RCHWKBGb15XK8fhMDDQKv5UcHug3V8XtPhlXI0s4rhORdhQz247lRzV5bsTJbg10jjHrvgRUzqWWkYdjMHK2J1A-FByH8v6TuIiVdky7tKi_bNAg5wGSy9l-_buPuiDu4MCmcARmIoiB_l1kNc2emu1P3mfv2oq-_MgRm2ikxRe2FpsH_OE93flQx8TeCOoYa1UeDVG-ccO0EWlYfRGYlLDpWtzBDzwYKUmMwRKbNpVivqzDTK')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-surface-container/80 via-background/60 to-background backdrop-blur-[10px]"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 w-full max-w-[1450px] mx-auto px-glass-padding text-center">
+<span class="inline-block font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 px-4 py-1 rounded-full bg-surface-container border border-white/50 backdrop-blur-md">
+                    REAL EXPERIENCES. REAL TRUST.
+                </span>
+<h1 class="font-hero-headline-mobile md:font-hero-headline text-hero-headline-mobile md:text-hero-headline text-on-surface mb-6 max-w-4xl mx-auto drop-shadow-sm">
+                    STORIES THAT SPEAK FOR THEMSELVES.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    Real experiences from patients who trusted their care to Dr. Mohamed Samy Abdelwahid.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+<button class="btn-primary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2">
+                        Book an Appointment
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<button class="btn-secondary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto">
+                        Contact Us
+                    </button>
+</div>
+</div>
+<!-- Floating Social Strip -->
+<div class="absolute right-glass-padding top-1/2 -translate-y-1/2 flex flex-col gap-3 z-20 hidden lg:flex glass-panel rounded-full p-2">
+<a class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined">photo_camera</span> <!-- IG proxy -->
+</a>
+<a class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined">music_note</span> <!-- TikTok proxy -->
+</a>
+<a class="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+</a>
+</div>
+</section>
+<!-- 2. MAIN REVIEWS GALLERY -->
+<section class="py-section-gap px-4 sm:px-8 max-w-[1450px] mx-auto relative z-10">
+<div class="text-center mb-16 reveal-on-scroll is-visible">
+<span class="font-label-sm text-label-sm text-primary mb-2 block uppercase tracking-widest">
+                    PATIENT EXPERIENCES
+                </span>
+<h2 class="font-section-title text-section-title text-on-surface">
+                    PATIENT REVIEWS
+                </h2>
+</div>
+<!-- 4x3 Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap"><!-- Card 1 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div>
+<div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">
+                            Liver Transplant
+                        </div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6 relative">
+                            "The level of care and precision was extraordinary. I felt completely safe in Dr. Samy's hands. A truly life-saving experience."
+                        </p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Ahmed Hassan</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient
+                            </p>
+</div>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Complex Resection</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"My family and I are forever grateful. The facility is like stepping into the future of medicine."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Sarah M.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Donor Surgery</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"The technological approach and the warm human touch made a terrifying process feel manageable."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Tarek E.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Consultation</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Unmatched expertise. I travelled from Dubai just to consult with Dr. Samy's team."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Omar R.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Biliary Care</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"The attention to detail in my biliary treatment was world-class. I felt like a priority at every stage of my recovery."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Laila K.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Liver Resection</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Dr. Samy's surgical precision is legendary for a reason. My resection was successful beyond my highest expectations."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Hassan B.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Pancreatic Surgery</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"A complex procedure made simple by a team of experts. The post-operative care was compassionate and thorough."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Monica G.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Complex Oncology</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Navigating a cancer diagnosis is daunting, but the clinical excellence here gave me the confidence to fight and win."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">James W.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 9 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Hepatobiliary Care</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"The most advanced medical technology paired with a deeply human touch. I couldn't have asked for better care."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Fatma A.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 10 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Liver Transplant</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"A second chance at life. The transplant team's expertise is matched only by their dedication to patient outcomes."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Robert S.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 11 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Tumor Resection</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Precision and care defined my experience. The recovery plan was tailored perfectly to my needs and lifestyle."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">Chen L.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div>
+<!-- Card 12 -->
+<div class="glass-capsule p-8 flex flex-col h-full reveal-on-scroll">
+<div class="waveform-bg"></div><div class="hologram-quote">"</div>
+<div class="relative z-10 flex-grow">
+<div class="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">Gallbladder Surgery</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic mb-6">"Efficient, professional, and highly skilled. I was back on my feet much sooner than I expected thanks to Dr. Samy."</p>
+</div>
+<div class="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
+<div>
+<p class="font-card-title text-card-title text-on-surface text-sm">David M.</p>
+<p class="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]"><span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span> Verified Patient</p>
+</div>
+<div class="flex text-tertiary-container"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span></div>
+</div>
+</div></div>
+<!-- Pagination/Load More (Implied) -->
+<div class="mt-12 text-center reveal-on-scroll is-visible">
+<button class="btn-secondary font-label-sm text-label-sm px-6 py-2 rounded-full">Load More Stories</button>
+</div>
+</section>
+<!-- 3. FINAL CTA -->
+<section class="py-section-gap px-4 sm:px-8 relative overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-high/30 z-0"></div>
+<div class="max-w-4xl mx-auto text-center relative z-10 glass-panel rounded-glass p-12 md:p-20">
+<!-- Abstract Glass Pathway Decoration -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-hero-headline text-white opacity-20 pointer-events-none drop-shadow-lg">
+                    "
+                </div>
+<span class="font-label-sm text-label-sm text-secondary mb-4 block tracking-widest uppercase">
+                    YOUR STORY STARTS HERE
+                </span>
+<h2 class="font-section-title text-section-title text-on-surface mb-4">
+                    READY TO TAKE THE NEXT STEP?
+                </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-10">
+                    Get the guidance you need and start your care journey with confidence.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center relative z-20">
+<button class="btn-primary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2 group text-on-surface">
+                        Book an Appointment
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<button class="btn-secondary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2 bg-white/80 hover:bg-white border-primary-container text-primary">
+<span class="material-symbols-outlined text-green-500">chat</span>
+                        WhatsApp Us
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full max-w-[1450px] mx-auto rounded-t-xl mt-section-gap bg-surface-container/40 backdrop-blur-[30px] border-t border-white/20 relative z-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-glass-padding py-stack-md w-full">
+<div class="mb-4 md:mb-0">
+<span class="font-hero-headline text-primary text-lg block mb-1">Lumina Liver Care</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Lumina Liver Transplantation. Precision Surgery. Lifesaving Care.</p>
+</div>
+<div class="flex flex-wrap gap-4 justify-center">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-opacity" href="#">Legal Notice</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-opacity" href="#">Medical Ethics</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors hover:opacity-80 transition-opacity" href="#">Careers</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Articles | Lumina Liver Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&amp;family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#003734",
+                        "on-primary-fixed": "#00201a",
+                        "on-surface-variant": "#3b4a46",
+                        "outline-variant": "#bacac4",
+                        "tertiary-container": "#ffab56",
+                        "surface-variant": "#bbece6",
+                        "on-tertiary-container": "#724000",
+                        "on-primary-container": "#00574a",
+                        "on-primary-fixed-variant": "#005144",
+                        "surface-container-high": "#c0f2ec",
+                        "background": "#e4fffb",
+                        "primary-fixed": "#59fbdc",
+                        "secondary": "#006b5e",
+                        "secondary-fixed-dim": "#57dbc6",
+                        "secondary-fixed": "#77f8e2",
+                        "outline": "#6b7a75",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#00201e",
+                        "surface": "#e4fffb",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#2edec1",
+                        "on-tertiary-fixed": "#2d1600",
+                        "secondary-container": "#77f8e2",
+                        "inverse-on-surface": "#c9faf4",
+                        "on-surface": "#00201e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb874",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#18d5b8",
+                        "surface-dim": "#b3e4de",
+                        "primary-fixed-dim": "#2edec1",
+                        "surface-container": "#c6f8f1",
+                        "primary": "#006b5b",
+                        "surface-tint": "#006b5b",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#ffdcbf",
+                        "surface-bright": "#e4fffb",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#ccfdf7",
+                        "on-tertiary-fixed-variant": "#6a3b00",
+                        "on-secondary-container": "#007164",
+                        "on-secondary-fixed-variant": "#005047",
+                        "surface-container-highest": "#bbece6",
+                        "tertiary": "#8c5000",
+                        "on-secondary-fixed": "#00201b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "glass-padding": "40px",
+                        "card-gap": "24px",
+                        "container-max": "1450px",
+                        "stack-md": "20px",
+                        "stack-sm": "12px",
+                        "section-gap": "64px"
+                    },
+                    "fontFamily": {
+                        "hero-headline": ["Anton"],
+                        "label-sm": ["Be Vietnam Pro"],
+                        "body-lg": ["Archivo Narrow"],
+                        "card-title": ["Anton"],
+                        "hero-headline-mobile": ["Anton"],
+                        "body-md": ["Archivo Narrow"],
+                        "section-title": ["Anton"]
+                    },
+                    "fontSize": {
+                        "hero-headline": ["64px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["17px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "card-title": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "hero-headline-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "section-title": ["32px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 32px 0 rgba(0, 107, 91, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(24, 213, 184, 0.5);
+        }
+        .btn-primary-glow {
+            box-shadow: 0 0 20px rgba(24, 213, 184, 0.4), inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px 0 rgba(0, 107, 91, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation Bar -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-[1450px] rounded-full z-50 bg-surface-container/60 backdrop-blur-[40px] border border-white/40 shadow-[0_8px_32px_0_rgba(0,107,91,0.2)] flex justify-between items-center px-8 py-3 transition-all duration-300">
+<div class="font-hero-headline text-primary text-xl tracking-tight">
+            Lumina Liver Care
+        </div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/10 hover:backdrop-blur-md px-3 py-1 rounded-md duration-300" href="#">Our Expertise</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/10 hover:backdrop-blur-md px-3 py-1 rounded-md duration-300" href="#">Patient Journey</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/10 hover:backdrop-blur-md px-3 py-1 rounded-md duration-300" href="#">Technologies</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:bg-white/10 hover:backdrop-blur-md px-3 py-1 rounded-md duration-300 transition-all scale-95" href="#">Research</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/10 hover:backdrop-blur-md px-3 py-1 rounded-md duration-300" href="#">International</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-white/10 hover:backdrop-blur-md px-3 py-1 rounded-md duration-300" href="#">About Us</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden lg:block text-primary font-body-md hover:text-secondary transition-colors" href="#">Patient Portal</a>
+<a class="bg-gradient-to-r from-secondary to-primary text-on-primary px-6 py-2 rounded-full font-body-md hover:opacity-90 transition-opacity btn-primary-glow flex items-center gap-2" href="#">
+                Contact Us
+                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Articles Hero -->
+<section class="relative min-h-[60vh] flex items-center pt-32 pb-16 overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Abstract representation of medical knowledge and research, featuring soft teal glowing lines intersecting like a digital neural network or advanced data visualization over a bright, clinical white background, conveying a sense of futuristic medical insights and cutting-edge healthcare technology." class="w-full h-full object-cover opacity-30 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE4vIseia-EYulnu-dDGDb9RzxgV-4DUqZh_69wCKTi2kofrPP6eQq7wnQQM0CUdONfXn6mumyMQXWfUlbCUBAaI2BoYlHmhRP0IFZPpf4jlesqggbH6hSakYftwp3puvyjU7ojlbssxp-m8InTw8EHyu7WHyk6dWTFa83xTAPDDQI2sNn1i40fSAX--yEHlgqcR1KYHSEeKJhyNw_7BEUv2GWUEgYiIn4QCw6MSypXFPAFEPsUmsg">
+<div class="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background"></div>
+</div>
+<div class="max-w-[1450px] mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-8 lg:col-start-3 text-center space-y-6">
+<h1 class="font-hero-headline-mobile md:font-hero-headline text-primary text-glow uppercase leading-tight">
+                        INSIGHTS THAT HELP YOU UNDERSTAND YOUR HEALTH.
+                    </h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        Trusted medical knowledge from Dr. Mohamed Samy Abdelwahid.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+<a class="bg-gradient-to-r from-secondary to-primary text-on-primary px-8 py-4 rounded-full font-body-lg hover:opacity-90 transition-opacity btn-primary-glow w-full sm:w-auto text-center" href="#articles">
+                            Explore Articles
+                        </a>
+<a class="glass-panel text-secondary px-8 py-4 rounded-full font-body-lg hover:bg-white/50 transition-colors w-full sm:w-auto text-center border-glass" href="#">
+                            Book an Appointment
+                        </a>
+</div>
+</div>
+</div>
+<!-- Floating Social Strip -->
+<div class="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 z-20 glass-panel rounded-full py-6 px-3">
+<a aria-label="LinkedIn" class="text-primary hover:text-secondary transition-colors" href="#">
+<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path></svg>
+</a>
+<a aria-label="Twitter" class="text-primary hover:text-secondary transition-colors" href="#">
+<svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+</div>
+</section>
+<!-- Articles Intro -->
+<section class="py-12" id="articles">
+<div class="max-w-[1450px] mx-auto px-6 text-center">
+<h2 class="font-section-title text-primary uppercase text-glow tracking-widest">
+                    MEDICAL ARTICLES
+                </h2>
+<div class="w-24 h-1 bg-gradient-to-r from-secondary to-primary mx-auto mt-4 rounded-full"></div>
+</div>
+</section>
+<!-- Featured Hero Article -->
+<section class="py-8"><div class="max-w-[1450px] mx-auto px-6 relative min-h-[80vh] flex items-center">
+    <!-- BACK LAYER: Abstract Glass Shape -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-surface-container/20 backdrop-blur-[40px] rounded-[40%] rotate-12 z-0 pointer-events-none"></div>
+
+    <!-- GLASS HIGHLIGHT: Large Background Text -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-hero-headline text-[120px] md:text-[240px] text-primary/5 select-none pointer-events-none z-0 uppercase tracking-widest">
+        LIVER
+    </div>
+
+    <div class="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10">
+        <!-- MIDDLE LAYER: Cinematic Image with Organic Silhouette -->
+        <div class="lg:col-span-7 relative group">
+            <div class="relative overflow-visible transition-transform duration-700 ease-out group-hover:scale-105">
+                <div class="rounded-[3rem] overflow-hidden border border-white/40 shadow-2xl">
+                    <img src="https://lh3.googleusercontent.com/aida/AP1WRLvfpYDc6FcWRf7-8U3C022k5lqz6X4F33J3wNJWA3d3PJDmSIxDKF8YeLsDNDqENKK24a16X-efDIK0eC7DUEB4q--EjimQ5Kzy8S0-KdKwTBHGN3qI3lYTViUsgMsGfkhC1-qa8tZ259TOEJVmNtmEMrAHIGX1_Tsc99FrRKU1INWaoe-A4GqF3vTM1zfVH1YZ-8p2OZIfphx1Jsb2af_Kn9GdgCT-I_IoOpTWoxZfDC49dp8JH-YTS3k" alt="Cinematic 3D medical visual of a human liver" class="w-full h-full object-cover aspect-square lg:aspect-video">
+                </div>
+                <!-- METADATA: Floating Label -->
+                <div class="absolute -top-8 -left-4 glass-panel px-6 py-2 rounded-full font-label-sm tracking-[0.2em] text-primary/40 z-20">
+                    FEATURED / 01
+                </div>
+            </div>
+        </div>
+
+        <!-- FRONT LAYER: Content and Metadata -->
+        <div class="lg:col-span-5 lg:-ml-24 relative z-20">
+            <div class="space-y-6 transition-transform duration-500 hover:translate-x-2">
+                <span class="inline-block bg-primary-container/30 text-primary px-4 py-1 rounded-full font-label-sm uppercase tracking-wider border border-primary/20">
+                    Advanced Research
+                </span>
+                <h3 class="font-hero-headline text-5xl md:text-7xl text-primary text-glow leading-[0.9] uppercase">
+                    Revolutionizing Liver Transplantation
+                </h3>
+                <p class="font-body-lg text-on-surface-variant text-xl max-w-md">
+                    A deep dive into how high-fidelity 3D modeling and liquid glass simulations are transforming surgical precision.
+                </p>
+                <a href="#" class="inline-flex items-center gap-4 bg-gradient-to-r from-secondary to-primary text-on-primary px-10 py-5 rounded-full font-body-lg hover:opacity-90 transition-all btn-primary-glow group/btn">
+                    Read the Full Story
+                    <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div></section>
+<!-- Article Grid -->
+<section class="py-16 mb-24">
+<div class="max-w-[1450px] mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="A luminous, translucent 3D infographic illustrating the anatomical zones of a human liver, set against a pristine, brightly lit clinical background. The image has a liquid glass aesthetic, with subtle teal highlights emphasizing the complex vascular network within the organ, designed to educate patients." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVVZygLn3qRswzY1427qBP2JA6H7Hv7DNajCVKPjacNxB5TelKmu22iGUXNdqafwG09SpTBN21qtxVECPH7bjXRDatKix-e2nmRvLHenH2wWTTfa4TDen5rkmVKGGbUa9tCyln1pdSMTWZGgr2tylKECwjXC9NTqSKBFAqy2YhQeA_X04sdhYuFsWa5DZjfKetLA1zD8HRnabDI67vWZR2lnzMCBvp_RjrAuRG8-Xifp5B8Im1y7Xz">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Patient Awareness</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    Understanding Your Liver: A Patient's Guide
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 2 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="A highly detailed, glowing teal 3D rendering of the biliary tree structure, resembling delicate glass branches. It is suspended in a bright, sterile operating room environment, symbolizing extreme surgical precision and advanced hepatobiliary mapping techniques." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm3XTmDg8IA2CfLP4is0IFpsJFTZ3ObC4bJV5otfDKgpIIrzKbWQWtsu8FO7iT-Yz9lL6NMf9u95gkCfvyeOsAlqv89dZpqhJ7BuLej9b-1TJvGTYrOWG8U3L3h57NAl2MnS2zWDlwyYgz1rHDrATxuRX1ccE3_KdX7IjF8oeQiiW1rrcB2FquepQbrjAmr7dti9jmJaRD4Bx6K-gs-Lqd_QTSbA8J0pnneZJ77N8NFL2YK9TP4cwX">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Surgical Excellence</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    Biliary Tree Mapping: Precision in Complexity
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 3 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="A serene, bright post-operative recovery room with large windows letting in daylight. A semi-transparent, glowing teal path or timeline graphic overlays the scene, representing a smooth, clearly guided patient journey to recovery after a complex liver transplant surgery." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjvBGwKa3vRwBMyX_OL4k1GtG_hPfF2fmV9yKVDsA9onRw81cQ9l9yGM-YDzoXVjfErooVrILD2kDvCi8rtCcWgZ8cqqcci4bG3rcQ2c1HDaVwL9mJ89Z8-yJH6LnFf766SWRdLoQAfHXmBFb1MC_zInQZzVkoFxu15PsnOXsaq5d-odCWrh4XsNY9BDDxwcsKjZUjF1NvO_g8alQOGqYDASPSYKyjvyjL-h8-7hn5_-2bCkKCzrYP">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Patient Journey</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    The Road to Recovery: Life After Transplant
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 4 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="A state-of-the-art robotic surgical system in a brightly lit, immaculate operating theater. The robotic arms are positioned delicately, and a holographic teal UI interface floats in the foreground, displaying surgical data and organ vitals in a futuristic liquid glass style." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnTI3dIS82iU3FvcvwDJjUNXZ6LYba6OFgMREpvPd9qAUjpWM8BSbCmh51Qko-EBWC3iS01yb8fTUP4rZnvI5r8ESpsB0ge5h5T0iBgl9_aahdAzfLfUG4iU5NZLHKNsfUQmKHeQ4gXaQdH5A6_nPyfUaUDWG75C3gcwZBN0iz0zDL6snmOTOyIG1cn90b-TbC7WqJ7X8C6OV-hgyBE4woo4yn4rSMvxq_r2ZRHH4LNE-R3JHJX4dT">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Technologies</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    Robotic Assistance in Modern Hepatobiliary Surgery
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 5 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="Close-up of gleaming, meticulously sterilized surgical instruments laid out on a tray in a hyper-clean, bright environment. A subtle, glowing teal barrier effect surrounds the tray, symbolizing advanced sterilization protocols and clinical safety in liver care." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7aSa6ddeBmLAcZ6QK0Pw0-715_ZAp7Y7gaPJ5xKC9hlkMLNSrmU_V-oE_g9JeN7BLBAgB6_JS--iIFPm8fYQs5upncqfTO-fxzIp7mkY-tBvI3_S390xQSG5weOFyHoqh1GCIR7lNzHJs1_3nZbDvV6BghWwN1nmeBNTiYhhaVbCCE_VzZf44Ok2RsbqzYUFxYc1C6L7ekahWVDlFCurJPyq3wmfqocrSzWYT1lkUmLTseHK-_mdl">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Clinical Care</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    Advanced Sterilization: Safety in Every Step
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 6 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="A brightly lit, modern medical conference auditorium. On stage, a glowing 3D holographic projection of a liver is being presented. The audience of medical professionals is blurred in the foreground. The scene conveys global innovation and leading-edge hepatology research." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCILOmYD4hlsRfuFPxZ76fhp4hp_O4jalWck8pX8u_bDQjpjuVRLCxJyWa_3XLG_SWZ3KR1KTmh781K03zOvGLLOVnd2vPzetxHHxoyFLAzsq5QiPjEtNcIpqzgir-k2xajMOAHPbLdyTpX3jxsSO-HJ7vY_NaHANEFJvJKtZhHlRm8xK99V6caZTTrP8NRDg4Wd_sELGYH7g_JZUYEy5n-pYYPMe2VJA1WkcGliWGWpnnXWOy-dtNb">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Research</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    Scientific Conferences: Leading Global Innovation
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 7 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="A diverse team of top-tier medical specialists gathered around a sleek, luminous glass table in a bright consultation room. They are collaboratively reviewing a floating, glowing 3D patient scan, highlighting the importance of a multidisciplinary approach in complex liver care." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0Nh8MrVcViOUgldhb86RIYVFSiVkaL2srthrPYHZWmhl1gjjfDiNTBl7Jsc1lGG2gX7spvOcVIlYoEJYhIH9QWtHAdagzI9cwkhtn7UVPeoSOZFc9uogbfwshYGZFBj7hwWozTE0pSFFdwhzTb7v5daDVzAHrGXlTAY4sesguH0K7lhl6NVIin2OchdiJBtkzB_sC-Q-4yTXRrqnG8K7Hq4flf_CO_DzoxgDxr2vg43Tnxhdz9DE1">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Expertise</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    Multidisciplinary Care: Why the Team Matters
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+<!-- Card 8 -->
+<a class="group block h-full" href="#">
+<div class="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-l-4 border-l-primary/50 hover:border-l-primary transition-all">
+<div class="relative h-48 overflow-hidden p-2">
+<div class="w-full h-full rounded-lg overflow-hidden relative inner-shadow-glass">
+<img alt="An abstract, futuristic visual representing the horizon of medical knowledge. It features a bright, clean background with interwoven glowing teal strands resembling DNA and data streams, symbolizing a visionary outlook on the future of hepatology and precision medicine." class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE4vIseia-EYulnu-dDGDb9RzxgV-4DUqZh_69wCKTi2kofrPP6eQq7wnQQM0CUdONfXn6mumyMQXWfUlbCUBAaI2BoYlHmhRP0IFZPpf4jlesqggbH6hSakYftwp3puvyjU7ojlbssxp-m8InTw8EHyu7WHyk6dWTFa83xTAPDDQI2sNn1i40fSAX--yEHlgqcR1KYHSEeKJhyNw_7BEUv2GWUEgYiIn4QCw6MSypXFPAFEPsUmsg">
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+</div>
+<div class="p-6 flex-grow flex flex-col">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-2">Knowledge</span>
+<h4 class="font-card-title text-on-surface text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                                    The Future of Hepatology: A Visionary Outlook
+                                </h4>
+<div class="mt-auto flex items-center text-sm text-outline group-hover:text-secondary transition-colors pt-4 border-t border-white/20">
+                                    Read Article <span class="material-symbols-outlined text-[16px] ml-1" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="relative py-32 overflow-hidden flex items-center justify-center">
+<!-- STITCH_SHADER_START:ANIMATION_96 class="absolute inset-0 w-full h-full opacity-60" -->
+<div class="absolute inset-0 w-full h-full opacity-60" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_96" style="display:block;width:100%;height:100%" width="1280" height="558"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_96');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+// The Glass Question Shader
+// Visualizes a subtle, refractive 3D question mark that transforms into a light path
+
+void main() {
+    vec2 uv = v_texCoord;
+    vec2 centered_uv = uv - 0.5;
+    centered_uv.x *= u_resolution.x / u_resolution.y;
+    
+    // Pulse effect
+    float t = u_time * 0.5;
+    
+    // Abstract Question Mark shape (using arcs and lines)
+    float dist = 10.0;
+    
+    // Top arc
+    vec2 arcPos = centered_uv - vec2(0.0, 0.15);
+    float arc = abs(length(arcPos) - 0.15);
+    if(arcPos.y > -0.05 && atan(arcPos.y, arcPos.x) > -0.5) dist = min(dist, arc);
+    
+    // Middle curve
+    vec2 curvePos = centered_uv - vec2(0.0, -0.05);
+    float curve = abs(length(curvePos - vec2(0.05, 0.0)) - 0.1);
+    // dist = min(dist, curve); // Simplified for performance
+    
+    // Dot
+    float dot = length(centered_uv - vec2(0.0, -0.25)) - 0.02;
+    dist = min(dist, dot);
+    
+    // Refraction and Glow
+    float glow = smoothstep(0.05, 0.0, dist);
+    float pulse = sin(u_time * 2.0) * 0.5 + 0.5;
+    
+    // Color Palette (#18D5B8)
+    vec3 primaryTeal = vec3(0.094, 0.835, 0.722);
+    vec3 highlightCyan = vec3(0.35, 1.0, 0.91);
+    
+    vec3 color = primaryTeal * glow * 0.5;
+    color += highlightCyan * pow(glow, 3.0) * pulse;
+    
+    // Refractive glints
+    float glint = pow(max(0.0, 1.0 - dist * 10.0), 10.0) * pulse;
+    color += glint * 0.3;
+    
+    float alpha = smoothstep(0.6, 0.2, length(centered_uv)) * 0.4;
+    
+    gl_FragColor = vec4(color, alpha);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_96 -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="relative z-10 max-w-4xl mx-auto px-6 text-center glass-panel rounded-3xl p-12 lg:p-16">
+<span class="font-label-sm text-secondary uppercase tracking-widest mb-4 block">THE GLASS QUESTION</span>
+<h2 class="font-hero-headline-mobile md:font-hero-headline text-primary text-glow uppercase leading-tight mb-8">
+                    KNOWLEDGE IS THE FIRST STEP.<br>THE RIGHT GUIDANCE IS THE NEXT.
+                </h2>
+<a class="inline-flex items-center gap-2 bg-gradient-to-r from-secondary to-primary text-on-primary px-10 py-4 rounded-full font-body-lg hover:opacity-90 transition-all hover:scale-105 btn-primary-glow" href="#">
+                    Schedule a Consultation
+                    <span class="material-symbols-outlined text-xl" data-icon="calendar_month">calendar_month</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container/40 backdrop-blur-[30px] w-full max-w-[1450px] mx-auto rounded-t-xl mt-section-gap border-t border-white/20 flex flex-col md:flex-row justify-between items-center px-glass-padding py-stack-md z-40 relative">
+<div class="font-hero-headline text-primary text-lg mb-4 md:mb-0">
+            Lumina Liver Care
+        </div>
+<div class="flex flex-wrap justify-center gap-6 mb-4 md:mb-0 font-label-sm text-label-sm">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:opacity-80" href="#">Legal Notice</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:opacity-80" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:opacity-80" href="#">Medical Ethics</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:opacity-80" href="#">Careers</a>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm text-center md:text-right">
+            © 2024 Lumina Liver Transplantation. Precision Surgery. Lifesaving Care.
+        </div>
+</footer>
+
+
+</body></html>

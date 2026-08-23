@@ -1,0 +1,390 @@
+const COUNTRY_CODES = [
+  { code: "+20", flag: "🇪🇬" },
+  { code: "+971", flag: "🇦🇪" },
+  { code: "+966", flag: "🇸🇦" },
+  { code: "+1", flag: "🇺🇸" },
+  { code: "+44", flag: "🇬🇧" },
+  { code: "+33", flag: "🇫🇷" },
+  { code: "+49", flag: "🇩🇪" },
+  { code: "+91", flag: "🇮🇳" },
+  { code: "+234", flag: "🇳🇬" },
+  { code: "+27", flag: "🇿🇦" },
+  { code: "+61", flag: "🇦🇺" },
+  { code: "+81", flag: "🇯🇵" },
+  { code: "+86", flag: "🇨🇳" },
+  { code: "+55", flag: "🇧🇷" },
+];
+
+const COUNTRIES = [
+  { code: "EG", flag: "🇪🇬", name: "Egypt" },
+  { code: "AE", flag: "🇦🇪", name: "United Arab Emirates" },
+  { code: "SA", flag: "🇸🇦", name: "Saudi Arabia" },
+  { code: "US", flag: "🇺🇸", name: "United States" },
+  { code: "GB", flag: "🇬🇧", name: "United Kingdom" },
+  { code: "FR", flag: "🇫🇷", name: "France" },
+  { code: "DE", flag: "🇩🇪", name: "Germany" },
+  { code: "IN", flag: "🇮🇳", name: "India" },
+  { code: "NG", flag: "🇳🇬", name: "Nigeria" },
+  { code: "ZA", flag: "🇿🇦", name: "South Africa" },
+  { code: "AU", flag: "🇦🇺", name: "Australia" },
+  { code: "JP", flag: "🇯🇵", name: "Japan" },
+  { code: "CN", flag: "🇨🇳", name: "China" },
+  { code: "BR", flag: "🇧🇷", name: "Brazil" },
+  { code: "CA", flag: "🇨🇦", name: "Canada" },
+];
+
+const WHATSAPP_ICON_PATH =
+  "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z";
+
+function WhatsAppIcon({ className }: { className: string }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d={WHATSAPP_ICON_PATH}></path>
+    </svg>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <div
+      className="route-contact font-body-md text-on-surface antialiased min-h-screen flex flex-col relative overflow-x-hidden"
+      style={{
+        backgroundColor: "rgb(228, 255, 251)",
+        backgroundImage:
+          "radial-gradient(at 0% 0%, rgba(24, 213, 184, 0.1) 0px, transparent 50%)",
+        backgroundAttachment: "fixed",
+        color: "rgb(0, 32, 30)",
+      }}
+    >
+      <main className="flex-grow pt-[100px]">
+        {/* 1. Contact Hero */}
+        <section className="relative w-full max-w-container-max mx-auto px-4 md:px-8 py-section-gap min-h-[60vh] flex items-center justify-center mt-8">
+          <div className="absolute inset-0 z-0 rounded-3xl overflow-hidden glass-panel mx-4 md:mx-8">
+            <img
+              alt="A modern, high-tech medical consultation room with bright, daybreak clinical lighting. Soft luminous teal accents. A sense of pristine, world-class healthcare."
+              className="w-full h-full object-cover opacity-60 mix-blend-overlay"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1XAtVkhZ5wAhuvhtor1wxnqiGWPbPCiwDyTVOrYQgqjX103ysP6BPYCg5Hh0cIBQBVs-Mgsf3n9Owr0ImAPkYPTmNhM2joOSI28Lu7fzJhpY_4nyCscT-HEHj2l0H6BLp5oyOrkIBHAwjIfI31JFLYc01mgndhml9zpDhRHpQEUcGiApLgIeKLKg0ZVZHRnhs3S7_EX2RMTPv3SyNbsUoMb0wN8EDDfnyPxXg88epqYjbDPEZd7tS4E8Fo"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-surface-dim/80 to-transparent"></div>
+          </div>
+          <div className="relative z-10 text-center max-w-3xl px-6">
+            <span className="inline-block font-label-sm text-label-sm text-primary-container bg-inverse-surface/10 px-3 py-1 rounded-full mb-4 border border-primary-container/30 backdrop-blur-md uppercase tracking-widest">
+              WE&apos;RE HERE TO HELP
+            </span>
+            <h1 className="font-hero-headline text-hero-headline-mobile md:text-hero-headline text-on-surface mb-6 uppercase">
+              LET&apos;S START THE CONVERSATION.
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+              Whether you&apos;re nearby or contacting us from abroad, our
+              team is ready to guide you.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button className="btn-primary text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center gap-2 w-full sm:w-auto justify-center">
+                <span className="material-symbols-outlined">send</span> Send
+                Your Inquiry
+              </button>
+              <button className="btn-secondary text-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center gap-2 w-full sm:w-auto justify-center bg-white/40">
+                <WhatsAppIcon className="w-5 h-5 fill-current" />
+                WhatsApp Us
+              </button>
+            </div>
+          </div>
+          <div className="hidden xl:flex absolute right-4 top-1/2 -translate-y-1/2 flex-col gap-4 glass-panel p-3 rounded-full z-20">
+            <a
+              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+              href="#"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                share
+              </span>
+            </a>
+            <a
+              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+              href="#"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                video_library
+              </span>
+            </a>
+            <a
+              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+              href="#"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                photo_camera
+              </span>
+            </a>
+            <a
+              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
+              href="#"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                call
+              </span>
+            </a>
+          </div>
+        </section>
+
+        {/* 2. Contact & International Patient Hub */}
+        <section className="w-full max-w-container-max mx-auto px-4 md:px-8 py-section-gap">
+          <h2 className="font-section-title text-section-title text-center text-on-surface mb-12 uppercase tracking-wide">
+            CONNECT WITH OUR TEAM
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            {/* Left: Clinic Info & Map */}
+            <div className="flex flex-col gap-6">
+              <div className="glass-panel rounded-2xl p-2 relative overflow-hidden h-64 sm:h-80 group">
+                <img
+                  alt="A stylized, luminous 3D map interface centered on Cairo, Egypt. Glassy topographical elements with glowing teal markers indicating a premium medical facility location. Futuristic UI aesthetic."
+                  className="w-full h-full object-cover rounded-xl opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8srw1Lb4N7R_MBT75J4ZHOQ2jvVLE4_Xdrpss4YJaefSTcFE0hwNnr-r9Wr8QVAxwXHTd_lT3PzOXCrKchczWzpWauU-0jt8uN3Y55y67nH-esPxU2o5_fBrsBuK7ejTM14O7WnmRMzoj1B5Fwj6_2QJYsJ5DsTne3NJNiP7rEZs_eeAkKNX6x6SYKSIjAaNF_5thJumH9UvUDR0EmZQKlPl8rTzfnp2sQRXB7jSETtd3qNuN0CTX"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button className="btn-primary text-on-primary px-6 py-2 rounded-full font-label-sm text-label-sm shadow-xl flex items-center gap-2">
+                    <span className="material-symbols-outlined">map</span>{" "}
+                    View Location
+                  </button>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+                    <span className="material-symbols-outlined hologram-glow">
+                      location_on
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-card-title text-card-title text-on-surface mb-1">
+                      Address
+                    </h4>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      123 Clinical Axis Blvd, Medical District, Cairo, Egypt
+                    </p>
+                  </div>
+                </div>
+                <div className="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+                    <span className="material-symbols-outlined hologram-glow">
+                      schedule
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-card-title text-card-title text-on-surface mb-1">
+                      Working Hours
+                    </h4>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      Sun - Thu: 9:00 AM - 6:00 PM
+                      <br />
+                      Fri - Sat: Closed
+                    </p>
+                  </div>
+                </div>
+                <div className="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+                    <span className="material-symbols-outlined hologram-glow">
+                      call
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-card-title text-card-title text-on-surface mb-1">
+                      Phone
+                    </h4>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      +20 123 456 7890
+                    </p>
+                  </div>
+                </div>
+                <div className="glass-panel p-6 rounded-2xl flex items-start gap-4 hover:bg-white/30 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0">
+                    <span className="material-symbols-outlined hologram-glow">
+                      mail
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-card-title text-card-title text-on-surface mb-1">
+                      Email
+                    </h4>
+                    <p className="font-body-md text-body-md text-on-surface-variant">
+                      care@livercareelite.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="glass-panel p-5 rounded-2xl border-l-4 border-l-primary-container bg-gradient-to-r from-surface-variant/50 to-transparent flex items-start gap-3">
+                <span className="material-symbols-outlined text-primary-container mt-1">
+                  flight
+                </span>
+                <div>
+                  <h4 className="font-label-sm text-label-sm uppercase tracking-wide text-primary font-bold mb-1">
+                    International Patient Support
+                  </h4>
+                  <p className="font-body-md text-[13px] text-on-surface-variant leading-tight">
+                    Traveling from abroad? Please use the form to submit your
+                    medical records prior to travel for a preliminary
+                    consultation.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Inquiry Form */}
+            <div className="glass-panel-deep p-8 md:p-10 rounded-3xl relative overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-container rounded-full blur-[100px] opacity-20 pointer-events-none"></div>
+              <h3 className="font-card-title text-[24px] text-white mb-8 border-b border-white/10 pb-4">
+                International Patient Inquiry
+              </h3>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                      Full Name
+                    </label>
+                    <input
+                      className="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md"
+                      placeholder="John Doe"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                      Phone
+                    </label>
+                    <div className="flex gap-2">
+                      <select className="input-glass rounded-xl px-2 py-3 font-body-md text-body-md w-32 appearance-none text-center cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+                        <option value="">Code</option>
+                        {COUNTRY_CODES.map((c) => (
+                          <option key={c.code} value={c.code}>
+                            {c.flag} {c.code}
+                          </option>
+                        ))}
+                      </select>
+                      <input
+                        className="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md flex-grow"
+                        placeholder="555-0123"
+                        type="tel"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                      Country of Residence
+                    </label>
+                    <select className="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md appearance-none cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+                      <option value="">Select Country</option>
+                      {COUNTRIES.map((c) => (
+                        <option key={c.code} value={c.code}>
+                          {c.flag} {c.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                      State/Province
+                    </label>
+                    <select className="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md appearance-none cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+                      <option value="">Select State/Province</option>
+                      <option value="manual">Enter Manually...</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                    Procedure/Service Interest
+                  </label>
+                  <select className="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md appearance-none cursor-pointer bg-surface-container-high text-on-surface-variant border-primary/30">
+                    <option>Select Procedure</option>
+                    <option>Liver Transplant Evaluation</option>
+                    <option>Hepatobiliary Surgery</option>
+                    <option>Second Opinion</option>
+                    <option>General Consultation</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                    Medical Notes
+                  </label>
+                  <textarea
+                    className="w-full input-glass rounded-xl px-4 py-3 font-body-md text-body-md h-32 resize-none"
+                    placeholder="Briefly describe your condition or inquiry..."
+                  ></textarea>
+                </div>
+                <div>
+                  <label className="block font-label-sm text-label-sm text-inverse-on-surface mb-2">
+                    Medical Upload Vault
+                  </label>
+                  <div className="border-2 border-dashed border-white/20 rounded-xl p-6 text-center hover:border-primary-container/50 hover:bg-white/5 transition-all cursor-pointer group">
+                    <span className="material-symbols-outlined text-4xl text-white/50 group-hover:text-primary-container mb-2 transition-colors">
+                      cloud_upload
+                    </span>
+                    <p className="font-body-md text-body-md text-white/70">
+                      Drag &amp; drop files here, or{" "}
+                      <span className="text-primary-container underline">
+                        browse
+                      </span>
+                    </p>
+                    <p className="font-label-sm text-[11px] text-white/40 mt-1 uppercase tracking-wider">
+                      Supports PDF, JPG, DICOM (Max 50MB)
+                    </p>
+                  </div>
+                  <div className="flex gap-2 mt-3 flex-wrap">
+                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 flex items-center gap-2 text-[12px] font-label-sm text-white">
+                      <span className="material-symbols-outlined text-[14px] text-primary-container">
+                        description
+                      </span>{" "}
+                      lab_results_2023.pdf
+                      <span className="material-symbols-outlined text-[14px] cursor-pointer hover:text-error transition-colors">
+                        close
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-white/10">
+                  <button
+                    className="btn-primary text-on-primary px-6 py-3 rounded-xl font-label-sm text-label-sm flex-grow flex items-center justify-center gap-2"
+                    type="button"
+                  >
+                    <span className="material-symbols-outlined">mail</span>{" "}
+                    Send via Email
+                  </button>
+                  <button
+                    className="btn-secondary text-primary-container px-6 py-3 rounded-xl font-label-sm text-label-sm flex-grow sm:flex-grow-0 flex items-center justify-center gap-2"
+                    type="button"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 fill-current" />
+                    WhatsApp
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        {/* 3. Final Contact CTA */}
+        <section className="w-full max-w-container-max mx-auto px-4 md:px-8 py-16 mb-section-gap text-center">
+          <div className="glass-panel p-10 md:p-16 rounded-3xl relative overflow-hidden inline-block w-full max-w-4xl">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent"></div>
+            <span className="inline-block font-label-sm text-label-sm text-primary mb-3 tracking-widest uppercase">
+              NEED QUICK HELP?
+            </span>
+            <h2 className="font-hero-headline text-[32px] md:text-[48px] text-on-surface mb-8 uppercase leading-tight">
+              SPEAK DIRECTLY WITH OUR TEAM.
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="btn-primary text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2">
+                <span className="material-symbols-outlined">call</span> Call
+                the Clinic
+              </button>
+              <button className="btn-secondary bg-white/40 text-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2">
+                <WhatsAppIcon className="w-5 h-5 fill-current" />
+                WhatsApp Us
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
