@@ -1,0 +1,458 @@
+{
+  "meta": {
+    "siteName": "Lumina Liver Care",
+    "titleTemplate": "%s | Lumina Liver Care",
+    "home": {
+      "title": "Lumina Liver Care - Dr Mohamed Samy Abdelwahid",
+      "description": "Consultant en chirurgie hépatobiliaire et transplantation hépatique - chirurgie hépatique avancée, transplantation et traitement."
+    },
+    "about": {
+      "title": "À propos du docteur",
+      "description": "Découvrez le Dr Mohamed Samy Abdelwahid, consultant en chirurgie hépatobiliaire et transplantation hépatique - qualifications, parcours professionnel et philosophie des soins."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Interventions chirurgicales avancées et traitements spécialisés en soins hépatobiliaires et transplantation hépatique."
+    },
+    "reviews": {
+      "title": "Avis des patients",
+      "description": "Des expériences réelles de patients qui ont confié leurs soins au Dr Mohamed Samy Abdelwahid."
+    },
+    "videos": {
+      "title": "Vidéos",
+      "description": "Vidéos médicales éducatives sur la santé du foie, la chirurgie et les soins aux patients."
+    },
+    "articles": {
+      "title": "Articles",
+      "description": "Savoir médical fiable et articles du Dr Mohamed Samy Abdelwahid."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Contactez Lumina Liver Care - prenez rendez-vous ou envoyez une demande en tant que patient international."
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "reviews": "Avis",
+    "videos": "Vidéos",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "languageSwitcher": {
+    "label": "Choisir la langue",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "footer": {
+    "tagline": "© 2024 Lumina Liver Transplantation. Chirurgie de précision. Des soins qui sauvent des vies.",
+    "legalNotice": "Mentions légales",
+    "privacyPolicy": "Politique de confidentialité",
+    "medicalEthics": "Éthique médicale",
+    "careers": "Carrières"
+  },
+  "common": {
+    "brand": "Lumina Liver Care",
+    "bookAppointment": "Prendre rendez-vous",
+    "contactUs": "Contactez-nous",
+    "whatsappUs": "Contacter sur WhatsApp",
+    "callTheClinic": "Appeler la clinique",
+    "readArticle": "Lire l'article"
+  },
+  "home": {
+    "hero": {
+      "title": "Transplantation hépatique : un espoir renouvelé",
+      "subtitle": "Nous proposons les technologies les plus récentes et les plus hauts niveaux de soins médicaux en chirurgie hépatique avancée, pour vous rendre votre santé et votre vie normale en toute confiance et sécurité.",
+      "bookAppointment": "Prendre rendez-vous",
+      "watchVideos": "Voir les vidéos"
+    },
+    "stats": {
+      "yearsExperience": "Années d'expérience",
+      "successRate": "Taux de réussite",
+      "recoveredPatients": "Patients rétablis",
+      "successfulSurgeries": "Interventions réussies",
+      "specializedCenters": "Centres spécialisés"
+    },
+    "meetDoctor": {
+      "eyebrow": "L'excellence chirurgicale",
+      "title": "Rencontrer le Docteur",
+      "imageAlt": "Le Dr Mohamed Samy Abdelwahid dans un cadre médical professionnel, incarnant expertise et compassion.",
+      "name": "Dr Mohamed Samy Abdelwahid",
+      "role": "Consultant en chirurgie hépatobiliaire et transplantation hépatique",
+      "bio": "Fort de plus de deux décennies de travail pionnier dans les interventions hépatobiliaires complexes, le Dr Abdelwahid a consacré sa carrière à l'art de la chirurgie salvatrice. Son approche allie précision chirurgicale et engagement profond envers une prise en charge centrée sur le patient, garantissant à chacun un parcours personnalisé vers la guérison et une vitalité retrouvée.",
+      "cta": "Découvrir son parcours"
+    },
+    "majorSurgeries": {
+      "eyebrow": "Excellence chirurgicale avancée",
+      "title": "Principales interventions chirurgicales",
+      "cta": "Découvrir tous les services chirurgicaux",
+      "items": {
+        "liverTransplant": { "title": "Transplantation hépatique", "desc": "Prise en charge avancée pour les patients atteints d'une maladie hépatique en phase terminale." },
+        "liverSurgery": { "title": "Chirurgie du foie", "desc": "Traitement chirurgical de précision pour les tumeurs hépatiques et affections complexes." },
+        "pancreaticSurgery": { "title": "Chirurgie du pancréas", "desc": "Prise en charge chirurgicale spécialisée des tumeurs et troubles pancréatiques complexes." },
+        "biliaryGallbladder": { "title": "Voies biliaires et vésicule", "desc": "Traitement avancé des affections de la vésicule biliaire et des voies biliaires." }
+      }
+    },
+    "majorTreatments": {
+      "eyebrow": "Soins avancés et traitements spécialisés",
+      "title": "Principaux traitements",
+      "cta": "Découvrir tous les traitements",
+      "items": {
+        "advancedCirrhosis": { "title": "Cirrhose avancée", "desc": "Prise en charge globale et thérapies régénératives pour la fibrose et la cirrhose hépatiques avancées." },
+        "liverTumors": { "title": "Tumeurs hépatiques", "desc": "Traitements de précision pour les lésions hépatiques bénignes et malignes grâce aux technologies médicales avancées." },
+        "biliaryObstructions": { "title": "Obstructions biliaires", "desc": "Prise en charge spécialisée des obstructions complexes des voies biliaires, pour restaurer la fonction et la santé du patient." },
+        "metabolicLiverDisease": { "title": "Maladie hépatique métabolique", "desc": "Diagnostic expert et plans de traitement pour la stéatose hépatique et autres affections hépatiques métaboliques." }
+      }
+    },
+    "patientStories": {
+      "eyebrow": "Une confiance forgée par l'expérience",
+      "title": "Témoignages de patients",
+      "subtitle": "Des expériences réelles. Des soins réels. Une confiance réelle.",
+      "cta": "Voir plus de témoignages",
+      "items": {
+        "sarahJohnson": { "quote": "Les soins que j'ai reçus étaient exceptionnels. Je me suis sentie totalement en sécurité entre les mains du Dr Samy et de son équipe. Une expérience qui m'a vraiment sauvé la vie.", "name": "Sarah Johnson", "tag": "Transplantation hépatique" },
+        "michaelChen": { "quote": "Professionnalisme et empathie à leur apogée. La précision chirurgicale ici est de classe mondiale.", "name": "Michael Chen", "tag": "Chirurgie biliaire" },
+        "ahmedHassan": { "quote": "Je me suis senti en sécurité et bien informé tout au long du processus. Un véritable centre d'excellence.", "name": "Ahmed Hassan", "tag": "Traitement des tumeurs hépatiques" },
+        "elenaRodriguez": { "quote": "La convalescence a été plus rapide que prévu. L'équipe médicale est d'une attention remarquable.", "name": "Elena Rodriguez", "tag": "Chirurgie du pancréas" },
+        "robertTaylor": { "quote": "Une expérience qui a changé ma vie. Je serai à jamais reconnaissant envers l'expertise du Dr Abdelwahid.", "name": "Robert Taylor", "tag": "Prise en charge de la cirrhose" },
+        "fatimaAlSayed": { "quote": "L'établissement médical le plus avancé que j'aie jamais visité. Je le recommande vivement.", "name": "Fatima Al-Sayed", "tag": "Soins hépatiques métaboliques" }
+      }
+    },
+    "whyUs": {
+      "eyebrow": "Une expérience en laquelle vous pouvez avoir confiance",
+      "title": "Pourquoi choisir le Dr Mohamed Samy Abdelwahid ?",
+      "portraitName": "Dr M. Samy Abdelwahid",
+      "portraitRole": "Consultant principal",
+      "cta": "Découvrir son parcours",
+      "reasonTitle": "Expertise spécialisée",
+      "reasonDesc": "Des décennies d'expérience approfondie dans les chirurgies hépatobiliaires complexes et les procédures de transplantation avancées."
+    },
+    "videos": {
+      "eyebrow": "Dernières vidéos",
+      "title": "Regarder. Apprendre. Comprendre.",
+      "cta": "Voir toutes les vidéos",
+      "items": {
+        "liverTransplantProcess": { "tag": "Chirurgie", "title": "Le processus de transplantation hépatique" },
+        "patientJourney": { "tag": "Soins", "title": "Le parcours du patient" },
+        "advancedRobotics": { "tag": "Technologie", "title": "Robotique avancée" }
+      }
+    },
+    "insights": {
+      "eyebrow": "Informations et réponses",
+      "title": "En savoir plus. Se sentir plus confiant.",
+      "articlesCta": "Découvrir tous les articles",
+      "articles": {
+        "postSurgeryNutrition": "Guide nutritionnel post-opératoire",
+        "liverRegeneration": "Comprendre la régénération hépatique",
+        "roboticSurgeryBenefits": "Les avantages de la chirurgie robotique",
+        "livingDonorInformation": "Informations sur le don d'organe vivant"
+      },
+      "faq": {
+        "recovery": { "q": "Combien de temps dure la convalescence ?", "a": "La durée de convalescence varie selon l'intervention, mais la plupart des patients reprennent leurs activités légères en 4 à 6 semaines." },
+        "successRates": { "q": "Quels sont les taux de réussite ?", "a": "Notre centre maintient un taux de réussite de 98 % pour les chirurgies hépatobiliaires complexes." },
+        "roboticSurgery": { "q": "La chirurgie robotique est-elle disponible ?", "a": "Oui, nous utilisons les derniers systèmes robotiques Da Vinci pour les interventions mini-invasives." },
+        "internationalPatients": { "q": "Accueillez-vous des patients internationaux ?", "a": "Nous disposons d'un service dédié aux patients internationaux pour vous accompagner dans vos déplacements et vos soins." },
+        "insurance": { "q": "Quelles assurances sont acceptées ?", "a": "Nous travaillons avec la plupart des grandes compagnies d'assurance internationales et locales." },
+        "scheduleConsultation": { "q": "Comment puis-je planifier une consultation ?", "a": "Vous pouvez planifier une consultation en cliquant sur le bouton « Prendre rendez-vous » ou en nous contactant directement par téléphone ou WhatsApp." }
+      }
+    },
+    "cta": {
+      "eyebrow": "Votre santé mérite la bonne expertise",
+      "title": "Franchissons ensemble la prochaine étape.",
+      "subtitle": "Réservez votre consultation et bénéficiez de l'accompagnement expert dont vous avez besoin.",
+      "bookAppointment": "Prenez rendez-vous",
+      "whatsappUs": "Contactez-nous sur WhatsApp",
+      "phone": "+20 XXX XXX XXXX"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Pionnier de la chirurgie hépatique",
+      "titleLine1": "Dr Mohamed Samy",
+      "titleLine2": "Abdelwahid",
+      "subtitle": "Consultant en chirurgie hépatobiliaire et transplantation hépatique",
+      "bookAppointment": "Prendre rendez-vous",
+      "watchVideos": "Voir ses vidéos",
+      "connect": "Suivez-nous :"
+    },
+    "meetDoctor": {
+      "eyebrow": "Derrière la blouse blanche",
+      "title": "Rencontrer le Dr Mohamed Samy Abdelwahid",
+      "name": "Dr Mohamed Samy Abdelwahid",
+      "role": "Consultant en chirurgie hépatobiliaire et transplantation hépatique",
+      "bio": "Fort de plus de vingt ans d'expérience spécialisée en chirurgies hépatiques et transplantations complexes, le Dr Abdelwahid allie précision chirurgicale et approche bienveillante centrée sur le patient. Son engagement envers les techniques mini-invasives pionnières a transformé les résultats de centaines de patients à travers le monde.",
+      "cta": "Découvrir son expérience"
+    },
+    "career": {
+      "eyebrow": "Un parcours forgé par l'expérience",
+      "title": "Parcours professionnel",
+      "items": {
+        "leadTransplantSurgeon": { "period": "01 | 2020 - Aujourd'hui", "role": "Chirurgien principal en transplantation", "place": "Dr. Liver Medical Center" },
+        "consultantHepatobiliarySurgeon": { "period": "02 | 2012 - 2020", "role": "Consultant en chirurgie hépatobiliaire", "place": "Institut de chirurgie avancée" },
+        "seniorSurgicalFellow": { "period": "03 | 2008 - 2012", "role": "Chirurgien assistant senior", "place": "Académie mondiale de transplantation" },
+        "surgicalResidency": { "period": "04 | 2005 - 2008", "role": "Internat en chirurgie", "place": "Hôpital universitaire central" }
+      }
+    },
+    "conferences": {
+      "eyebrow": "Le savoir au-delà du bloc opératoire",
+      "title": "Congrès scientifiques",
+      "popupBody": "Faits marquants de la présentation et du symposium de ce prestigieux rassemblement médical. Le Dr Abdelwahid y a partagé des perspectives novatrices sur les techniques chirurgicales mini-invasives, aux côtés d'experts internationaux, afin de faire progresser la chirurgie hépatobiliaire.",
+      "viewFullGallery": "Voir la galerie complète",
+      "items": {
+        "globalHealthInnovations": { "title": "Congrès mondial des innovations en santé", "location": "Londres, Royaume-Uni | 2023" },
+        "advancesInNeuroscience": { "title": "Avancées en neurosciences", "location": "Berlin, Allemagne | 2024" },
+        "globalInnovationsInSurgery": { "title": "Innovations mondiales en chirurgie", "location": "New York, États-Unis | 2022" },
+        "advancedMedicineSummit": { "title": "Sommet de la médecine avancée", "location": "Tokyo, Japon | 2021" }
+      }
+    },
+    "philosophy": {
+      "eyebrow": "La philosophie des soins",
+      "title": "Un mot du docteur",
+      "ghostWord1": "Comprendre",
+      "ghostWord2": "Précision",
+      "ghostWord3": "Confiance",
+      "label": "Mon approche des soins aux patients",
+      "quote": "Chaque patient est bien plus qu'un diagnostic. La bonne décision commence par la compréhension de toute son histoire — puis par le choix du chemin le plus sûr et le plus précis à suivre.",
+      "name": "Dr Mohamed Samy Abdelwahid",
+      "role": "Consultant en chirurgie hépatobiliaire et transplantation hépatique"
+    },
+    "cta": {
+      "eyebrow": "Votre prochaine étape",
+      "titleLine1": "Prêt à franchir la",
+      "titleEmphasis": "prochaine étape",
+      "titleLine2": "en toute confiance ?",
+      "subtitle": "Bénéficiez d'un accompagnement expert et d'une approche personnalisée pour vos soins.",
+      "bookAppointment": "Prendre rendez-vous",
+      "whatsappUs": "Contactez-nous sur WhatsApp"
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "Soins chirurgicaux spécialisés",
+      "titleLine1": "Des soins avancés.",
+      "titleLine2": "Une chirurgie précise.",
+      "titleLine3": "Des décisions personnalisées.",
+      "exploreProcedures": "Découvrir les interventions chirurgicales",
+      "bookAppointment": "Prendre rendez-vous"
+    },
+    "surgicalProcedures": {
+      "title": "Interventions chirurgicales",
+      "subtitle": "Des techniques pionnières en chirurgie hépatobiliaire complexe.",
+      "explore": "Découvrir",
+      "items": {
+        "liverTransplantation": { "title": "Transplantation hépatique", "desc": "Transplantation hépatique avancée à partir de donneurs vivants et décédés." },
+        "whippleProcedure": { "title": "Procédure de Whipple", "desc": "Duodénopancréatectomie complexe pour le traitement des tumeurs." },
+        "liverResection": { "title": "Résection hépatique", "desc": "Ablation chirurgicale précise de sections du foie pour diverses affections." },
+        "liverTumorSurgery": { "title": "Chirurgie des tumeurs hépatiques", "desc": "Interventions chirurgicales ciblées pour les tumeurs hépatiques bénignes et malignes." },
+        "pancreaticSurgery": { "title": "Chirurgie du pancréas", "desc": "Prise en charge chirurgicale complète des maladies du pancréas." },
+        "biliaryTractSurgery": { "title": "Chirurgie des voies biliaires", "desc": "Interventions avancées pour les troubles complexes des voies biliaires." },
+        "complexGallbladder": { "title": "Vésicule biliaire complexe", "desc": "Chirurgie spécialisée pour les affections difficiles de la vésicule biliaire." },
+        "advHepatobiliary": { "title": "Chirurgie hépatobiliaire avancée", "desc": "Approches chirurgicales de pointe pour les maladies des systèmes interconnectés." }
+      }
+    },
+    "specializedTreatments": {
+      "title": "Traitements spécialisés",
+      "subtitle": "Des thérapies ciblées pour les affections oncologiques et fonctionnelles complexes.",
+      "items": {
+        "liverTumors": { "title": "Tumeurs hépatiques", "desc": "Prise en charge complète des tumeurs hépatiques primaires et métastatiques." },
+        "liverCancer": { "title": "Cancer du foie", "desc": "Traitements oncologiques avancés pour le carcinome hépatocellulaire." },
+        "pancreaticCancer": { "title": "Cancer du pancréas", "desc": "Approche chirurgicale multidisciplinaire pour les tumeurs malignes du pancréas." },
+        "bileDuctTumors": { "title": "Tumeurs des voies biliaires", "desc": "Interventions spécialisées pour le cholangiocarcinome et les tumeurs associées." },
+        "pancreaticTumors": { "title": "Tumeurs du pancréas", "desc": "Prise en charge experte des néoplasmes pancréatiques bénins et malins." },
+        "gallbladderTumors": { "title": "Tumeurs de la vésicule biliaire", "desc": "Techniques chirurgicales de précision pour les cancers et masses de la vésicule biliaire." },
+        "complexLiverDiseases": { "title": "Maladies hépatiques complexes", "desc": "Prise en charge avancée des affections hépatiques sévères non malignes." },
+        "hepatobiliaryConditions": { "title": "Affections hépatobiliaires", "desc": "Soins chirurgicaux globaux pour les troubles interconnectés du système." }
+      }
+    },
+    "cta": {
+      "titleLine1": "Chaque cas commence",
+      "titleLine2": "par la bonne décision.",
+      "option1": "J'ai un diagnostic",
+      "option2": "J'ai besoin d'un second avis",
+      "option3": "Je veux réserver"
+    }
+  },
+  "reviews": {
+    "hero": {
+      "badge": "Des expériences réelles. Une confiance réelle.",
+      "title": "Des histoires qui parlent d'elles-mêmes.",
+      "subtitle": "Des expériences réelles de patients qui ont confié leurs soins au Dr Mohamed Samy Abdelwahid.",
+      "bookAppointment": "Prendre rendez-vous",
+      "contactUs": "Contactez-nous"
+    },
+    "gallery": {
+      "eyebrow": "Expériences des patients",
+      "title": "Avis des patients",
+      "verifiedPatient": "Patient vérifié",
+      "loadMore": "Voir plus de témoignages",
+      "items": {
+        "ahmedHassan": { "tag": "Transplantation hépatique", "quote": "Le niveau de soin et de précision était extraordinaire. Je me suis senti en parfaite sécurité entre les mains du Dr Samy. Une expérience qui m'a vraiment sauvé la vie.", "name": "Ahmed Hassan" },
+        "sarahM": { "tag": "Résection complexe", "quote": "Ma famille et moi sommes éternellement reconnaissants. L'établissement donne l'impression d'entrer dans le futur de la médecine.", "name": "Sarah M." },
+        "tarekE": { "tag": "Chirurgie du donneur", "quote": "L'approche technologique et la chaleur humaine ont rendu un processus terrifiant beaucoup plus gérable.", "name": "Tarek E." },
+        "omarR": { "tag": "Consultation", "quote": "Une expertise inégalée. J'ai voyagé depuis Dubaï spécialement pour consulter l'équipe du Dr Samy.", "name": "Omar R." },
+        "lailaK": { "tag": "Soins biliaires", "quote": "L'attention portée aux détails lors de mon traitement biliaire était de classe mondiale. Je me suis sentie prioritaire à chaque étape de ma convalescence.", "name": "Laila K." },
+        "hassanB": { "tag": "Résection hépatique", "quote": "La précision chirurgicale du Dr Samy est légendaire, et à juste titre. Ma résection a été un succès qui a dépassé mes attentes les plus élevées.", "name": "Hassan B." },
+        "monicaG": { "tag": "Chirurgie du pancréas", "quote": "Une intervention complexe rendue simple par une équipe d'experts. Les soins post-opératoires ont été attentionnés et complets.", "name": "Monica G." },
+        "jamesW": { "tag": "Oncologie complexe", "quote": "Faire face à un diagnostic de cancer est éprouvant, mais l'excellence clinique ici m'a donné la confiance nécessaire pour me battre et gagner.", "name": "James W." },
+        "fatmaA": { "tag": "Soins hépatobiliaires", "quote": "La technologie médicale la plus avancée alliée à une profonde humanité. Je n'aurais pas pu espérer de meilleurs soins.", "name": "Fatma A." },
+        "robertS": { "tag": "Transplantation hépatique", "quote": "Une seconde chance de vivre. L'expertise de l'équipe de transplantation n'a d'égale que son dévouement aux résultats des patients.", "name": "Robert S." },
+        "chenL": { "tag": "Résection tumorale", "quote": "Précision et attention ont défini mon expérience. Le plan de convalescence était parfaitement adapté à mes besoins et à mon mode de vie.", "name": "Chen L." },
+        "davidM": { "tag": "Chirurgie de la vésicule biliaire", "quote": "Efficace, professionnel et hautement qualifié. J'étais de nouveau sur pied bien plus tôt que prévu grâce au Dr Samy.", "name": "David M." }
+      }
+    },
+    "cta": {
+      "eyebrow": "Votre histoire commence ici",
+      "title": "Prêt à franchir la prochaine étape ?",
+      "subtitle": "Obtenez l'accompagnement dont vous avez besoin et commencez votre parcours de soins en toute confiance.",
+      "bookAppointment": "Prendre rendez-vous",
+      "whatsappUs": "Contactez-nous sur WhatsApp"
+    }
+  },
+  "videos": {
+    "hero": {
+      "badge": "Regards médicaux",
+      "titleLine1": "Regarder. Apprendre.",
+      "titleLine2": "Comprendre.",
+      "subtitle": "Un contenu médical éducatif consacré à la santé du foie et à l'excellence chirurgicale. Explorez notre bibliothèque pour mieux comprendre votre parcours.",
+      "watchLatest": "Voir les dernières vidéos",
+      "bookAppointment": "Prendre rendez-vous"
+    },
+    "grid": {
+      "eyebrow": "Derniers contenus médicaux",
+      "title": "Nos vidéos",
+      "items": {
+        "liverRegeneration": { "title": "Comprendre la régénération hépatique", "desc": "Un regard approfondi sur l'étonnante capacité du foie humain à se régénérer après une ablation partielle." },
+        "precisionRoboticSurgery": { "title": "Chirurgie robotique de précision", "desc": "Comment la robotique avancée réduit les risques et améliore les résultats dans les interventions hépatiques complexes." },
+        "patientJourney": { "title": "Le parcours du patient", "desc": "Un guide étape par étape de ce à quoi s'attendre, de la consultation initiale aux soins post-opératoires." },
+        "advancedDiagnostics": { "title": "Diagnostics avancés", "desc": "Découvrez les technologies d'imagerie de pointe utilisées pour tracer des parcours chirurgicaux précis." },
+        "meetTheTeam": { "title": "Rencontrer l'équipe", "desc": "Découvrez les spécialistes de renommée mondiale dévoués à la santé de votre foie et à votre rétablissement." },
+        "postOperativeNutrition": { "title": "Nutrition post-opératoire", "desc": "Des recommandations diététiques essentielles pour une convalescence optimale après une transplantation hépatique." },
+        "immunosuppressionBasics": { "title": "Les bases de l'immunosuppression", "desc": "Comprendre les médicaments nécessaires pour préserver la santé du greffon et prévenir le rejet." },
+        "lifeAfterTransplant": { "title": "La vie après la transplantation", "desc": "Des témoignages réels et des conseils pratiques pour préserver votre santé et votre bien-être sur le long terme." },
+        "internationalPatientCare": { "title": "Prise en charge des patients internationaux", "desc": "Notre système de soutien complet pour les patients venant de l'étranger pour des soins spécialisés." }
+      }
+    },
+    "cta": {
+      "badge": "Le chemin de la vidéo",
+      "title": "De l'information à la bonne décision.",
+      "bookAppointment": "Prendre rendez-vous",
+      "whatsappUs": "Contactez-nous sur WhatsApp"
+    },
+    "modal": {
+      "loading": "Chargement du lecteur vidéo..."
+    }
+  },
+  "articles": {
+    "hero": {
+      "title": "Des informations pour mieux comprendre votre santé.",
+      "subtitle": "Un savoir médical fiable du Dr Mohamed Samy Abdelwahid.",
+      "exploreArticles": "Découvrir les articles",
+      "bookAppointment": "Prendre rendez-vous"
+    },
+    "intro": {
+      "title": "Articles médicaux"
+    },
+    "featured": {
+      "badge": "À la une / 01",
+      "tag": "Recherche avancée",
+      "title": "Révolutionner la transplantation hépatique",
+      "desc": "Un regard approfondi sur la façon dont la modélisation 3D haute fidélité et les simulations en verre liquide transforment la précision chirurgicale.",
+      "cta": "Lire l'histoire complète",
+      "bgWord": "Foie"
+    },
+    "grid": {
+      "items": {
+        "understandingYourLiver": { "tag": "Sensibilisation des patients", "title": "Comprendre votre foie : le guide du patient" },
+        "biliaryTreeMapping": { "tag": "Excellence chirurgicale", "title": "Cartographie de l'arbre biliaire : la précision dans la complexité" },
+        "roadToRecovery": { "tag": "Parcours du patient", "title": "Le chemin de la guérison : la vie après la transplantation" },
+        "roboticAssistance": { "tag": "Technologies", "title": "L'assistance robotique en chirurgie hépatobiliaire moderne" },
+        "advancedSterilization": { "tag": "Soins cliniques", "title": "Stérilisation avancée : la sécurité à chaque étape" },
+        "scientificConferences": { "tag": "Recherche", "title": "Congrès scientifiques : à la pointe de l'innovation mondiale" },
+        "multidisciplinaryCare": { "tag": "Expertise", "title": "Soins multidisciplinaires : pourquoi l'équipe compte" },
+        "futureOfHepatology": { "tag": "Savoir", "title": "L'avenir de l'hépatologie : une vision d'avenir" }
+      }
+    },
+    "cta": {
+      "label": "La question du verre",
+      "titleLine1": "Le savoir est la première étape.",
+      "titleLine2": "Le bon accompagnement est la suivante.",
+      "cta": "Planifier une consultation"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "Nous sommes là pour vous aider",
+      "title": "Entamons la conversation.",
+      "subtitle": "Que vous soyez à proximité ou que vous nous contactiez depuis l'étranger, notre équipe est prête à vous accompagner.",
+      "sendInquiry": "Envoyer votre demande",
+      "whatsappUs": "Contactez-nous sur WhatsApp"
+    },
+    "connect": {
+      "title": "Contactez notre équipe",
+      "viewLocation": "Voir l'emplacement",
+      "address": { "label": "Adresse", "value": "123 Clinical Axis Blvd, Quartier médical, Le Caire, Égypte" },
+      "workingHours": { "label": "Horaires d'ouverture", "value": "Dim - Jeu : 9h00 - 18h00", "value2": "Ven - Sam : Fermé" },
+      "phone": { "label": "Téléphone", "value": "+20 123 456 7890" },
+      "email": { "label": "E-mail", "value": "care@livercareelite.com" },
+      "internationalNote": {
+        "title": "Assistance aux patients internationaux",
+        "body": "Vous venez de l'étranger ? Merci d'utiliser le formulaire pour transmettre votre dossier médical avant votre voyage afin d'obtenir une consultation préliminaire."
+      }
+    },
+    "form": {
+      "title": "Demande des patients internationaux",
+      "fullName": "Nom complet",
+      "fullNamePlaceholder": "Jean Dupont",
+      "phone": "Téléphone",
+      "phonePlaceholder": "555-0123",
+      "code": "Indicatif",
+      "countryOfResidence": "Pays de résidence",
+      "selectCountry": "Sélectionner un pays",
+      "stateProvince": "État/Province",
+      "selectStateProvince": "Sélectionner un état/une province",
+      "enterManually": "Saisir manuellement...",
+      "procedureInterest": "Intervention/service souhaité",
+      "selectProcedure": "Sélectionner une intervention",
+      "procedures": {
+        "liverTransplantEvaluation": "Évaluation pour transplantation hépatique",
+        "hepatobiliarySurgery": "Chirurgie hépatobiliaire",
+        "secondOpinion": "Second avis",
+        "generalConsultation": "Consultation générale"
+      },
+      "medicalNotes": "Notes médicales",
+      "medicalNotesPlaceholder": "Décrivez brièvement votre état ou votre demande...",
+      "uploadVault": "Coffre-fort de documents médicaux",
+      "uploadDragDrop": "Glissez-déposez vos fichiers ici, ou",
+      "uploadBrowse": "parcourir",
+      "uploadSupports": "Formats PDF, JPG, DICOM acceptés (50 Mo max.)",
+      "sampleFileName": "lab_results_2023.pdf",
+      "sendViaEmail": "Envoyer par e-mail",
+      "whatsapp": "WhatsApp",
+      "countries": {
+        "EG": "Égypte",
+        "AE": "Émirats arabes unis",
+        "SA": "Arabie saoudite",
+        "US": "États-Unis",
+        "GB": "Royaume-Uni",
+        "FR": "France",
+        "DE": "Allemagne",
+        "IN": "Inde",
+        "NG": "Nigeria",
+        "ZA": "Afrique du Sud",
+        "AU": "Australie",
+        "JP": "Japon",
+        "CN": "Chine",
+        "BR": "Brésil",
+        "CA": "Canada"
+      }
+    },
+    "cta": {
+      "label": "Besoin d'aide rapidement ?",
+      "title": "Parlez directement à notre équipe.",
+      "callTheClinic": "Appeler la clinique",
+      "whatsappUs": "Contactez-nous sur WhatsApp"
+    }
+  }
+}

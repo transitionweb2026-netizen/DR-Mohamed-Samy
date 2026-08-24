@@ -13,6 +13,39 @@ body {
 }
 
 /*
+ * Font indirection for the Arabic locale. tailwind.config.ts's font-*
+ * tokens reference --font-heading/-body/-label instead of the raw
+ * next/font variables. Anton / Archivo Narrow / Be Vietnam Pro carry no
+ * Arabic glyphs, so on <html lang="ar"> these are repointed to Cairo and
+ * Tajawal (loaded in the locale layout) -- every existing font-* className
+ * in the app keeps working unchanged, English and French are unaffected.
+ */
+:root {
+  --font-heading: var(--font-anton);
+  --font-body: var(--font-archivo-narrow);
+  --font-label: var(--font-be-vietnam-pro);
+}
+
+html[lang="ar"] {
+  --font-heading: var(--font-cairo);
+  --font-body: var(--font-tajawal);
+  --font-label: var(--font-tajawal);
+}
+
+/*
+ * A handful of icons are purely directional (e.g. "continue"/"next"
+ * arrows) and should visually point the other way in RTL, per the
+ * "reverse only truly directional UI, never medical/brand icons" rule.
+ * Applied selectively in JSX, not globally.
+ */
+.icon-rtl-flip {
+  display: inline-block;
+}
+[dir="rtl"] .icon-rtl-flip {
+  transform: scaleX(-1);
+}
+
+/*
  * Required for the Material Symbols icon font to actually render as icons
  * instead of literal text (e.g. "calendar_month" showing as a word). None
  * of the source pages' exported HTML included this rule even though every

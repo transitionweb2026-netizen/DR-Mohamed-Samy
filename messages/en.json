@@ -1,0 +1,712 @@
+{
+  "meta": {
+    "siteName": "Lumina Liver Care",
+    "titleTemplate": "%s | Lumina Liver Care",
+    "home": {
+      "title": "Lumina Liver Care - Dr. Mohamed Samy Abdelwahid",
+      "description": "Consultant Hepatobiliary & Liver Transplant Surgeon - advanced liver surgery, transplantation and treatment."
+    },
+    "about": {
+      "title": "About the Doctor",
+      "description": "Meet Dr. Mohamed Samy Abdelwahid, Consultant Hepatobiliary & Liver Transplant Surgeon - credentials, career journey and philosophy of care."
+    },
+    "services": {
+      "title": "Services",
+      "description": "Advanced surgical procedures and specialized treatments in hepatobiliary and liver transplant care."
+    },
+    "reviews": {
+      "title": "Patient Reviews",
+      "description": "Real experiences from patients who trusted their care to Dr. Mohamed Samy Abdelwahid."
+    },
+    "videos": {
+      "title": "Videos",
+      "description": "Educational medical videos on liver health, surgery and patient care."
+    },
+    "articles": {
+      "title": "Articles",
+      "description": "Trusted medical knowledge and articles from Dr. Mohamed Samy Abdelwahid."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with Lumina Liver Care - book an appointment or send an international patient inquiry."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Doctor",
+    "services": "Services",
+    "reviews": "Testimonials",
+    "videos": "Videos",
+    "articles": "Articles",
+    "contact": "Contact Us"
+  },
+  "languageSwitcher": {
+    "label": "Select language",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français"
+  },
+  "footer": {
+    "tagline": "© 2024 Lumina Liver Transplantation. Precision Surgery. Lifesaving Care.",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy",
+    "medicalEthics": "Medical Ethics",
+    "careers": "Careers"
+  },
+  "common": {
+    "brand": "Lumina Liver Care",
+    "bookAppointment": "Book an Appointment",
+    "contactUs": "Contact Us",
+    "whatsappUs": "WhatsApp Us",
+    "callTheClinic": "Call the Clinic",
+    "readArticle": "Read Article"
+  },
+  "home": {
+    "hero": {
+      "title": "Liver Transplant: Renewed Hope",
+      "subtitle": "We offer the latest technologies and the highest levels of medical care in advanced liver surgery, restoring your health and normal life with confidence and safety.",
+      "bookAppointment": "Book Appointment",
+      "watchVideos": "Watch Videos"
+    },
+    "stats": {
+      "yearsExperience": "Years of Experience",
+      "successRate": "Success Rate",
+      "recoveredPatients": "Recovered Patients",
+      "successfulSurgeries": "Successful Surgeries",
+      "specializedCenters": "Specialized Centers"
+    },
+    "meetDoctor": {
+      "eyebrow": "Excellence in Surgery",
+      "title": "Meet the Doctor",
+      "imageAlt": "Dr. Mohamed Samy Abdelwahid in a professional medical setting, conveying expertise and compassion.",
+      "name": "Dr. Mohamed Samy Abdelwahid",
+      "role": "Consultant of Liver Transplantation & Hepatobiliary Surgery",
+      "bio": "With over two decades of pioneering work in complex hepatobiliary procedures, Dr. Abdelwahid has dedicated his career to the art of life-saving surgery. His approach combines surgical precision with a deep commitment to patient-centered care, ensuring that every individual receives a tailored path toward recovery and renewed vitality.",
+      "cta": "Discover His Journey"
+    },
+    "majorSurgeries": {
+      "eyebrow": "Advanced Surgical Excellence",
+      "title": "Major Surgeries",
+      "cta": "Explore All Surgical Services",
+      "items": {
+        "liverTransplant": {
+          "title": "Liver Transplant",
+          "desc": "Advanced transplant care for patients with end-stage liver disease."
+        },
+        "liverSurgery": {
+          "title": "Liver Surgery",
+          "desc": "Precision surgical treatment for complex liver tumors and conditions."
+        },
+        "pancreaticSurgery": {
+          "title": "Pancreatic Surgery",
+          "desc": "Specialized surgical care for pancreatic tumors and complex disorders."
+        },
+        "biliaryGallbladder": {
+          "title": "Biliary & Gallbladder",
+          "desc": "Advanced treatment for gallbladder and biliary tract conditions."
+        }
+      }
+    },
+    "majorTreatments": {
+      "eyebrow": "Advanced Care & Specialized Treatments",
+      "title": "Major Treatments",
+      "cta": "Explore All Treatments",
+      "items": {
+        "advancedCirrhosis": {
+          "title": "Advanced Cirrhosis",
+          "desc": "Comprehensive management and regenerative therapies for advanced liver fibrosis and cirrhosis."
+        },
+        "liverTumors": {
+          "title": "Liver Tumors",
+          "desc": "Precision-targeted treatments for benign and malignant liver lesions using advanced medical technology."
+        },
+        "biliaryObstructions": {
+          "title": "Biliary Obstructions",
+          "desc": "Specialist care for complex bile duct blockages, ensuring restored function and patient health."
+        },
+        "metabolicLiverDisease": {
+          "title": "Metabolic Liver Disease",
+          "desc": "Expert diagnosis and treatment plans for fatty liver disease and other metabolic hepatic conditions."
+        }
+      }
+    },
+    "patientStories": {
+      "eyebrow": "Trust Built Through Experience",
+      "title": "Patient Stories",
+      "subtitle": "Real experiences. Real care. Real trust.",
+      "cta": "View More Patient Stories",
+      "items": {
+        "sarahJohnson": {
+          "quote": "The care I received was beyond exceptional. Dr. Samy and his team gave me a second chance at life.",
+          "name": "Sarah Johnson",
+          "tag": "Liver Transplant"
+        },
+        "michaelChen": {
+          "quote": "Professionalism and empathy at its peak. The surgical precision here is world-class.",
+          "name": "Michael Chen",
+          "tag": "Biliary Surgery"
+        },
+        "ahmedHassan": {
+          "quote": "I felt safe and informed throughout the entire process. Truly a center of excellence.",
+          "name": "Ahmed Hassan",
+          "tag": "Liver Tumor Treatment"
+        },
+        "elenaRodriguez": {
+          "quote": "The recovery was faster than I expected. The medical team is incredibly attentive.",
+          "name": "Elena Rodriguez",
+          "tag": "Pancreatic Surgery"
+        },
+        "robertTaylor": {
+          "quote": "A life-changing experience. I am forever grateful for the expertise of Dr. Abdelwahid.",
+          "name": "Robert Taylor",
+          "tag": "Cirrhosis Management"
+        },
+        "fatimaAlSayed": {
+          "quote": "The most advanced medical facility I have ever visited. Highly recommended.",
+          "name": "Fatima Al-Sayed",
+          "tag": "Metabolic Liver Care"
+        }
+      }
+    },
+    "whyUs": {
+      "eyebrow": "Experience You Can Trust",
+      "title": "Why Dr. Mohamed Samy Abdelwahid?",
+      "portraitName": "Dr. M. Samy Abdelwahid",
+      "portraitRole": "Lead Consultant",
+      "cta": "Discover His Journey",
+      "reasonTitle": "Specialized Expertise",
+      "reasonDesc": "Decades of focused experience in complex hepatobiliary surgeries and advanced transplant procedures."
+    },
+    "videos": {
+      "eyebrow": "Latest Videos",
+      "title": "Watch. Learn. Understand.",
+      "cta": "View All Videos",
+      "items": {
+        "liverTransplantProcess": { "tag": "Surgery", "title": "Liver Transplant Process" },
+        "patientJourney": { "tag": "Care", "title": "Patient Journey" },
+        "advancedRobotics": { "tag": "Tech", "title": "Advanced Robotics" }
+      }
+    },
+    "insights": {
+      "eyebrow": "Insights & Answers",
+      "title": "Know More. Feel More Confident.",
+      "articlesCta": "Explore All Articles",
+      "articles": {
+        "postSurgeryNutrition": "Post-Surgery Nutrition Guide",
+        "liverRegeneration": "Understanding Liver Regeneration",
+        "roboticSurgeryBenefits": "Robotic Surgery Benefits",
+        "livingDonorInformation": "Living Donor Information"
+      },
+      "faq": {
+        "recovery": {
+          "q": "How long is the recovery period?",
+          "a": "Recovery varies by procedure, but most patients return to light activities within 4-6 weeks."
+        },
+        "successRates": {
+          "q": "What are the success rates?",
+          "a": "Our center maintains a 98% success rate for complex hepatobiliary surgeries."
+        },
+        "roboticSurgery": {
+          "q": "Is robotic surgery available?",
+          "a": "Yes, we utilize the latest Da Vinci robotic systems for minimally invasive procedures."
+        },
+        "internationalPatients": {
+          "q": "Do you accept international patients?",
+          "a": "We have a dedicated international patient department to assist with travel and care."
+        },
+        "insurance": {
+          "q": "What insurance plans are accepted?",
+          "a": "We work with most major international and local insurance providers."
+        },
+        "scheduleConsultation": {
+          "q": "How do I schedule a consultation?",
+          "a": "You can schedule a consultation by clicking the \"Book Appointment\" button or contacting us directly via phone or WhatsApp."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Your Health Deserves the Right Expertise",
+      "title": "Let's Take the Next Step Together.",
+      "subtitle": "Book your consultation and get the expert guidance you need.",
+      "bookAppointment": "Book Your Appointment",
+      "whatsappUs": "Whatsapp Us",
+      "phone": "+20 XXX XXX XXXX"
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "Pioneering Liver Surgery",
+      "titleLine1": "Dr. Mohamed Samy",
+      "titleLine2": "Abdelwahid",
+      "subtitle": "Consultant Hepatobiliary & Liver Transplant Surgeon",
+      "bookAppointment": "Book an Appointment",
+      "watchVideos": "Watch His Videos",
+      "connect": "Connect:"
+    },
+    "meetDoctor": {
+      "eyebrow": "Behind the White Coat",
+      "title": "Meet Dr. Mohamed Samy Abdelwahid",
+      "name": "Dr. Mohamed Samy Abdelwahid",
+      "role": "Consultant Hepatobiliary & Liver Transplant Surgeon",
+      "bio": "With over two decades of specialized experience in complex liver surgeries and transplants, Dr. Abdelwahid combines surgical precision with a compassionate, patient-centered approach. His commitment to pioneering minimally invasive techniques has transformed outcomes for hundreds of patients worldwide.",
+      "cta": "Discover His Experience"
+    },
+    "career": {
+      "eyebrow": "A Journey Built on Experience",
+      "title": "Career Journey",
+      "items": {
+        "leadTransplantSurgeon": {
+          "period": "01 | 2020 - Present",
+          "role": "Lead Transplant Surgeon",
+          "place": "Dr. Liver Medical Center"
+        },
+        "consultantHepatobiliarySurgeon": {
+          "period": "02 | 2012 - 2020",
+          "role": "Consultant Hepatobiliary Surgeon",
+          "place": "Advanced Surgical Institute"
+        },
+        "seniorSurgicalFellow": {
+          "period": "03 | 2008 - 2012",
+          "role": "Senior Surgical Fellow",
+          "place": "Global Transplant Academy"
+        },
+        "surgicalResidency": {
+          "period": "04 | 2005 - 2008",
+          "role": "Surgical Residency",
+          "place": "Central University Hospital"
+        }
+      }
+    },
+    "conferences": {
+      "eyebrow": "Knowledge Beyond the Operating Room",
+      "title": "Scientific Conferences",
+      "popupBody": "Detailed presentation and symposium highlights from this prestigious medical gathering. Dr. Abdelwahid shared groundbreaking insights on minimally invasive surgical techniques, engaging with global experts to advance the field of hepatobiliary surgery.",
+      "viewFullGallery": "View Full Gallery",
+      "items": {
+        "globalHealthInnovations": {
+          "title": "Global Health Innovations Congress",
+          "location": "London, UK | 2023"
+        },
+        "advancesInNeuroscience": {
+          "title": "Advances in Neuroscience",
+          "location": "Berlin, Germany | 2024"
+        },
+        "globalInnovationsInSurgery": {
+          "title": "Global Innovations in Surgery",
+          "location": "New York, USA | 2022"
+        },
+        "advancedMedicineSummit": {
+          "title": "Advanced Medicine Summit",
+          "location": "Tokyo, Japan | 2021"
+        }
+      }
+    },
+    "philosophy": {
+      "eyebrow": "The Philosophy Behind the Care",
+      "title": "A Word From the Doctor",
+      "ghostWord1": "Understanding",
+      "ghostWord2": "Precision",
+      "ghostWord3": "Trust",
+      "label": "My Approach to Patient Care",
+      "quote": "Every patient is more than a diagnosis. The right decision begins with understanding the whole story — then choosing the safest, most precise path forward.",
+      "name": "Dr. Mohamed Samy Abdelwahid",
+      "role": "Consultant Hepatobiliary & Liver Transplant Surgeon"
+    },
+    "cta": {
+      "eyebrow": "Your Next Step",
+      "titleLine1": "Ready to Take the",
+      "titleEmphasis": "Next Step",
+      "titleLine2": "With Confidence?",
+      "subtitle": "Get expert guidance and a personalized approach to your care.",
+      "bookAppointment": "Book an Appointment",
+      "whatsappUs": "Whatsapp Us"
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "Specialized Surgical Care",
+      "titleLine1": "Advanced Care.",
+      "titleLine2": "Precise Surgery.",
+      "titleLine3": "Personalized Decisions.",
+      "exploreProcedures": "Explore Surgical Procedures",
+      "bookAppointment": "Book an Appointment"
+    },
+    "surgicalProcedures": {
+      "title": "Surgical Procedures",
+      "subtitle": "Pioneering techniques in complex hepatobiliary surgery.",
+      "explore": "Explore",
+      "items": {
+        "liverTransplantation": {
+          "title": "Liver Transplantation",
+          "desc": "Advanced living and deceased donor liver transplantation."
+        },
+        "whippleProcedure": {
+          "title": "Whipple Procedure",
+          "desc": "Complex pancreaticoduodenectomy for tumors."
+        },
+        "liverResection": {
+          "title": "Liver Resection",
+          "desc": "Precise surgical removal of liver sections for various conditions."
+        },
+        "liverTumorSurgery": {
+          "title": "Liver Tumor Surgery",
+          "desc": "Targeted surgical interventions for benign and malignant liver tumors."
+        },
+        "pancreaticSurgery": {
+          "title": "Pancreatic Surgery",
+          "desc": "Comprehensive surgical management of pancreatic diseases."
+        },
+        "biliaryTractSurgery": {
+          "title": "Biliary Tract Surgery",
+          "desc": "Advanced interventions for complex biliary tract disorders."
+        },
+        "complexGallbladder": {
+          "title": "Complex Gallbladder",
+          "desc": "Specialized surgery for challenging gallbladder conditions."
+        },
+        "advHepatobiliary": {
+          "title": "Adv. Hepatobiliary",
+          "desc": "Cutting-edge surgical approaches for integrated system diseases."
+        }
+      }
+    },
+    "specializedTreatments": {
+      "title": "Specialized Treatments",
+      "subtitle": "Targeted therapies for complex oncological and functional conditions.",
+      "items": {
+        "liverTumors": {
+          "title": "Liver Tumors",
+          "desc": "Comprehensive management of primary and metastatic liver tumors."
+        },
+        "liverCancer": {
+          "title": "Liver Cancer",
+          "desc": "Advanced oncological treatments for hepatocellular carcinoma."
+        },
+        "pancreaticCancer": {
+          "title": "Pancreatic Cancer",
+          "desc": "Multidisciplinary surgical approach for pancreatic malignancies."
+        },
+        "bileDuctTumors": {
+          "title": "Bile Duct Tumors",
+          "desc": "Specialized interventions for cholangiocarcinoma and related tumors."
+        },
+        "pancreaticTumors": {
+          "title": "Pancreatic Tumors",
+          "desc": "Expert care for benign and malignant pancreatic neoplasms."
+        },
+        "gallbladderTumors": {
+          "title": "Gallbladder Tumors",
+          "desc": "Precision surgical techniques for gallbladder cancers and masses."
+        },
+        "complexLiverDiseases": {
+          "title": "Complex Liver Diseases",
+          "desc": "Advanced management of non-malignant but severe liver conditions."
+        },
+        "hepatobiliaryConditions": {
+          "title": "Hepatobiliary Conditions",
+          "desc": "Holistic surgical care for interrelated system disorders."
+        }
+      }
+    },
+    "cta": {
+      "titleLine1": "Every Case Starts With",
+      "titleLine2": "the Right Decision.",
+      "option1": "I Have a Diagnosis",
+      "option2": "I Need a Second Opinion",
+      "option3": "I Want to Book"
+    }
+  },
+  "reviews": {
+    "hero": {
+      "badge": "Real Experiences. Real Trust.",
+      "title": "Stories That Speak for Themselves.",
+      "subtitle": "Real experiences from patients who trusted their care to Dr. Mohamed Samy Abdelwahid.",
+      "bookAppointment": "Book an Appointment",
+      "contactUs": "Contact Us"
+    },
+    "gallery": {
+      "eyebrow": "Patient Experiences",
+      "title": "Patient Reviews",
+      "verifiedPatient": "Verified Patient",
+      "loadMore": "Load More Stories",
+      "items": {
+        "ahmedHassan": {
+          "tag": "Liver Transplant",
+          "quote": "The level of care and precision was extraordinary. I felt completely safe in Dr. Samy's hands. A truly life-saving experience.",
+          "name": "Ahmed Hassan"
+        },
+        "sarahM": {
+          "tag": "Complex Resection",
+          "quote": "My family and I are forever grateful. The facility is like stepping into the future of medicine.",
+          "name": "Sarah M."
+        },
+        "tarekE": {
+          "tag": "Donor Surgery",
+          "quote": "The technological approach and the warm human touch made a terrifying process feel manageable.",
+          "name": "Tarek E."
+        },
+        "omarR": {
+          "tag": "Consultation",
+          "quote": "Unmatched expertise. I travelled from Dubai just to consult with Dr. Samy's team.",
+          "name": "Omar R."
+        },
+        "lailaK": {
+          "tag": "Biliary Care",
+          "quote": "The attention to detail in my biliary treatment was world-class. I felt like a priority at every stage of my recovery.",
+          "name": "Laila K."
+        },
+        "hassanB": {
+          "tag": "Liver Resection",
+          "quote": "Dr. Samy's surgical precision is legendary for a reason. My resection was successful beyond my highest expectations.",
+          "name": "Hassan B."
+        },
+        "monicaG": {
+          "tag": "Pancreatic Surgery",
+          "quote": "A complex procedure made simple by a team of experts. The post-operative care was compassionate and thorough.",
+          "name": "Monica G."
+        },
+        "jamesW": {
+          "tag": "Complex Oncology",
+          "quote": "Navigating a cancer diagnosis is daunting, but the clinical excellence here gave me the confidence to fight and win.",
+          "name": "James W."
+        },
+        "fatmaA": {
+          "tag": "Hepatobiliary Care",
+          "quote": "The most advanced medical technology paired with a deeply human touch. I couldn't have asked for better care.",
+          "name": "Fatma A."
+        },
+        "robertS": {
+          "tag": "Liver Transplant",
+          "quote": "A second chance at life. The transplant team's expertise is matched only by their dedication to patient outcomes.",
+          "name": "Robert S."
+        },
+        "chenL": {
+          "tag": "Tumor Resection",
+          "quote": "Precision and care defined my experience. The recovery plan was tailored perfectly to my needs and lifestyle.",
+          "name": "Chen L."
+        },
+        "davidM": {
+          "tag": "Gallbladder Surgery",
+          "quote": "Efficient, professional, and highly skilled. I was back on my feet much sooner than I expected thanks to Dr. Samy.",
+          "name": "David M."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Your Story Starts Here",
+      "title": "Ready to Take the Next Step?",
+      "subtitle": "Get the guidance you need and start your care journey with confidence.",
+      "bookAppointment": "Book an Appointment",
+      "whatsappUs": "WhatsApp Us"
+    }
+  },
+  "videos": {
+    "hero": {
+      "badge": "Medical Insights",
+      "titleLine1": "Watch. Learn.",
+      "titleLine2": "Understand.",
+      "subtitle": "Educational medical content focused on liver health and surgical excellence. Explore our library to understand your journey better.",
+      "watchLatest": "Watch Latest Videos",
+      "bookAppointment": "Book an Appointment"
+    },
+    "grid": {
+      "eyebrow": "Latest Medical Content",
+      "title": "Our Videos",
+      "items": {
+        "liverRegeneration": {
+          "title": "Understanding Liver Regeneration",
+          "desc": "A deep dive into the fascinating capacity of the human liver to regenerate after partial removal."
+        },
+        "precisionRoboticSurgery": {
+          "title": "Precision Robotic Surgery",
+          "desc": "How advanced robotics are minimizing risk and improving outcomes in complex hepatic procedures."
+        },
+        "patientJourney": {
+          "title": "The Patient Journey",
+          "desc": "Step-by-step walk-through of what to expect from initial consultation to post-operative care."
+        },
+        "advancedDiagnostics": {
+          "title": "Advanced Diagnostics",
+          "desc": "Exploring the cutting-edge imaging technologies used to map out precise surgical paths."
+        },
+        "meetTheTeam": {
+          "title": "Meet the Team",
+          "desc": "Get to know the world-class specialists dedicated to your liver health and recovery."
+        },
+        "postOperativeNutrition": {
+          "title": "Post-Operative Nutrition",
+          "desc": "Essential dietary guidelines for optimal recovery following liver transplantation surgery."
+        },
+        "immunosuppressionBasics": {
+          "title": "Immunosuppression Basics",
+          "desc": "Understanding the medications required to maintain graft health and prevent rejection."
+        },
+        "lifeAfterTransplant": {
+          "title": "Life After Transplant",
+          "desc": "Real stories and practical advice for navigating long-term health and wellness."
+        },
+        "internationalPatientCare": {
+          "title": "International Patient Care",
+          "desc": "Our comprehensive support system for patients traveling from abroad for specialized care."
+        }
+      }
+    },
+    "cta": {
+      "badge": "The Playback Path",
+      "title": "From Information to the Right Decision.",
+      "bookAppointment": "Book an Appointment",
+      "whatsappUs": "WhatsApp Us"
+    },
+    "modal": {
+      "loading": "Video Player Loading..."
+    }
+  },
+  "articles": {
+    "hero": {
+      "title": "Insights That Help You Understand Your Health.",
+      "subtitle": "Trusted medical knowledge from Dr. Mohamed Samy Abdelwahid.",
+      "exploreArticles": "Explore Articles",
+      "bookAppointment": "Book an Appointment"
+    },
+    "intro": {
+      "title": "Medical Articles"
+    },
+    "featured": {
+      "badge": "Featured / 01",
+      "tag": "Advanced Research",
+      "title": "Revolutionizing Liver Transplantation",
+      "desc": "A deep dive into how high-fidelity 3D modeling and liquid glass simulations are transforming surgical precision.",
+      "cta": "Read the Full Story",
+      "bgWord": "Liver"
+    },
+    "grid": {
+      "items": {
+        "understandingYourLiver": {
+          "tag": "Patient Awareness",
+          "title": "Understanding Your Liver: A Patient's Guide"
+        },
+        "biliaryTreeMapping": {
+          "tag": "Surgical Excellence",
+          "title": "Biliary Tree Mapping: Precision in Complexity"
+        },
+        "roadToRecovery": {
+          "tag": "Patient Journey",
+          "title": "The Road to Recovery: Life After Transplant"
+        },
+        "roboticAssistance": {
+          "tag": "Technologies",
+          "title": "Robotic Assistance in Modern Hepatobiliary Surgery"
+        },
+        "advancedSterilization": {
+          "tag": "Clinical Care",
+          "title": "Advanced Sterilization: Safety in Every Step"
+        },
+        "scientificConferences": {
+          "tag": "Research",
+          "title": "Scientific Conferences: Leading Global Innovation"
+        },
+        "multidisciplinaryCare": {
+          "tag": "Expertise",
+          "title": "Multidisciplinary Care: Why the Team Matters"
+        },
+        "futureOfHepatology": {
+          "tag": "Knowledge",
+          "title": "The Future of Hepatology: A Visionary Outlook"
+        }
+      }
+    },
+    "cta": {
+      "label": "The Glass Question",
+      "titleLine1": "Knowledge Is the First Step.",
+      "titleLine2": "The Right Guidance Is the Next.",
+      "cta": "Schedule a Consultation"
+    }
+  },
+  "contact": {
+    "hero": {
+      "badge": "We're Here to Help",
+      "title": "Let's Start the Conversation.",
+      "subtitle": "Whether you're nearby or contacting us from abroad, our team is ready to guide you.",
+      "sendInquiry": "Send Your Inquiry",
+      "whatsappUs": "WhatsApp Us"
+    },
+    "connect": {
+      "title": "Connect With Our Team",
+      "viewLocation": "View Location",
+      "address": {
+        "label": "Address",
+        "value": "123 Clinical Axis Blvd, Medical District, Cairo, Egypt"
+      },
+      "workingHours": {
+        "label": "Working Hours",
+        "value": "Sun - Thu: 9:00 AM - 6:00 PM",
+        "value2": "Fri - Sat: Closed"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+20 123 456 7890"
+      },
+      "email": {
+        "label": "Email",
+        "value": "care@livercareelite.com"
+      },
+      "internationalNote": {
+        "title": "International Patient Support",
+        "body": "Traveling from abroad? Please use the form to submit your medical records prior to travel for a preliminary consultation."
+      }
+    },
+    "form": {
+      "title": "International Patient Inquiry",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "phone": "Phone",
+      "phonePlaceholder": "555-0123",
+      "code": "Code",
+      "countryOfResidence": "Country of Residence",
+      "selectCountry": "Select Country",
+      "stateProvince": "State/Province",
+      "selectStateProvince": "Select State/Province",
+      "enterManually": "Enter Manually...",
+      "procedureInterest": "Procedure/Service Interest",
+      "selectProcedure": "Select Procedure",
+      "procedures": {
+        "liverTransplantEvaluation": "Liver Transplant Evaluation",
+        "hepatobiliarySurgery": "Hepatobiliary Surgery",
+        "secondOpinion": "Second Opinion",
+        "generalConsultation": "General Consultation"
+      },
+      "medicalNotes": "Medical Notes",
+      "medicalNotesPlaceholder": "Briefly describe your condition or inquiry...",
+      "uploadVault": "Medical Upload Vault",
+      "uploadDragDrop": "Drag & drop files here, or",
+      "uploadBrowse": "browse",
+      "uploadSupports": "Supports PDF, JPG, DICOM (Max 50MB)",
+      "sampleFileName": "lab_results_2023.pdf",
+      "sendViaEmail": "Send via Email",
+      "whatsapp": "WhatsApp",
+      "countries": {
+        "EG": "Egypt",
+        "AE": "United Arab Emirates",
+        "SA": "Saudi Arabia",
+        "US": "United States",
+        "GB": "United Kingdom",
+        "FR": "France",
+        "DE": "Germany",
+        "IN": "India",
+        "NG": "Nigeria",
+        "ZA": "South Africa",
+        "AU": "Australia",
+        "JP": "Japan",
+        "CN": "China",
+        "BR": "Brazil",
+        "CA": "Canada"
+      }
+    },
+    "cta": {
+      "label": "Need Quick Help?",
+      "title": "Speak Directly With Our Team.",
+      "callTheClinic": "Call the Clinic",
+      "whatsappUs": "WhatsApp Us"
+    }
+  }
+}

@@ -76,13 +76,18 @@ const config: Config = {
         "card-gap": "24px",
       },
       fontFamily: {
-        "hero-headline-mobile": ["var(--font-anton)"],
-        "body-md": ["var(--font-archivo-narrow)"],
-        "section-title": ["var(--font-anton)"],
-        "hero-headline": ["var(--font-anton)"],
-        "card-title": ["var(--font-anton)"],
-        "label-sm": ["var(--font-be-vietnam-pro)"],
-        "body-lg": ["var(--font-archivo-narrow)"],
+        // Indirected through --font-heading/-body/-label (defined in
+        // globals.css) rather than the raw next/font variables directly, so
+        // the Arabic locale can swap in Arabic-covering faces (Cairo /
+        // Tajawal) without touching any of these token names or the
+        // hundreds of className="font-hero-headline" etc. call sites.
+        "hero-headline-mobile": ["var(--font-heading)"],
+        "body-md": ["var(--font-body)"],
+        "section-title": ["var(--font-heading)"],
+        "hero-headline": ["var(--font-heading)"],
+        "card-title": ["var(--font-heading)"],
+        "label-sm": ["var(--font-label)"],
+        "body-lg": ["var(--font-body)"],
       },
       fontSize: {
         "hero-headline-mobile": [
