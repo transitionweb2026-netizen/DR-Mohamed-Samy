@@ -335,7 +335,7 @@ export default function HomeClient() {
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4 opacity-30"></div>
           </div>
           <div className="flex flex-col lg:flex-row gap-12 items-center perspective-container">
-            <div className="w-full lg:w-1/2 relative">
+            <div className="w-full lg:w-1/2 relative overflow-hidden lg:overflow-visible">
               <div className="absolute -inset-10 border border-primary/10 rounded-[40px] animate-[spin_20s_linear_infinite] opacity-30 pointer-events-none"></div>
               <div className="absolute -inset-6 border-2 border-primary/5 rounded-[50px] animate-[spin_30s_linear_infinite_reverse] opacity-20 pointer-events-none"></div>
               <div className="glass-panel p-3 rounded-[32px] aspect-video relative overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,107,91,0.2)] border-white/40">

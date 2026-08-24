@@ -38,12 +38,15 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-container-max rounded-[2rem] md:rounded-full border border-outline-variant bg-surface-container-lowest/60 backdrop-blur-[40px] shadow-[0_20px_50px_rgba(2,23,24,0.05)] z-50">
-      <div className="flex justify-between items-center px-6 md:px-glass-padding py-4">
-        <Link className="font-hero-headline text-2xl text-primary" href="/">
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-container-max rounded-[2rem] lg:rounded-full border border-outline-variant bg-surface-container-lowest/60 backdrop-blur-[40px] shadow-[0_20px_50px_rgba(2,23,24,0.05)] z-50">
+      <div className="flex justify-between items-center px-6 lg:px-glass-padding py-4">
+        <Link
+          className="font-hero-headline text-base whitespace-nowrap md:text-xl lg:text-2xl text-primary"
+          href="/"
+        >
           Lumina Liver Care
         </Link>
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {NAV_LINK_HREFS.map((href) => {
             const isActive = pathname === href;
             return (
@@ -51,8 +54,8 @@ export default function Navbar() {
                 key={href}
                 className={
                   isActive
-                    ? "text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 duration-200"
-                    : "text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200"
+                    ? "text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 duration-200 whitespace-nowrap"
+                    : "text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200 whitespace-nowrap"
                 }
                 href={href}
               >
@@ -61,16 +64,16 @@ export default function Navbar() {
             );
           })}
         </div>
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           <LanguageSwitcher />
           <Link
-            className="bg-gradient-to-r from-secondary to-primary text-on-primary px-6 py-2 rounded-full font-label-sm hover:shadow-[0_0_15px_rgba(24,213,184,0.5)] transition-all active:scale-95"
+            className="bg-gradient-to-r from-secondary to-primary text-on-primary px-6 py-2 rounded-full font-label-sm hover:shadow-[0_0_15px_rgba(24,213,184,0.5)] transition-all active:scale-95 whitespace-nowrap"
             href="/contact"
           >
             {t("contact")}
           </Link>
         </div>
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
           <LanguageSwitcher />
           <button
             aria-expanded={isMenuOpen}
@@ -85,7 +88,7 @@ export default function Navbar() {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden flex flex-col gap-1 px-6 pb-6 pt-2">
+        <div className="lg:hidden flex flex-col gap-1 px-6 pb-6 pt-2">
           {NAV_LINK_HREFS.map((href) => {
             const isActive = pathname === href;
             return (
