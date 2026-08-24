@@ -196,7 +196,7 @@ export default function HomeClient() {
         </section>
 
         {/* 2. Statistics */}
-        <section className="max-w-container-max mx-auto px-4 md:px-8 mb-section-gap -mt-32 relative z-20 perspective-container h-[400px]">
+        <section className="max-w-container-max mx-auto px-4 md:px-8 mb-section-gap -mt-32 relative z-20 perspective-container min-h-[400px] py-8 lg:py-0">
           <div className="absolute top-1/2 left-0 w-full h-full -translate-y-1/2 pointer-events-none z-0 overflow-hidden">
             <svg
               className="w-full h-full drop-shadow-[0_0_10px_rgba(24,213,184,0.5)]"

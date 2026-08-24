@@ -142,7 +142,7 @@ export default async function ArticlesPage({
 
         {/* Featured Hero Article */}
         <section className="py-8">
-          <div className="max-w-[1450px] mx-auto px-6 relative min-h-[80vh] flex items-center">
+          <div className="max-w-[1450px] mx-auto px-6 relative lg:min-h-[80vh] flex items-center">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-surface-container/20 backdrop-blur-[40px] rounded-[40%] rotate-12 z-0 pointer-events-none"></div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-hero-headline text-[120px] md:text-[240px] text-primary/5 select-none pointer-events-none z-0 uppercase tracking-widest">
               {t("featured.bgWord")}
