@@ -124,6 +124,7 @@ export default async function ServicesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("services");
+  const tCommon = await getTranslations("common");
 
   return (
     <div className="route-services font-body-md text-on-background antialiased relative min-h-screen flex flex-col">
@@ -251,6 +252,18 @@ export default async function ServicesPage({
               <span className="material-symbols-outlined text-on-primary mt-4">
                 calendar_month
               </span>
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <button className="primary-btn text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 hover:scale-105 transition-transform">
+              <span className="material-symbols-outlined">
+                calendar_month
+              </span>
+              {tCommon("bookAppointment")}
+            </button>
+            <button className="glass-card text-primary px-8 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-wider hover:bg-white/50 transition-colors flex items-center gap-2">
+              <span className="material-symbols-outlined">chat</span>
+              {tCommon("whatsappUs")}
             </button>
           </div>
         </div>
