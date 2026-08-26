@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 type CtaBannerProps = {
@@ -13,6 +12,10 @@ type CtaBannerProps = {
   whatsappLabel: string;
   whatsappHref?: string;
   showPhone?: boolean;
+  /** CMS "global" contact phone number, shown under the buttons when
+   * showPhone is true. Passed as a prop (rather than fetched here) because
+   * this is a client component. */
+  phone?: string;
   /** Page-specific extra content (e.g. Services' 3 diagnosis-path cards),
    * rendered between the subtitle and the button row. */
   children?: ReactNode;
@@ -35,10 +38,10 @@ export default function CtaBanner({
   whatsappLabel,
   whatsappHref = "https://wa.me/201234567890",
   showPhone = true,
+  phone,
   children,
   backdrop,
 }: CtaBannerProps) {
-  const tCommon = useTranslations("common");
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -103,9 +106,9 @@ export default function CtaBanner({
                 {whatsappLabel}
               </a>
             </div>
-            {showPhone && (
+            {showPhone && phone && (
               <p className="font-body-md text-primary mt-6 tracking-wide font-medium">
-                {tCommon("phone")}
+                {phone}
               </p>
             )}
           </div>

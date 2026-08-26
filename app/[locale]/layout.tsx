@@ -7,12 +7,26 @@ import {
   Tajawal,
 } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/Navbar";
+import Navbar, { type NavbarContent } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingContactButtons from "@/components/FloatingContactButtons";
+import FloatingContactButtons, {
+  type FloatingContactButtonsContent,
+} from "@/components/FloatingContactButtons";
+import type { LanguageSwitcherContent } from "@/components/LanguageSwitcher";
 import { routing } from "@/i18n/routing";
+import { getGlobalContent, getPageSeo } from "@/lib/cms/queries";
+import type { Locale } from "@/lib/cms/types";
+
+// All CMS content pages render per-request rather than being statically
+// generated: content comes from Supabase and must always reflect the
+// latest saved value the moment a page loads, with no build/deploy step
+// or cache-invalidation window in between. Combined with the `no-store`
+// fetch override in lib/supabase/admin.ts (which stops Next's Data Cache
+// from caching the underlying Supabase requests), this guarantees a CMS
+// edit is visible on the very next page load.
+export const dynamic = "force-dynamic";
 import "../globals.css";
 
 // The original pages loaded these exact families/weights from Google Fonts
@@ -69,17 +83,25 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta" });
+  const { locale } = (await params) as { locale: Locale };
+  const [seo, global] = await Promise.all([
+    getPageSeo("home", locale),
+    getGlobalContent(locale),
+  ]);
+  const brandName = (global.navbar as unknown as { brandName: string }).brandName;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      template: t("titleTemplate"),
-      default: t("home.title"),
+      template: `%s | ${brandName}`,
+      default: seo?.seo_title ?? brandName,
     },
-    description: t("home.description"),
+    description: seo?.meta_description ?? "",
+    robots:
+      seo && (!seo.robots_index || !seo.robots_follow)
+        ? { index: seo.robots_index, follow: seo.robots_follow }
+        : undefined,
     // Per-page hreflang alternates (e.g. /ar/about <-> /en/about) are set
     // in each page's own generateMetadata via i18n/alternates.ts -- a
     // static value here would make every route's alternates point at the
@@ -105,6 +127,11 @@ export default async function RootLayout({
 
   const dir = locale === "ar" ? "rtl" : "ltr";
 
+  const global = await getGlobalContent(locale);
+  const navbarContent = global.navbar as unknown as NavbarContent;
+  const languageSwitcherContent = global.languageSwitcher as unknown as LanguageSwitcherContent;
+  const floatingContactContent = global.contact as unknown as FloatingContactButtonsContent;
+
   return (
     <html
       className={`scroll-smooth ${anton.variable} ${archivoNarrow.variable} ${beVietnamPro.variable} ${cairo.variable} ${tajawal.variable}`}
@@ -121,10 +148,10 @@ export default async function RootLayout({
       </head>
       <body className="font-body-md text-on-background bg-background relative overflow-x-hidden min-h-screen antialiased">
         <NextIntlClientProvider>
-          <Navbar />
+          <Navbar content={navbarContent} languageSwitcherContent={languageSwitcherContent} />
           {children}
-          <Footer />
-          <FloatingContactButtons />
+          <Footer locale={locale} />
+          <FloatingContactButtons content={floatingContactContent} />
         </NextIntlClientProvider>
       </body>
     </html>

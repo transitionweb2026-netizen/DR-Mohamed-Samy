@@ -2,16 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-const CERTIFICATES = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDk297I1X_W5nS2VIsPWnsE0bk-qqWLARHh8xdBKXTWsN7Wjg-HqRGHlf3TzWQHlG_Iu2NoxMQ36q5nrdgjEtCXrZTB7NDM4X4VsGVXxyoZ2RBEilxjAfwCN-IRKJeCX52ND-p4UAdtEgiGfc9fmQ0QyJ730BYamktuD2xQ1nNk2a28nbg_2MclUER1n9xXURsYD2zbs5VQ2Jrsp4PVqPr8J77U_9Ty-6pCTAbUTpb4cdKjylV9XXUz",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBqPdul2m9MRblYIDKNvwQ_qEo5Rn8o4qcSEslDUXdfRAFoEx2RiaQQ8Erct_ovd4tatag6UnH-jPlAZ5tRHcSNa7De2cxg8AIu2_6TpmdGb_ZwjkaZNa8YO1YZo0TiFmM06zKoPniUBnvOt3GEkm1kTPXP2gYCzhOn7rNt--LEdAD740UG08StaPJ26684ko9iHw4_HRe15rqCwQKI2ufnhvcLEAnwDz0pugXuCU5uEPYUgTR2BWWW",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCe1vg4MmYsd3RF8lFzM7Gu0Nz8li973SS99uh5OFqn0fL59zfvWU3LyMCY6VTN-UEB79Fau9dZKWMKBxzzsq26arcKd2NMNL6yYdz5HomrDdFwWwGQMPh0QsTZu7BB_BZXbjMC_dinfbHMpHTUFqLWQeg2sx13VQEVEjrHO7b-1kejvjntErAuqKRFgNbEGp5gPcX8qeKukVpH2eOXPFhNLKtSSGVUcX3iEXJ2QQYDszmX5Wk5NEZ5",
-  "https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc",
-  "https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc",
-  "https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc",
-  "https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc",
-  "https://lh3.googleusercontent.com/aida/AP1WRLsQ51pVaeeERZMp8n6vLlqUwR7ls_BXtrisSr7gUkEsvcGSRhelOSuMznTWoCsvz9TvGGMpPPJJsMRfI_khufvOBsyD4dpq3jSOiQlb03b7xINbqeOM0sSuG1XkhlZcczh3LRRYcfAgcyRjCMCH88fwQU7VeYMr1j58QMxFjPlezRLAwpgiVgUHT_VkjD-oHw_A1MII96tKL3c15F73r8jO4CdkGFZ09JCaqeoTj2vQQmvwAMTydqybIbc",
-];
+type ImageContent = { url: string; mediaId: string | null; alt: string };
+export type CertificateItem = { id: string; image: ImageContent };
 
 // Ports the original inline <script> almost verbatim: on every gallery
 // scroll it re-computes each card's distance from the visual center and
@@ -20,7 +12,7 @@ const CERTIFICATES = [
 // tied to scroll position. This is a continuous, per-frame DOM
 // measurement/paint loop, so it stays as direct DOM manipulation (matching
 // the source) rather than being rewritten as React state.
-export default function CertificateGallery() {
+export default function CertificateGallery({ items }: { items: CertificateItem[] }) {
   const galleryRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -85,9 +77,9 @@ export default function CertificateGallery() {
         className="flex overflow-x-auto hide-scrollbar snap-x snap-mandatory px-[20vw] pb-20 items-start md:px-[10vw] gap-6"
         id="certificate-gallery"
       >
-        {CERTIFICATES.map((src, i) => (
+        {items.map((item) => (
           <div
-            key={i}
+            key={item.id}
             className="snap-center shrink-0 transition-all duration-700 transform relative group aspect-[4/3] cert-card w-[180px] md:w-[270px]"
           >
             <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-3 h-16 glass-connector rounded-full z-0 transition-transform duration-700 connector origin-top"></div>
@@ -95,9 +87,9 @@ export default function CertificateGallery() {
             <div className="relative h-full w-full rounded-2xl overflow-hidden border-[6px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] z-20">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
               <img
-                alt={`Certificate ${i + 1}`}
+                alt={item.image.alt}
                 className="w-full h-full object-cover mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-700"
-                src={src}
+                src={item.image.url}
               />
             </div>
           </div>

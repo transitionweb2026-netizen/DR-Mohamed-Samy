@@ -1,41 +1,25 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useState } from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher, { type LanguageSwitcherContent } from "./LanguageSwitcher";
 
-// Shared floating navbar, reused on every route. The original 7 source
-// pages each generated their own navbar with a different brand name
-// ("Dr. Liver", "Dr. Mohamed Samy Abdelwahid", "Lumina Liver Care",
-// "LIVERCARE ELITE") and every link was a dead `href="#"`. Per the chosen
-// migration plan this is unified under the "Lumina Liver Care" brand
-// (majority name across the source pages) with real routing wired up, and
-// a working mobile menu is added since none of the source pages had one
-// (the hamburger icon that a couple of them included had no behavior
-// attached to it).
-const NAV_LINK_HREFS = [
-  "/",
-  "/about",
-  "/services",
-  "/reviews",
-  "/videos",
-  "/articles",
-  "/contact",
-] as const;
-
-const NAV_LABEL_KEYS: Record<(typeof NAV_LINK_HREFS)[number], string> = {
-  "/": "home",
-  "/about": "about",
-  "/services": "services",
-  "/reviews": "reviews",
-  "/videos": "videos",
-  "/articles": "articles",
-  "/contact": "contact",
+export type NavbarContent = {
+  brandName: string;
+  toggleMenuAriaLabel: string;
+  links: { id: string; href: string; label: string }[];
 };
 
-export default function Navbar() {
-  const t = useTranslations("nav");
+// Shared floating navbar, reused on every route. All content (brand name,
+// nav links, aria-labels) comes from the CMS's "global" page, edited once
+// from the dashboard instead of duplicated per page.
+export default function Navbar({
+  content,
+  languageSwitcherContent,
+}: {
+  content: NavbarContent;
+  languageSwitcherContent: LanguageSwitcherContent;
+}) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -46,34 +30,34 @@ export default function Navbar() {
           className="font-hero-headline text-base whitespace-nowrap md:text-xl lg:text-2xl text-primary"
           href="/"
         >
-          Lumina Liver Care
+          {content.brandName}
         </Link>
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {NAV_LINK_HREFS.map((href) => {
-            const isActive = pathname === href;
+          {content.links.map((link) => {
+            const isActive = pathname === link.href;
             return (
               <Link
-                key={href}
+                key={link.id}
                 className={
                   isActive
                     ? "text-primary font-bold border-b-2 border-primary pb-1 active:scale-95 duration-200 whitespace-nowrap"
                     : "text-on-surface-variant hover:text-primary transition-colors duration-300 active:scale-95 duration-200 whitespace-nowrap"
                 }
-                href={href}
+                href={link.href}
               >
-                {t(NAV_LABEL_KEYS[href])}
+                {link.label}
               </Link>
             );
           })}
         </div>
         <div className="hidden lg:flex items-center">
-          <LanguageSwitcher />
+          <LanguageSwitcher content={languageSwitcherContent} />
         </div>
         <div className="flex lg:hidden items-center gap-2">
-          <LanguageSwitcher />
+          <LanguageSwitcher content={languageSwitcherContent} />
           <button
             aria-expanded={isMenuOpen}
-            aria-label="Toggle menu"
+            aria-label={content.toggleMenuAriaLabel}
             className="text-primary p-1"
             onClick={() => setIsMenuOpen((open) => !open)}
           >
@@ -85,20 +69,20 @@ export default function Navbar() {
       </div>
       {isMenuOpen && (
         <div className="lg:hidden flex flex-col gap-1 px-6 pb-6 pt-2">
-          {NAV_LINK_HREFS.map((href) => {
-            const isActive = pathname === href;
+          {content.links.map((link) => {
+            const isActive = pathname === link.href;
             return (
               <Link
-                key={href}
+                key={link.id}
                 className={
                   isActive
                     ? "text-primary font-bold py-3 border-b border-outline-variant/50"
                     : "text-on-surface-variant py-3 border-b border-outline-variant/50"
                 }
-                href={href}
+                href={link.href}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t(NAV_LABEL_KEYS[href])}
+                {link.label}
               </Link>
             );
           })}

@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/i18n/alternates";
-import HomeClient from "./HomeClient";
+import HomeClient, { type HomeContent } from "./HomeClient";
+import type { HeroContactBarContent } from "@/components/HeroContactBar";
+import { getGlobalContent, getPageContent, getPageSeo } from "@/lib/cms/queries";
+import type { Locale } from "@/lib/cms/types";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta" });
+  const { locale } = (await params) as { locale: Locale };
+  const seo = await getPageSeo("home", locale);
   return {
-    title: t("home.title"),
-    description: t("home.description"),
-    alternates: { languages: localeAlternates("") },
+    title: seo?.seo_title,
+    description: seo?.meta_description ?? undefined,
+    alternates: { languages: localeAlternates(""), canonical: seo?.canonical_url ?? undefined },
+    robots:
+      seo && (!seo.robots_index || !seo.robots_follow)
+        ? { index: seo.robots_index, follow: seo.robots_follow }
+        : undefined,
   };
 }
 
@@ -22,7 +29,14 @@ export default async function Page({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: Locale };
   setRequestLocale(locale);
-  return <HomeClient />;
+
+  const [content, global] = await Promise.all([
+    getPageContent("home", locale) as unknown as Promise<HomeContent>,
+    getGlobalContent(locale),
+  ]);
+  const heroContactBarContent = global.contact as unknown as HeroContactBarContent;
+
+  return <HomeClient content={content} heroContactBarContent={heroContactBarContent} />;
 }

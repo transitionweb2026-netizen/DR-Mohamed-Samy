@@ -1,38 +1,39 @@
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/i18n/alternates";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
-import HeroContactBar from "@/components/HeroContactBar";
+import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
+import { getGlobalContent, getPageContent, getPageSeo } from "@/lib/cms/queries";
+import type { Locale } from "@/lib/cms/types";
 
-const REVIEW_IDS = [
-  "ahmedHassan",
-  "sarahM",
-  "tarekE",
-  "omarR",
-  "lailaK",
-  "hassanB",
-  "monicaG",
-  "jamesW",
-  "fatmaA",
-  "robertS",
-  "chenL",
-  "davidM",
-] as const;
+type ButtonContent = { label: string; href: string };
+type ImageContent = { url: string; mediaId: string | null; alt: string };
+type ReviewItem = { id: string; tag: string; quote: string; name: string; rating: number };
 
-const REVIEW_STARS: Record<(typeof REVIEW_IDS)[number], number> = {
-  ahmedHassan: 5,
-  sarahM: 5,
-  tarekE: 4.5,
-  omarR: 5,
-  lailaK: 5,
-  hassanB: 5,
-  monicaG: 5,
-  jamesW: 5,
-  fatmaA: 5,
-  robertS: 5,
-  chenL: 5,
-  davidM: 5,
+type ReviewsContent = {
+  hero: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    backgroundImage: ImageContent;
+    bookAppointment: ButtonContent;
+    contactUs: ButtonContent;
+  };
+  gallery: {
+    eyebrow: string;
+    title: string;
+    verifiedPatient: string;
+    loadMore: ButtonContent;
+    items: ReviewItem[];
+  };
+  cta: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    bookAppointment: ButtonContent;
+    whatsappUs: ButtonContent;
+  };
 };
 
 function Stars({ count }: { count: number }) {
@@ -66,12 +67,16 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta" });
+  const { locale } = (await params) as { locale: Locale };
+  const seo = await getPageSeo("reviews", locale);
   return {
-    title: t("reviews.title"),
-    description: t("reviews.description"),
-    alternates: { languages: localeAlternates("/reviews") },
+    title: seo?.seo_title,
+    description: seo?.meta_description ?? undefined,
+    alternates: { languages: localeAlternates("/reviews"), canonical: seo?.canonical_url ?? undefined },
+    robots:
+      seo && (!seo.robots_index || !seo.robots_follow)
+        ? { index: seo.robots_index, follow: seo.robots_follow }
+        : undefined,
   };
 }
 
@@ -80,9 +85,15 @@ export default async function ReviewsPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale } = (await params) as { locale: Locale };
   setRequestLocale(locale);
-  const t = await getTranslations("reviews");
+
+  const [content, global] = await Promise.all([
+    getPageContent("reviews", locale) as unknown as Promise<ReviewsContent>,
+    getGlobalContent(locale),
+  ]);
+  const heroContactBarContent = global.contact as unknown as HeroContactBarContent;
+  const { hero, gallery, cta } = content;
 
   return (
     <div className="route-reviews">
@@ -93,55 +104,58 @@ export default async function ReviewsPage({
           <div className="absolute inset-0 z-0">
             <div
               className="bg-cover bg-center w-full h-full opacity-60"
-              style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuABr8RCHWKBGb15XK8fhMDDQKv5UcHug3V8XtPhlXI0s4rhORdhQz247lRzV5bsTJbg10jjHrvgRUzqWWkYdjMHK2J1A-FByH8v6TuIiVdky7tKi_bNAg5wGSy9l-_buPuiDu4MCmcARmIoiB_l1kNc2emu1P3mfv2oq-_MgRm2ikxRe2FpsH_OE93flQx8TeCOoYa1UeDVG-ccO0EWlYfRGYlLDpWtzBDzwYKUmMwRKbNpVivqzDTK')",
-              }}
+              style={{ backgroundImage: `url('${hero.backgroundImage.url}')` }}
             ></div>
             <div className="absolute inset-0 bg-gradient-to-b from-surface-container/80 via-background/60 to-background backdrop-blur-[10px]"></div>
           </div>
           <div className="relative z-10 w-full max-w-[1450px] mx-auto px-glass-padding text-center">
             <span className="inline-block font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 px-4 py-1 rounded-full bg-surface-container border border-white/50 backdrop-blur-md">
-              {t("hero.badge")}
+              {hero.badge}
             </span>
             <h1 className="font-hero-headline-mobile md:font-hero-headline text-hero-headline-mobile md:text-hero-headline text-on-surface mb-6 max-w-4xl mx-auto drop-shadow-sm">
-              {t("hero.title")}
+              {hero.title}
             </h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
-              {t("hero.subtitle")}
+              {hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="btn-primary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2">
-                {t("hero.bookAppointment")}
+              <a
+                className="btn-primary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2"
+                href={hero.bookAppointment.href}
+              >
+                {hero.bookAppointment.label}
                 <span
                   className="material-symbols-outlined icon-rtl-flip"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   arrow_forward
                 </span>
-              </button>
-              <button className="btn-secondary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto">
-                {t("hero.contactUs")}
-              </button>
+              </a>
+              <a
+                className="btn-secondary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto text-center"
+                href={hero.contactUs.href}
+              >
+                {hero.contactUs.label}
+              </a>
             </div>
           </div>
-          <HeroContactBar />
+          <HeroContactBar content={heroContactBarContent} />
         </section>
 
         {/* 2. Reviews Gallery */}
         <section className="py-section-gap px-4 sm:px-8 max-w-[1450px] mx-auto relative z-10">
           <div className="text-center mb-16 reveal-on-scroll is-visible">
             <span className="font-label-sm text-label-sm text-primary mb-2 block uppercase tracking-widest">
-              {t("gallery.eyebrow")}
+              {gallery.eyebrow}
             </span>
             <h2 className="font-section-title text-section-title text-on-surface">
-              {t("gallery.title")}
+              {gallery.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap">
-            {REVIEW_IDS.map((id, i) => (
+            {gallery.items.map((item, i) => (
               <div
-                key={id}
+                key={item.id}
                 className="glass-capsule p-8 flex flex-col h-full reveal-on-scroll"
                 style={{ transitionDelay: `${(i % 4) * 100}ms` }}
               >
@@ -149,16 +163,16 @@ export default async function ReviewsPage({
                 <div className="hologram-quote">&quot;</div>
                 <div className="relative z-10 flex-grow">
                   <div className="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">
-                    {t(`gallery.items.${id}.tag`)}
+                    {item.tag}
                   </div>
                   <p className="font-body-md text-body-md text-on-surface-variant italic mb-6">
-                    &quot;{t(`gallery.items.${id}.quote`)}&quot;
+                    &quot;{item.quote}&quot;
                   </p>
                 </div>
                 <div className="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
                   <div>
                     <p className="font-card-title text-card-title text-on-surface text-sm">
-                      {t(`gallery.items.${id}.name`)}
+                      {item.name}
                     </p>
                     <p className="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]">
                       <span
@@ -167,28 +181,31 @@ export default async function ReviewsPage({
                       >
                         verified
                       </span>{" "}
-                      {t("gallery.verifiedPatient")}
+                      {gallery.verifiedPatient}
                     </p>
                   </div>
-                  <Stars count={REVIEW_STARS[id]} />
+                  <Stars count={item.rating} />
                 </div>
               </div>
             ))}
           </div>
           <div className="mt-12 text-center reveal-on-scroll is-visible">
-            <button className="btn-secondary font-label-sm text-label-sm px-6 py-2 rounded-full">
-              {t("gallery.loadMore")}
-            </button>
+            <a className="btn-secondary font-label-sm text-label-sm px-6 py-2 rounded-full inline-block" href={gallery.loadMore.href}>
+              {gallery.loadMore.label}
+            </a>
           </div>
         </section>
 
         {/* 3. Final CTA */}
         <CtaBanner
-          eyebrow={t("cta.eyebrow")}
-          primaryLabel={t("cta.bookAppointment")}
-          subtitle={t("cta.subtitle")}
-          title={t("cta.title")}
-          whatsappLabel={t("cta.whatsappUs")}
+          eyebrow={cta.eyebrow}
+          primaryHref={cta.bookAppointment.href}
+          primaryLabel={cta.bookAppointment.label}
+          subtitle={cta.subtitle}
+          title={cta.title}
+          whatsappHref={cta.whatsappUs.href}
+          whatsappLabel={cta.whatsappUs.label}
+          phone={heroContactBarContent.phone}
         />
       </main>
     </div>

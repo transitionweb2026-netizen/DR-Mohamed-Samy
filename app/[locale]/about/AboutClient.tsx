@@ -1,55 +1,74 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
-import HeroContactBar from "@/components/HeroContactBar";
+import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
-import CertificateGallery from "./CertificateGallery";
+import CertificateGallery, { type CertificateItem } from "./CertificateGallery";
 
-const TIMELINE_IDS = [
-  "leadTransplantSurgeon",
-  "consultantHepatobiliarySurgeon",
-  "seniorSurgicalFellow",
-  "surgicalResidency",
-] as const;
+type ButtonContent = { label: string; href: string };
+type ImageContent = { url: string; mediaId: string | null; alt: string };
+type CareerItem = { id: string; period: string; role: string; place: string };
+type ConferenceItem = { id: string; image: ImageContent; title: string; location: string };
 
-const TIMELINE_DOTS: Record<(typeof TIMELINE_IDS)[number], string> = {
-  leadTransplantSurgeon: "bg-primary shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
-  consultantHepatobiliarySurgeon:
-    "bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
-  seniorSurgicalFellow:
-    "bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
-  surgicalResidency:
-    "bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
+export type AboutContent = {
+  hero: {
+    badge: string;
+    titleLine1: string;
+    titleLine2: string;
+    subtitle: string;
+    backgroundImage: ImageContent;
+    bookAppointment: ButtonContent;
+    watchVideos: ButtonContent;
+  };
+  certificates: { items: CertificateItem[] };
+  meetDoctor: { eyebrow: string; title: string; name: string; role: string; bio: string; cta: ButtonContent };
+  career: { eyebrow: string; title: string; items: CareerItem[] };
+  conferences: {
+    eyebrow: string;
+    title: string;
+    popupBody: string;
+    viewFullGallery: ButtonContent;
+    items: ConferenceItem[];
+  };
+  philosophy: {
+    eyebrow: string;
+    title: string;
+    image: ImageContent;
+    ghostWord1: string;
+    ghostWord2: string;
+    ghostWord3: string;
+    label: string;
+    quote: string;
+    name: string;
+    role: string;
+  };
+  cta: {
+    eyebrow: string;
+    titleLine1: string;
+    titleEmphasis: string;
+    titleLine2: string;
+    subtitle: string;
+    bookAppointment: ButtonContent;
+    whatsappUs: ButtonContent;
+  };
 };
 
-const CONFERENCES = [
-  {
-    id: "globalHealthInnovations",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_ic0FcgaYbWg9VwdyLiXUcETwNWPElIq_6uy-UDM2P2T_YGXZd1LmM4t_ouGgXeO20qTSN5EUCubEiAsOTBcHPyDkmP_Rtku5CixmEudFxrV0nOScv0p1X0cFZAUqm7JWxVE7MxoP43OdAJ0p2gX0Kd5ZVtiW-0Qk6mbLXdjjdEF_zlTrmRN43ctkj3xdFC5bHUOmpwuFICDzwqijeYOH0c5NZjtvnmuc_gHp1R9e92xlk1eAE628",
-  },
-  {
-    id: "advancesInNeuroscience",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA4BOCSJElut3dGe9gPW9a_8V1CoQwsGwkVI70e7gRuOhd1hdHbzLvcyYMqlOiJYxkchc89i3hcslb_l0iqTMajUSO4ek4x2KNFEktrjfoOcZ727CVzqrX0BGUmaanJ1zzq2UwN-2REIPWRzY6qBOa_4776thBXSFw1q2tsrkCQxN5k0mEKXH9eOYxzs6bag9ykF5vAj-I-GXCgCMV9eIQAT481HChSPbgUu5l1fxDoaT0tNVylvj43",
-  },
-  {
-    id: "globalInnovationsInSurgery",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD3OMB5p7K-bK5F1r894DXzzD2A4KK_K21dBjKIG-W9JXrTZgBl95GbSCfwq9yFcA1ikD16hJOPYjpbY8q6bvCMRJCawllfiWBiEYq32OGfbCh-4U-2RMnYjgIYIa4Uxfnm0q0KXDe81v2xdQ5nC3HmRFJjPD14tbeCgjNf6imoBogsQfopnxB-sxH3ONxIJRr74wXQJkFeAZ6U-dfpdEPLdLZ1PA535umdiZrVNSfM4sI0L9fTL6mL",
-  },
-  {
-    id: "advancedMedicineSummit",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDG16N8uLzVLj-yJphc24dZVB3cKmR3Kq2CGqwnd8kxzuZcebLBufaKYv5_XORd8wMULK0DkzInh5MtphckJVM7Y29DcHzL8aYU4NTIXzwIv6xy6_KiUMZb7d-UWsTLwD8x42GbzTc9bP_t-D28WMzU-da9o31BjUgJXLqSx483ezOSndphOGwS5cyz9Hl51NRC4yFHBCn2ohGStMHkm9Q9sT-rOSdnhnStNdwUWnVgVufsPbc_UoPm",
-  },
+const TIMELINE_DOTS = [
+  "bg-primary shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
+  "bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
+  "bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
+  "bg-primary/40 shadow-[0_0_10px_rgba(24,213,184,0.3)] group-hover:bg-primary group-hover:shadow-[0_0_15px_#18d5b8] group-hover:scale-125",
 ];
 
-type ConferenceId = (typeof CONFERENCES)[number]["id"];
-
-export default function AboutClient() {
-  const t = useTranslations("about");
-  const [activeConference, setActiveConference] = useState<{
-    id: ConferenceId;
-    img: string;
-  } | null>(null);
+export default function AboutClient({
+  content,
+  heroContactBarContent,
+}: {
+  content: AboutContent;
+  heroContactBarContent: HeroContactBarContent;
+}) {
+  const { hero, certificates, meetDoctor, career, conferences, philosophy, cta } = content;
+  const [activeConference, setActiveConference] = useState<ConferenceItem | null>(null);
   useEffect(() => {
     document.body.style.overflow = activeConference ? "hidden" : "";
     return () => {
@@ -64,10 +83,7 @@ export default function AboutClient() {
         <div className="absolute inset-0 z-0">
           <div
             className="bg-cover bg-center w-full h-full mix-blend-overlay opacity-80"
-            style={{
-              backgroundImage:
-                'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAD0wqrfjQ9g2JRCSs7dSqzQMJ2tnTvwnLgQZqC8DlGLUodc2reAIPs4L7rh3gbjVEHIq5B3eLBvFmVUEma9c828HEyvPSt2FLoB0IEiBqP-XZUsafAwnQIKGnWZ1D7bqqXNtZo1dAb55V6rYwEycCtXQGmjSRAuIXzJyh93YEIkjgiP67VBBN9EikiAesFmw2RrbHuKZiqzcS6goqyltAMQAyIl92z9DNububL1KbVZ8XhMDG-Ji8W")',
-            }}
+            style={{ backgroundImage: `url("${hero.backgroundImage.url}")` }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/40"></div>
@@ -76,37 +92,41 @@ export default function AboutClient() {
           <div className="max-w-3xl">
             <div className="inline-block glass-card px-4 py-2 rounded-full mb-6 border border-primary/30">
               <span className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold">
-                {t("hero.badge")}
+                {hero.badge}
               </span>
             </div>
             <h1 className="font-hero-headline-mobile md:font-hero-headline text-hero-headline-mobile md:text-hero-headline text-primary mb-4 leading-tight">
-              {t("hero.titleLine1")}
+              {hero.titleLine1}
               <br />
-              {t("hero.titleLine2")}
+              {hero.titleLine2}
             </h1>
             <p className="font-body-lg text-body-lg text-surface-container-lowest mb-10 max-w-2xl opacity-90">
-              {t("hero.subtitle")}
+              {hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary-glass font-body-md text-body-md px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-bold">
+              <a
+                className="btn-primary-glass font-body-md text-body-md px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-bold"
+                href={hero.bookAppointment.href}
+              >
                 <span
                   className="material-symbols-outlined"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   calendar_month
                 </span>
-                {t("hero.bookAppointment")}
-              </button>
-              <button className="btn-secondary-glass font-body-md text-body-md px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-bold">
-                <span className="material-symbols-outlined icon-fill">
-                  play_circle
-                </span>
-                {t("hero.watchVideos")}
-              </button>
+                {hero.bookAppointment.label}
+              </a>
+              <a
+                className="btn-secondary-glass font-body-md text-body-md px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-bold"
+                href={hero.watchVideos.href}
+              >
+                <span className="material-symbols-outlined icon-fill">play_circle</span>
+                {hero.watchVideos.label}
+              </a>
             </div>
           </div>
         </div>
-        <HeroContactBar />
+        <HeroContactBar content={heroContactBarContent} />
       </section>
 
       {/* 2. Certificates & Credentials */}
@@ -148,7 +168,7 @@ export default function AboutClient() {
             />
           </svg>
         </div>
-        <CertificateGallery />
+        <CertificateGallery items={certificates.items} />
       </section>
 
       {/* 3. Meet Dr. Mohamed Samy Abdelwahid */}
@@ -156,10 +176,10 @@ export default function AboutClient() {
         <div className="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-10">
           <div className="text-center mb-16">
             <span className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">
-              {t("meetDoctor.eyebrow")}
+              {meetDoctor.eyebrow}
             </span>
             <h2 className="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">
-              {t("meetDoctor.title")}
+              {meetDoctor.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
@@ -175,21 +195,20 @@ export default function AboutClient() {
               </div>
             </div>
             <div className="relative z-10 flex flex-col items-start">
-              <h3 className="font-hero-headline text-3xl text-primary mb-2">
-                {t("meetDoctor.name")}
-              </h3>
+              <h3 className="font-hero-headline text-3xl text-primary mb-2">{meetDoctor.name}</h3>
               <p className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold mb-6">
-                {t("meetDoctor.role")}
+                {meetDoctor.role}
               </p>
               <p className="font-body-lg text-body-lg mb-8 opacity-90 leading-relaxed text-on-background">
-                {t("meetDoctor.bio")}
+                {meetDoctor.bio}
               </p>
-              <button className="btn-primary-glass font-body-md text-body-md px-8 py-3 rounded-full flex items-center justify-center gap-2 font-bold">
-                {t("meetDoctor.cta")}
-                <span className="material-symbols-outlined icon-rtl-flip">
-                  arrow_forward
-                </span>
-              </button>
+              <a
+                className="btn-primary-glass font-body-md text-body-md px-8 py-3 rounded-full flex items-center justify-center gap-2 font-bold"
+                href={meetDoctor.cta.href}
+              >
+                {meetDoctor.cta.label}
+                <span className="material-symbols-outlined icon-rtl-flip">arrow_forward</span>
+              </a>
             </div>
           </div>
         </div>
@@ -203,32 +222,28 @@ export default function AboutClient() {
         <div className="max-w-container-max mx-auto px-glass-padding relative z-10">
           <div className="text-center mb-16">
             <span className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">
-              {t("career.eyebrow")}
+              {career.eyebrow}
             </span>
             <h2 className="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">
-              {t("career.title")}
+              {career.title}
             </h2>
           </div>
           <div className="relative">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10">
-              {TIMELINE_IDS.map((id) => (
+              {career.items.map((item, i) => (
                 <div
-                  key={id}
+                  key={item.id}
                   className="group relative glass-panel p-8 rounded-[2rem] border border-white/60 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2"
                 >
                   <div
-                    className={`absolute -top-3 start-1/2 -translate-x-1/2 w-6 h-6 rounded-full transition-all ${TIMELINE_DOTS[id]}`}
+                    className={`absolute -top-3 start-1/2 -translate-x-1/2 w-6 h-6 rounded-full transition-all ${TIMELINE_DOTS[i % TIMELINE_DOTS.length]}`}
                   ></div>
                   <div className="text-center">
                     <span className="font-label-sm text-label-sm text-primary/60 block mb-2 font-bold">
-                      {t(`career.items.${id}.period`)}
+                      {item.period}
                     </span>
-                    <h3 className="font-card-title text-xl text-on-surface mb-1">
-                      {t(`career.items.${id}.role`)}
-                    </h3>
-                    <p className="font-body-md text-sm text-primary/80">
-                      {t(`career.items.${id}.place`)}
-                    </p>
+                    <h3 className="font-card-title text-xl text-on-surface mb-1">{item.role}</h3>
+                    <p className="font-body-md text-sm text-primary/80">{item.place}</p>
                   </div>
                 </div>
               ))}
@@ -243,14 +258,14 @@ export default function AboutClient() {
         <div className="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-10">
           <div className="text-center mb-16">
             <span className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">
-              {t("conferences.eyebrow")}
+              {conferences.eyebrow}
             </span>
             <h2 className="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">
-              {t("conferences.title")}
+              {conferences.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {CONFERENCES.map((conf) => (
+            {conferences.items.map((conf) => (
               <div
                 key={conf.id}
                 className="straight-capsule flex flex-col h-[400px] group"
@@ -258,18 +273,18 @@ export default function AboutClient() {
               >
                 <div className="h-2/3 w-full relative overflow-hidden">
                   <img
-                    alt={t(`conferences.items.${conf.id}.title`)}
+                    alt={conf.title}
                     className="w-full h-full object-cover relative z-0"
-                    src={conf.img}
+                    src={conf.image.url}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
                 </div>
                 <div className="h-1/3 flex flex-col justify-center items-center p-4 text-center relative z-20 bg-white/10 backdrop-blur-sm border-t border-white/30">
                   <h3 className="font-card-title text-lg text-primary mb-1 group-hover:text-white transition-colors duration-300">
-                    {t(`conferences.items.${conf.id}.title`)}
+                    {conf.title}
                   </h3>
                   <p className="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-surface-container-lowest">
-                    {t(`conferences.items.${conf.id}.location`)}
+                    {conf.location}
                   </p>
                 </div>
               </div>
@@ -296,10 +311,10 @@ export default function AboutClient() {
             <div className="w-full md:w-3/5 h-[40vh] md:h-[70vh] relative">
               {activeConference && (
                 <img
-                  alt={t("conferences.viewFullGallery")}
+                  alt={conferences.viewFullGallery.label}
                   className="w-full h-full object-cover"
                   id="popup-image"
-                  src={activeConference.img}
+                  src={activeConference.image.url}
                 />
               )}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/20 pointer-events-none"></div>
@@ -312,23 +327,26 @@ export default function AboutClient() {
                     className="font-label-sm text-sm text-primary tracking-widest uppercase font-bold mb-3 block"
                     id="popup-location"
                   >
-                    {t(`conferences.items.${activeConference.id}.location`)}
+                    {activeConference.location}
                   </span>
                   <h3
                     className="font-hero-headline text-4xl text-primary mb-6 leading-tight"
                     id="popup-title"
                   >
-                    {t(`conferences.items.${activeConference.id}.title`)}
+                    {activeConference.title}
                   </h3>
                 </>
               )}
               <p className="font-body-md text-on-surface-variant opacity-90 leading-relaxed mb-8">
-                {t("conferences.popupBody")}
+                {conferences.popupBody}
               </p>
               <div className="flex gap-4 mt-auto">
-                <button className="btn-primary-glass font-body-md text-sm px-6 py-3 rounded-xl flex-1 font-bold text-center">
-                  {t("conferences.viewFullGallery")}
-                </button>
+                <a
+                  className="btn-primary-glass font-body-md text-sm px-6 py-3 rounded-xl flex-1 font-bold text-center"
+                  href={conferences.viewFullGallery.href}
+                >
+                  {conferences.viewFullGallery.label}
+                </a>
               </div>
             </div>
           </div>
@@ -344,10 +362,10 @@ export default function AboutClient() {
         <div className="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-10">
           <div className="text-center mb-16">
             <span className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-4">
-              {t("philosophy.eyebrow")}
+              {philosophy.eyebrow}
             </span>
             <h2 className="font-hero-headline text-5xl md:text-7xl liquid-text-embossed drop-shadow-[0_10px_20px_rgba(24,213,184,0.3)] text-primary">
-              {t("philosophy.title")}
+              {philosophy.title}
             </h2>
           </div>
           <div className="flex flex-col md:flex-row items-center gap-16 relative">
@@ -359,9 +377,9 @@ export default function AboutClient() {
               </div>
               <div className="relative z-10 aspect-[3/4] rounded-[3rem] overflow-hidden border-[12px] border-white/60 shadow-[0_30px_60px_rgba(0,107,91,0.15),inset_0_0_40px_rgba(24,213,184,0.2)] backdrop-blur-md">
                 <img
-                  alt={t("meetDoctor.name")}
+                  alt={philosophy.image.alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAD0wqrfjQ9g2JRCSs7dSqzQMJ2tnTvwnLgQZqC8DlGLUodc2reAIPs4L7rh3gbjVEHIq5B3eLBvFmVUEma9c828HEyvPSt2FLoB0IEiBqP-XZUsafAwnQIKGnWZ1D7bqqXNtZo1dAb55V6rYwEycCtXQGmjSRAuIXzJyh93YEIkjgiP67VBBN9EikiAesFmw2RrbHuKZiqzcS6goqyltAMQAyIl92z9DNububL1KbVZ8XhMDG-Ji8W"
+                  src={philosophy.image.url}
                 />
                 <div className="absolute inset-0 border-[1px] border-primary/30 rounded-[3rem] pointer-events-none shadow-[inset_0_0_30px_rgba(24,213,184,0.4)]"></div>
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
@@ -370,29 +388,27 @@ export default function AboutClient() {
             <div className="w-full md:w-[55%] relative">
               <div className="absolute inset-0 -z-10 flex flex-col justify-around opacity-10 pointer-events-none select-none">
                 <span className="font-hero-headline text-8xl text-primary transform -translate-x-10 transition-transform duration-1000 hover:translate-x-0">
-                  {t("philosophy.ghostWord1")}
+                  {philosophy.ghostWord1}
                 </span>
                 <span className="font-hero-headline text-8xl text-primary self-end translate-x-10 transition-transform duration-1000 hover:-translate-x-0">
-                  {t("philosophy.ghostWord2")}
+                  {philosophy.ghostWord2}
                 </span>
                 <span className="font-hero-headline text-8xl text-primary transform -translate-x-5 transition-transform duration-1000 hover:translate-x-5">
-                  {t("philosophy.ghostWord3")}
+                  {philosophy.ghostWord3}
                 </span>
               </div>
               <div className="glass-panel p-12 rounded-[2.5rem] border border-white/80 relative overflow-hidden">
                 <span className="font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold mb-6 block">
-                  {t("philosophy.label")}
+                  {philosophy.label}
                 </span>
                 <blockquote className="font-body-lg text-2xl md:text-3xl text-on-surface leading-relaxed mb-10 italic">
-                  &lsquo;{t("philosophy.quote")}&rsquo;
+                  &lsquo;{philosophy.quote}&rsquo;
                 </blockquote>
                 <div className="mt-auto">
                   <div className="h-px w-32 bg-gradient-to-r from-primary to-transparent mb-4"></div>
-                  <p className="font-hero-headline text-2xl text-primary">
-                    {t("philosophy.name")}
-                  </p>
+                  <p className="font-hero-headline text-2xl text-primary">{philosophy.name}</p>
                   <p className="font-label-sm text-label-sm text-surface-container-lowest uppercase tracking-widest">
-                    {t("philosophy.role")}
+                    {philosophy.role}
                   </p>
                 </div>
                 <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
@@ -404,11 +420,14 @@ export default function AboutClient() {
 
       {/* 7. CTA */}
       <CtaBanner
-        eyebrow={t("cta.eyebrow")}
-        primaryLabel={t("cta.bookAppointment")}
-        subtitle={t("cta.subtitle")}
-        title={`${t("cta.titleLine1")} ${t("cta.titleEmphasis")} ${t("cta.titleLine2")}`}
-        whatsappLabel={t("cta.whatsappUs")}
+        eyebrow={cta.eyebrow}
+        primaryHref={cta.bookAppointment.href}
+        primaryLabel={cta.bookAppointment.label}
+        subtitle={cta.subtitle}
+        title={`${cta.titleLine1} ${cta.titleEmphasis} ${cta.titleLine2}`}
+        whatsappHref={cta.whatsappUs.href}
+        whatsappLabel={cta.whatsappUs.label}
+        phone={heroContactBarContent.phone}
       />
     </div>
   );
