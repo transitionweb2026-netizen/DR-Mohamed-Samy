@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import HeroContactBar from "@/components/HeroContactBar";
+import CtaBanner from "@/components/CtaBanner";
 
 const MAJOR_SURGERIES = [
   {
@@ -104,25 +105,6 @@ const FAQ_IDS = [
 
 export default function HomeClient() {
   const t = useTranslations("home");
-  const ctaSectionRef = useRef<HTMLElement>(null);
-  const [isCtaVisible, setIsCtaVisible] = useState(false);
-
-  useEffect(() => {
-    const section = ctaSectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsCtaVisible(true);
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div className="route-home">
@@ -171,27 +153,7 @@ export default function HomeClient() {
               </div>
             </div>
             <div className="relative z-10 w-full md:w-2/5 h-full flex justify-center items-center p-8"></div>
-            {/* Floating Social Bar */}
-            <div className="absolute end-8 bottom-8 glass-panel rounded-full p-2 flex flex-col gap-4 z-20">
-              <a
-                className="p-2 rounded-full hover:bg-primary-container/20 text-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined">call</span>
-              </a>
-              <a
-                className="p-2 rounded-full hover:bg-primary-container/20 text-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined">mail</span>
-              </a>
-              <a
-                className="p-2 rounded-full hover:bg-primary-container/20 text-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined">share</span>
-              </a>
-            </div>
+            <HeroContactBar />
           </div>
         </section>
 
@@ -759,48 +721,13 @@ export default function HomeClient() {
         </section>
 
         {/* 10. Immersive CTA */}
-        <section
-          ref={ctaSectionRef}
-          className="w-full relative overflow-hidden bg-background py-32 flex flex-col items-center min-h-[700px] perspective-container z-20"
-          id="immersive-cta"
-        >
-          <div className="absolute inset-0 z-0"></div>
-          <div className="relative z-20 w-full max-w-4xl px-4 flex flex-col items-center justify-center h-full">
-            <div
-              className={`bg-white/40 backdrop-blur-[40px] border border-white/80 rounded-[60px] p-12 md:p-20 shadow-[0_20px_60px_rgba(0,107,91,0.15)] flex flex-col items-center text-center w-full cta-island transition-all duration-1000 ease-out hover:shadow-[0_30px_80px_rgba(24,213,184,0.25)] relative overflow-hidden group ${isCtaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-transparent pointer-events-none"></div>
-              <div className="relative z-10 flex flex-col items-center gap-6">
-                <span className="font-label-sm text-primary tracking-[0.2em] uppercase font-bold">
-                  {t("cta.eyebrow")}
-                </span>
-                <h2 className="font-section-title text-on-background md:text-5xl leading-tight drop-shadow-[0_4px_10px_rgba(255,255,255,0.8)]">
-                  {t("cta.title")}
-                </h2>
-                <p className="font-body-lg text-on-surface-variant max-w-xl mx-auto">
-                  {t("cta.subtitle")}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-6 mt-8 w-full justify-center">
-                  <button className="bg-primary/90 backdrop-blur-md text-white px-10 py-5 rounded-full font-bold shadow-[0_10px_30px_rgba(24,213,184,0.5)] transition-all flex items-center justify-center gap-3 hover:-translate-y-1 active:scale-95 border border-white/30 hover:bg-primary hover:shadow-[0_15px_40px_rgba(24,213,184,0.7)] group/btn w-full sm:w-auto">
-                    {t("cta.bookAppointment")}{" "}
-                    <span className="material-symbols-outlined icon-rtl-flip group-hover/btn:translate-x-1 transition-transform">
-                      arrow_forward
-                    </span>
-                  </button>
-                  <button className="bg-white/30 backdrop-blur-md text-primary px-10 py-5 rounded-full font-bold shadow-lg transition-all flex items-center justify-center gap-3 hover:-translate-y-1 active:scale-95 border-2 border-primary/40 hover:bg-white/50 hover:border-primary group/btn2 w-full sm:w-auto">
-                    <span className="material-symbols-outlined group-hover/btn2:scale-110 transition-transform">
-                      chat
-                    </span>{" "}
-                    {t("cta.whatsappUs")}
-                  </button>
-                </div>
-                <p className="font-body-md text-primary mt-6 tracking-wide font-medium">
-                  {t("cta.phone")}
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CtaBanner
+          eyebrow={t("cta.eyebrow")}
+          primaryLabel={t("cta.bookAppointment")}
+          subtitle={t("cta.subtitle")}
+          title={t("cta.title")}
+          whatsappLabel={t("cta.whatsappUs")}
+        />
       </main>
     </div>
   );

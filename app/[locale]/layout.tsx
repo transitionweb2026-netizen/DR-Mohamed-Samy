@@ -11,6 +11,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 
@@ -123,6 +124,7 @@ export default async function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <FloatingContactButtons />
         </NextIntlClientProvider>
       </body>
     </html>

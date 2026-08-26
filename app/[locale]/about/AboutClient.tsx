@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import HeroContactBar from "@/components/HeroContactBar";
+import CtaBanner from "@/components/CtaBanner";
 import CertificateGallery from "./CertificateGallery";
 
 const TIMELINE_IDS = [
@@ -48,33 +50,12 @@ export default function AboutClient() {
     id: ConferenceId;
     img: string;
   } | null>(null);
-  const gatewayRef = useRef<HTMLDivElement>(null);
-  const [isGatewayRevealed, setIsGatewayRevealed] = useState(false);
-
   useEffect(() => {
     document.body.style.overflow = activeConference ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [activeConference]);
-
-  useEffect(() => {
-    const el = gatewayRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setIsGatewayRevealed(true);
-        });
-      },
-      { threshold: 0.2 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  const revealClass = (delay: string) =>
-    `transition-all duration-700 ${delay} ${isGatewayRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`;
 
   return (
     <div className="route-about bg-background text-on-background antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen">
@@ -123,29 +104,9 @@ export default function AboutClient() {
                 {t("hero.watchVideos")}
               </button>
             </div>
-            <div className="mt-16 inline-flex gap-4 glass-card p-3 rounded-2xl items-center">
-              <span className="font-label-sm text-label-sm text-on-surface-variant px-2 font-bold">
-                {t("hero.connect")}
-              </span>
-              <a
-                className="w-10 h-10 rounded-full bg-white/40 flex items-center justify-center hover:bg-white/80 hover:text-primary transition-colors border border-white/60"
-                href="#"
-              >
-                <span className="material-symbols-outlined text-primary">
-                  link
-                </span>
-              </a>
-              <a
-                className="w-10 h-10 rounded-full bg-white/40 flex items-center justify-center hover:bg-white/80 hover:text-primary transition-colors border border-white/60"
-                href="#"
-              >
-                <span className="material-symbols-outlined text-primary">
-                  mail
-                </span>
-              </a>
-            </div>
           </div>
         </div>
+        <HeroContactBar />
       </section>
 
       {/* 2. Certificates & Credentials */}
@@ -249,9 +210,6 @@ export default function AboutClient() {
             </h2>
           </div>
           <div className="relative">
-            <div className="absolute top-1/2 start-0 w-full h-1 bg-primary/20 -translate-y-1/2 z-0 overflow-hidden">
-              <div className="h-full bg-primary w-1/4 animate-[pulse_3s_infinite] shadow-[0_0_15px_#18d5b8]"></div>
-            </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10">
               {TIMELINE_IDS.map((id) => (
                 <div
@@ -444,67 +402,14 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* 7. Glass Gateway CTA */}
-      <section
-        ref={gatewayRef}
-        className="relative py-section-gap overflow-hidden bg-surface min-h-[60vh] flex items-center"
-        id="glass-gateway"
-      >
-        <div className="absolute inset-0 z-0">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150%] h-[150%] bg-gradient-to-t from-primary/20 via-transparent to-transparent blur-[120px] opacity-60"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(24,213,184,0.15)_0%,_transparent_70%)]"></div>
-        </div>
-        <div className="absolute inset-0 pointer-events-none z-10">
-          <div className="absolute -start-4 top-0 h-full w-1/4 bg-white/10 backdrop-blur-2xl border-e-[8px] border-white/60 rounded-e-[10rem] transform -rotate-2 transition-transform duration-1000 group-hover:rotate-0 shadow-[20px_0_50px_rgba(24,213,184,0.1)]"></div>
-          <div className="absolute -end-4 top-0 h-full w-1/4 bg-white/10 backdrop-blur-2xl border-s-[8px] border-white/60 rounded-s-[10rem] transform rotate-2 transition-transform duration-1000 group-hover:rotate-0 shadow-[-20px_0_50px_rgba(24,213,184,0.1)]"></div>
-        </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-32 bg-gradient-to-t from-primary/30 to-transparent blur-3xl opacity-40 z-0"></div>
-        <div className="max-w-container-max mx-auto px-4 md:px-glass-padding relative z-20 text-center">
-          <div className="max-w-3xl mx-auto">
-            <span
-              className={`${revealClass("delay-100")} font-label-sm text-label-sm text-primary tracking-widest uppercase font-bold block mb-6`}
-            >
-              {t("cta.eyebrow")}
-            </span>
-            <h2
-              className={`${revealClass("delay-300")} font-hero-headline text-4xl md:text-6xl text-primary mb-6 leading-tight`}
-            >
-              {t("cta.titleLine1")}{" "}
-              <span className="liquid-text-embossed">
-                {t("cta.titleEmphasis")}
-              </span>{" "}
-              {t("cta.titleLine2")}
-            </h2>
-            <p
-              className={`${revealClass("delay-500")} font-body-lg text-body-lg mb-12 text-black`}
-            >
-              {t("cta.subtitle")}
-            </p>
-            <div
-              className={`${revealClass("delay-700")} flex flex-col sm:flex-row justify-center gap-8`}
-            >
-              <button className="group relative px-10 py-5 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105">
-                <div className="absolute inset-0 bg-white/40 backdrop-blur-md border-[4px] border-white/80 shadow-[0_20px_40px_rgba(0,107,91,0.1),inset_0_0_20px_rgba(24,213,184,0.2)]"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                <span className="relative z-10 font-hero-headline text-xl text-primary flex items-center gap-3">
-                  <span className="material-symbols-outlined">
-                    calendar_month
-                  </span>
-                  {t("cta.bookAppointment")}
-                </span>
-              </button>
-              <button className="group relative px-10 py-5 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105">
-                <div className="absolute inset-0 bg-white/40 backdrop-blur-md border-[4px] border-white/80 shadow-[0_20px_40px_rgba(0,107,91,0.1),inset_0_0_20px_rgba(24,213,184,0.2)]"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                <span className="relative z-10 font-hero-headline text-xl text-primary flex items-center gap-3">
-                  <span className="material-symbols-outlined">chat</span>
-                  {t("cta.whatsappUs")}
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 7. CTA */}
+      <CtaBanner
+        eyebrow={t("cta.eyebrow")}
+        primaryLabel={t("cta.bookAppointment")}
+        subtitle={t("cta.subtitle")}
+        title={`${t("cta.titleLine1")} ${t("cta.titleEmphasis")} ${t("cta.titleLine2")}`}
+        whatsappLabel={t("cta.whatsappUs")}
+      />
     </div>
   );
 }

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import HeroContactBar from "@/components/HeroContactBar";
+import CtaBanner from "@/components/CtaBanner";
 
 const VIDEO_IDS = [
   "liverRegeneration",
@@ -80,26 +82,6 @@ export default function VideosClient() {
               {t("hero.bookAppointment")}
             </a>
           </div>
-          <div className="flex gap-4 items-center">
-            <a
-              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-primary hover:text-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span className="material-symbols-outlined">call</span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-primary hover:text-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span className="material-symbols-outlined">mail</span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-primary hover:text-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span className="material-symbols-outlined">share</span>
-            </a>
-          </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center z-10 relative">
           <div className="w-full max-w-md aspect-square rounded-full glass-card flex items-center justify-center relative overflow-hidden border-2 border-white/60 p-4">
@@ -120,6 +102,7 @@ export default function VideosClient() {
             </div>
           </div>
         </div>
+        <HeroContactBar />
       </header>
 
       {/* Main Videos Section */}
@@ -168,37 +151,12 @@ export default function VideosClient() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 md:px-8 relative overflow-hidden flex flex-col items-center justify-center text-center mt-auto z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-10 pointer-events-none z-[-1] flex items-center justify-center">
-          <span
-            className="material-symbols-outlined text-[600px] text-primary"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            play_arrow
-          </span>
-        </div>
-        <span className="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 glass-card px-4 py-2 rounded-full inline-block">
-          {t("cta.badge")}
-        </span>
-        <h2 className="font-section-title text-section-title text-primary mb-8 max-w-2xl mx-auto">
-          {t("cta.title")}
-        </h2>
-        <div className="flex flex-wrap justify-center gap-6">
-          <a
-            className="bg-gradient-to-r from-secondary to-primary text-on-primary px-10 py-4 rounded-full font-label-sm text-label-sm shadow-[0_0_20px_rgba(24,213,184,0.3)] border-t border-white/50 hover:scale-105 transition-transform"
-            href="#"
-          >
-            {t("cta.bookAppointment")}
-          </a>
-          <a
-            className="glass-card text-secondary px-10 py-4 rounded-full font-label-sm text-label-sm hover:bg-white/50 transition-colors flex items-center gap-2"
-            href="#"
-          >
-            <span className="material-symbols-outlined">chat</span>
-            {t("cta.whatsappUs")}
-          </a>
-        </div>
-      </section>
+      <CtaBanner
+        eyebrow={t("cta.badge")}
+        primaryLabel={t("cta.bookAppointment")}
+        title={t("cta.title")}
+        whatsappLabel={t("cta.whatsappUs")}
+      />
 
       {/* Video Modal */}
       <div

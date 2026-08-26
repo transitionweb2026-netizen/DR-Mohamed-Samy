@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/i18n/alternates";
+import HeroContactBar from "@/components/HeroContactBar";
+import CtaBanner from "@/components/CtaBanner";
 
 const SURGICAL_PROCEDURE_IDS = [
   "liverTransplantation",
@@ -163,6 +165,7 @@ export default async function ServicesPage({
             </div>
           </div>
         </div>
+        <HeroContactBar />
       </section>
 
       {/* Surgical Procedures */}
@@ -212,62 +215,39 @@ export default async function ServicesPage({
       </section>
 
       {/* Final CTA - The Decision Point */}
-      <section className="relative py-24 min-h-[600px] flex items-center justify-center overflow-hidden mt-12">
-        <div className="relative z-10 max-w-container-max mx-auto px-6 w-full text-center">
-          <h2 className="font-hero-headline text-[48px] text-primary mb-16 text-glow leading-tight max-w-4xl mx-auto">
-            {t("cta.titleLine1")}
-            <br />
-            {t("cta.titleLine2")}
-          </h2>
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 max-w-5xl mx-auto">
-            <button className="glass-card flex-1 rounded-[40px] p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 group border-primary/30 hover:border-primary">
-              <span className="font-section-title text-4xl text-primary opacity-50 group-hover:opacity-100 transition-opacity">
-                01
-              </span>
-              <span className="font-card-title text-card-title text-primary text-center">
-                {t("cta.option1")}
-              </span>
-              <span className="material-symbols-outlined icon-rtl-flip text-primary mt-4">
-                arrow_forward
-              </span>
-            </button>
-            <button className="glass-card flex-1 rounded-[40px] p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 group border-primary/30 hover:border-primary">
-              <span className="font-section-title text-4xl text-primary opacity-50 group-hover:opacity-100 transition-opacity">
-                02
-              </span>
-              <span className="font-card-title text-card-title text-primary text-center">
-                {t("cta.option2")}
-              </span>
-              <span className="material-symbols-outlined icon-rtl-flip text-primary mt-4">
-                arrow_forward
-              </span>
-            </button>
-            <button className="primary-btn flex-1 rounded-[40px] p-8 flex flex-col items-center justify-center gap-4 hover:scale-105 transition-all duration-300 group">
-              <span className="font-section-title text-4xl text-on-primary opacity-70 group-hover:opacity-100 transition-opacity">
-                03
-              </span>
-              <span className="font-card-title text-card-title text-on-primary text-center">
-                {t("cta.option3")}
-              </span>
-              <span className="material-symbols-outlined text-on-primary mt-4">
-                calendar_month
-              </span>
-            </button>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <button className="primary-btn text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-2 hover:scale-105 transition-transform">
-              <span className="material-symbols-outlined">
-                calendar_month
-              </span>
-              {tCommon("bookAppointment")}
-            </button>
-            <button className="glass-card text-primary px-8 py-4 rounded-full font-label-sm text-label-sm uppercase tracking-wider hover:bg-white/50 transition-colors flex items-center gap-2">
-              <span className="material-symbols-outlined">chat</span>
-              {tCommon("whatsappUs")}
-            </button>
-          </div>
+      <CtaBanner
+        eyebrow={t("hero.badge")}
+        primaryLabel={tCommon("bookAppointment")}
+        title={`${t("cta.titleLine1")} ${t("cta.titleLine2")}`}
+        whatsappLabel={tCommon("whatsappUs")}
+      >
+        <div className="flex flex-col sm:flex-row justify-center items-stretch gap-4 max-w-2xl w-full">
+          <button className="glass-card flex-1 rounded-[32px] p-6 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-all duration-300 group border-primary/30 hover:border-primary">
+            <span className="font-section-title text-2xl text-primary opacity-50 group-hover:opacity-100 transition-opacity">
+              01
+            </span>
+            <span className="font-card-title text-sm text-primary text-center">
+              {t("cta.option1")}
+            </span>
+          </button>
+          <button className="glass-card flex-1 rounded-[32px] p-6 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-all duration-300 group border-primary/30 hover:border-primary">
+            <span className="font-section-title text-2xl text-primary opacity-50 group-hover:opacity-100 transition-opacity">
+              02
+            </span>
+            <span className="font-card-title text-sm text-primary text-center">
+              {t("cta.option2")}
+            </span>
+          </button>
+          <button className="primary-btn flex-1 rounded-[32px] p-6 flex flex-col items-center justify-center gap-2 hover:scale-105 transition-all duration-300 group">
+            <span className="font-section-title text-2xl text-on-primary opacity-70 group-hover:opacity-100 transition-opacity">
+              03
+            </span>
+            <span className="font-card-title text-sm text-on-primary text-center">
+              {t("cta.option3")}
+            </span>
+          </button>
         </div>
-      </section>
+      </CtaBanner>
     </div>
   );
 }

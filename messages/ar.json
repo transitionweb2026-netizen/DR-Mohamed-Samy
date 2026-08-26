@@ -59,7 +59,11 @@
     "contactUs": "اتصل بنا",
     "whatsappUs": "تواصل عبر واتساب",
     "callTheClinic": "اتصل بالعيادة",
-    "readArticle": "اقرأ المقال"
+    "readArticle": "اقرأ المقال",
+    "phone": "+20 123 456 7890",
+    "callUs": "اتصل بنا",
+    "chatOnWhatsapp": "تواصل عبر واتساب",
+    "followUsOn": "تابعنا على {platform}"
   },
   "home": {
     "hero": {

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/i18n/alternates";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import HeroContactBar from "@/components/HeroContactBar";
+import CtaBanner from "@/components/CtaBanner";
 
 const REVIEW_IDS = [
   "ahmedHassan",
@@ -123,42 +125,7 @@ export default async function ReviewsPage({
               </button>
             </div>
           </div>
-          <div className="absolute end-glass-padding top-1/2 -translate-y-1/2 flex flex-col gap-3 z-20 hidden lg:flex glass-panel rounded-full p-2">
-            <a
-              className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                qr_code_2
-              </span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span className="material-symbols-outlined">photo_camera</span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span className="material-symbols-outlined">music_note</span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-primary hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
-              href="#"
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                call
-              </span>
-            </a>
-          </div>
+          <HeroContactBar />
         </section>
 
         {/* 2. Reviews Gallery */}
@@ -216,40 +183,13 @@ export default async function ReviewsPage({
         </section>
 
         {/* 3. Final CTA */}
-        <section className="py-section-gap px-4 sm:px-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-surface-container-high/30 z-0"></div>
-          <div className="max-w-4xl mx-auto text-center relative z-10 glass-panel rounded-glass p-12 md:p-20">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] font-hero-headline text-white opacity-20 pointer-events-none drop-shadow-lg">
-              &quot;
-            </div>
-            <span className="font-label-sm text-label-sm text-secondary mb-4 block tracking-widest uppercase">
-              {t("cta.eyebrow")}
-            </span>
-            <h2 className="font-section-title text-section-title text-on-surface mb-4">
-              {t("cta.title")}
-            </h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-10">
-              {t("cta.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center relative z-20">
-              <button className="btn-primary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2 group text-on-surface">
-                {t("cta.bookAppointment")}
-                <span
-                  className="material-symbols-outlined icon-rtl-flip group-hover:translate-x-1 transition-transform"
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  arrow_forward
-                </span>
-              </button>
-              <button className="btn-secondary font-label-sm text-label-sm px-8 py-4 rounded-full w-full sm:w-auto flex items-center justify-center gap-2 bg-white/80 hover:bg-white border-primary-container text-primary">
-                <span className="material-symbols-outlined text-green-500">
-                  chat
-                </span>
-                {t("cta.whatsappUs")}
-              </button>
-            </div>
-          </div>
-        </section>
+        <CtaBanner
+          eyebrow={t("cta.eyebrow")}
+          primaryLabel={t("cta.bookAppointment")}
+          subtitle={t("cta.subtitle")}
+          title={t("cta.title")}
+          whatsappLabel={t("cta.whatsappUs")}
+        />
       </main>
     </div>
   );

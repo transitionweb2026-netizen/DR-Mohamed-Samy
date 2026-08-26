@@ -59,7 +59,11 @@
     "contactUs": "Contact Us",
     "whatsappUs": "WhatsApp Us",
     "callTheClinic": "Call the Clinic",
-    "readArticle": "Read Article"
+    "readArticle": "Read Article",
+    "phone": "+20 123 456 7890",
+    "callUs": "Call us",
+    "chatOnWhatsapp": "Chat on WhatsApp",
+    "followUsOn": "Follow us on {platform}"
   },
   "home": {
     "hero": {

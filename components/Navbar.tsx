@@ -21,6 +21,7 @@ const NAV_LINK_HREFS = [
   "/reviews",
   "/videos",
   "/articles",
+  "/contact",
 ] as const;
 
 const NAV_LABEL_KEYS: Record<(typeof NAV_LINK_HREFS)[number], string> = {
@@ -30,6 +31,7 @@ const NAV_LABEL_KEYS: Record<(typeof NAV_LINK_HREFS)[number], string> = {
   "/reviews": "reviews",
   "/videos": "videos",
   "/articles": "articles",
+  "/contact": "contact",
 };
 
 export default function Navbar() {
@@ -64,14 +66,8 @@ export default function Navbar() {
             );
           })}
         </div>
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center">
           <LanguageSwitcher />
-          <Link
-            className="bg-gradient-to-r from-secondary to-primary text-on-primary px-6 py-2 rounded-full font-label-sm hover:shadow-[0_0_15px_rgba(24,213,184,0.5)] transition-all active:scale-95 whitespace-nowrap"
-            href="/contact"
-          >
-            {t("contact")}
-          </Link>
         </div>
         <div className="flex lg:hidden items-center gap-2">
           <LanguageSwitcher />
@@ -106,13 +102,6 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link
-            className="mt-4 text-center bg-gradient-to-r from-secondary to-primary text-on-primary px-6 py-3 rounded-full font-label-sm"
-            href="/contact"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t("contact")}
-          </Link>
         </div>
       )}
     </nav>

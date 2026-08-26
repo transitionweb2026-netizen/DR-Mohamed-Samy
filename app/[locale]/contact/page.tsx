@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localeAlternates } from "@/i18n/alternates";
+import HeroContactBar from "@/components/HeroContactBar";
+import CtaBanner from "@/components/CtaBanner";
 
 const COUNTRY_CODES = [
   { code: "+20", flag: "🇪🇬" },
@@ -139,40 +141,7 @@ export default async function ContactPage({
               </button>
             </div>
           </div>
-          <div className="hidden xl:flex absolute end-4 top-1/2 -translate-y-1/2 flex-col gap-4 glass-panel p-3 rounded-full z-20">
-            <a
-              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-              href="#"
-            >
-              <span className="material-symbols-outlined text-[20px]">
-                share
-              </span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-              href="#"
-            >
-              <span className="material-symbols-outlined text-[20px]">
-                video_library
-              </span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-              href="#"
-            >
-              <span className="material-symbols-outlined text-[20px]">
-                photo_camera
-              </span>
-            </a>
-            <a
-              className="w-10 h-10 rounded-full bg-surface/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors"
-              href="#"
-            >
-              <span className="material-symbols-outlined text-[20px]">
-                call
-              </span>
-            </a>
-          </div>
+          <HeroContactBar />
         </section>
 
         {/* 2. Contact & International Patient Hub */}
@@ -410,27 +379,14 @@ export default async function ContactPage({
         </section>
 
         {/* 3. Final Contact CTA */}
-        <section className="w-full max-w-container-max mx-auto px-4 md:px-8 py-16 mb-section-gap text-center">
-          <div className="glass-panel p-10 md:p-16 rounded-3xl relative overflow-hidden inline-block w-full max-w-4xl">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent"></div>
-            <span className="inline-block font-label-sm text-label-sm text-primary mb-3 tracking-widest uppercase">
-              {t("cta.label")}
-            </span>
-            <h2 className="font-hero-headline text-[32px] md:text-[48px] text-on-surface mb-8 uppercase leading-tight">
-              {t("cta.title")}
-            </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary text-on-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2">
-                <span className="material-symbols-outlined">call</span>
-                {t("cta.callTheClinic")}
-              </button>
-              <button className="btn-secondary bg-white/40 text-primary px-8 py-4 rounded-full font-label-sm text-label-sm flex items-center justify-center gap-2">
-                <WhatsAppIcon className="w-5 h-5 fill-current" />
-                {t("cta.whatsappUs")}
-              </button>
-            </div>
-          </div>
-        </section>
+        <CtaBanner
+          eyebrow={t("cta.label")}
+          primaryHref="tel:+201234567890"
+          primaryLabel={t("cta.callTheClinic")}
+          showPhone={false}
+          title={t("cta.title")}
+          whatsappLabel={t("cta.whatsappUs")}
+        />
       </main>
     </div>
   );
