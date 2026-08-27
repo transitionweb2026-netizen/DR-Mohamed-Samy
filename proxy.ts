@@ -56,8 +56,23 @@ async function handleAdminAuth(request: NextRequest) {
   return response;
 }
 
+// The CMS lives at /admin, not /en/admin, /ar/admin, etc. - a locale
+// prefix in front of it is an easy, understandable mistake (every other
+// route on the site does need one), so redirect instead of letting it
+// 404 the way an unrecognized path normally would.
+const LOCALE_PREFIXED_ADMIN = new RegExp(`^/(?:${routing.locales.join("|")})(/admin(?:/.*)?)$`);
+
 export default function proxy(request: NextRequest) {
-  if (request.nextUrl.pathname.startsWith("/admin")) {
+  const { pathname } = request.nextUrl;
+
+  const localePrefixedAdminMatch = pathname.match(LOCALE_PREFIXED_ADMIN);
+  if (localePrefixedAdminMatch) {
+    const url = request.nextUrl.clone();
+    url.pathname = localePrefixedAdminMatch[1]!;
+    return NextResponse.redirect(url);
+  }
+
+  if (pathname.startsWith("/admin")) {
     return handleAdminAuth(request);
   }
   return intlMiddleware(request);
