@@ -1,7 +1,17 @@
 import { cache } from "react";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { resolveSection } from "./resolve";
-import type { Locale, PageSeoRow, ResolvedArticle, SectionRow } from "./types";
+import type { Locale, PageSeoRow, SectionRow } from "./types";
+
+/** Where each "refs" field type's collection actually lives - the page/
+ * section whose `items` array is the single source of truth. Add a row
+ * here (plus the field type in lib/cms/types.ts's FieldType) to let any
+ * new collection (articles, reviews, ...) be featured-by-reference from
+ * any other page's section. */
+const REF_SOURCES: Record<string, { pageSlug: string; sectionKey: string }> = {
+  articleRefs: { pageSlug: "articles", sectionKey: "grid" },
+  reviewRefs: { pageSlug: "reviews", sectionKey: "gallery" },
+};
 
 /** Fetches every section of a page and resolves each one to the given
  * locale, keyed by section_key - e.g. getPageContent("home", "ar").hero.title.
@@ -40,30 +50,35 @@ export const getPageContent = cache(async function getPageContent(
     result[section.section_key] = resolveSection(section.schema, section.content, locale);
   }
 
-  // Expand any `articleRefs` fields (stored as just an array of article
-  // ids) into the full article objects they point at, by cross-referencing
-  // the Articles page's own `grid.items` - the single source of truth for
-  // article content. This is generic (works for any section on any page
-  // that declares an `articleRefs` field), not special-cased to Home: it's
-  // how "feature N of the real articles here" stays a real reference
-  // instead of a duplicated copy, so editing an article on the Articles
-  // page updates every page that features it.
-  const refFields = rows.flatMap((section) =>
-    Object.keys(section.schema)
-      .filter((key) => section.schema[key] === "articleRefs")
-      .map((fieldKey) => ({ sectionKey: section.section_key, fieldKey })),
-  );
-  if (refFields.length > 0 && slug !== "articles") {
-    const articlesContent = await getPageContent("articles", locale);
-    const allArticles = ((articlesContent.grid?.items as ResolvedArticle[]) ?? []).filter(
-      (a) => a && typeof a === "object",
+  // Expand any "refs" fields (stored as just an array of ids) into the
+  // full objects they point at, by cross-referencing the source page's own
+  // collection (see REF_SOURCES) - the single source of truth for that
+  // content. Generic across every ref field type and every page/section
+  // that declares one: it's how "feature N of the real articles/reviews
+  // here" stays a real reference instead of a duplicated copy, so editing
+  // the original updates every page that features it.
+  const refFieldsByType = new Map<string, { sectionKey: string; fieldKey: string }[]>();
+  for (const section of rows) {
+    for (const key of Object.keys(section.schema)) {
+      const fieldType = section.schema[key];
+      if (typeof fieldType === "string" && fieldType in REF_SOURCES) {
+        const list = refFieldsByType.get(fieldType) ?? [];
+        list.push({ sectionKey: section.section_key, fieldKey: key });
+        refFieldsByType.set(fieldType, list);
+      }
+    }
+  }
+  for (const [fieldType, fields] of refFieldsByType) {
+    const { pageSlug, sectionKey: sourceSectionKey } = REF_SOURCES[fieldType]!;
+    if (slug === pageSlug) continue; // a collection's own page never references itself
+    const sourceContent = await getPageContent(pageSlug, locale);
+    const items = ((sourceContent[sourceSectionKey]?.items as { id: string }[] | undefined) ?? []).filter(
+      (item) => item && typeof item === "object",
     );
-    const byId = new Map(allArticles.map((a) => [a.id, a]));
-    for (const { sectionKey, fieldKey } of refFields) {
+    const byId = new Map(items.map((item) => [item.id, item]));
+    for (const { sectionKey, fieldKey } of fields) {
       const ids = (result[sectionKey]?.[fieldKey] as string[]) ?? [];
-      result[sectionKey]![fieldKey] = ids
-        .map((id) => byId.get(id))
-        .filter((a): a is ResolvedArticle => !!a);
+      result[sectionKey]![fieldKey] = ids.map((id) => byId.get(id)).filter((item) => !!item);
     }
   }
 

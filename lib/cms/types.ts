@@ -26,11 +26,11 @@ export type ButtonValue = {
  * `image`/`video` are stored as ImageValue; `button` is a ButtonValue (a
  * translatable label + a non-translatable href, edited together as one
  * widget in the dashboard since that's how nearly every CTA on the site is
- * shaped). `articleRefs` is stored as `string[]` of article ids (see
- * scripts/seed-data/articles.ts's `grid.items[].id`) - used where a section
- * on one page needs to feature a chosen subset of the real articles
- * defined on the Articles page, without duplicating their content. Editing
- * an article on the Articles page updates it everywhere it's referenced. */
+ * shaped). `articleRefs`/`reviewRefs` are each stored as `string[]` of ids
+ * into another page's collection (see REF_SOURCES in lib/cms/queries.ts) -
+ * used where a section on one page needs to feature a chosen subset of the
+ * real articles/reviews defined on their own page, without duplicating
+ * their content. Editing the original updates it everywhere referenced. */
 export type FieldType =
   | "text"
   | "textarea"
@@ -40,7 +40,8 @@ export type FieldType =
   | "link"
   | "number"
   | "button"
-  | "articleRefs";
+  | "articleRefs"
+  | "reviewRefs";
 
 export type FieldSchema = FieldType | { type: "array"; itemSchema: SectionSchema };
 
@@ -98,6 +99,17 @@ export type ResolvedArticle = {
   tag: string;
   title: string;
   body: string;
+};
+
+/** The resolved shape of one entry in the Reviews page's `gallery.items` -
+ * what a `reviewRefs` field expands each referenced id into (see
+ * lib/cms/queries.ts). */
+export type ResolvedReview = {
+  id: string;
+  tag: string;
+  quote: string;
+  name: string;
+  rating: number;
 };
 
 export type AppRole = "admin" | "editor";

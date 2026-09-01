@@ -25,7 +25,7 @@ export function defaultValueForField(schema: FieldSchema): unknown {
   if (schema === "image") return { url: "", mediaId: null, alt: { en: "", ar: "", fr: "" } };
   if (schema === "video") return { url: "", mediaId: null };
   if (schema === "button") return { label: { en: "", ar: "", fr: "" }, href: "" };
-  if (schema === "articleRefs") return [];
+  if (schema === "articleRefs" || schema === "reviewRefs") return [];
   if (typeof schema === "object" && schema.type === "array") return [];
   return null;
 }
@@ -82,30 +82,43 @@ function UploadButton({ accept, onUploaded }: { accept: string; onUploaded: (u: 
   );
 }
 
-type AvailableArticle = { id: string; title: string; imageUrl: string };
+type AvailableItem = { id: string; title: string; imageUrl?: string };
 
-/** Picker for `articleRefs` fields: lets an editor choose (and order) which
- * of the real articles - defined once on the Articles page's grid section -
- * get featured here. Stores only ids, so editing an article's title/image/
- * body on the Articles page is instantly reflected everywhere it's
- * referenced, with nothing to keep in sync manually. */
-function ArticleRefsField({
+/** Picker for any "refs" field (`articleRefs`, `reviewRefs`, ...): lets an
+ * editor choose (and order) which entries of some other page's real
+ * collection get featured here. Stores only ids, so editing the original
+ * item's title/image/content on its own page is instantly reflected
+ * everywhere it's referenced, with nothing to keep in sync manually.
+ * `pageSlug`/`sectionKey` say where the source collection lives;
+ * `extract` turns one of its raw stored items into a display label
+ * (+ optional thumbnail) for this picker - each collection shape differs
+ * (articles have images, reviews don't), so the caller decides how to
+ * summarize an item rather than this component guessing. */
+function CollectionRefField({
   fieldKey,
   value,
   onChange,
+  pageSlug,
+  sectionKey,
+  sourceLabel,
+  extract,
 }: {
   fieldKey: string;
   value: string[];
   onChange: (value: string[]) => void;
+  pageSlug: string;
+  sectionKey: string;
+  sourceLabel: string;
+  extract: (item: Record<string, unknown>) => AvailableItem;
 }) {
-  const [available, setAvailable] = useState<AvailableArticle[] | null>(null);
+  const [available, setAvailable] = useState<AvailableItem[] | null>(null);
   const selected = value ?? [];
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       const supabase = createClient();
-      const { data: page } = await supabase.from("pages").select("id").eq("slug", "articles").single();
+      const { data: page } = await supabase.from("pages").select("id").eq("slug", pageSlug).single();
       if (!page) {
         if (!cancelled) setAvailable([]);
         return;
@@ -114,26 +127,19 @@ function ArticleRefsField({
         .from("page_sections")
         .select("content")
         .eq("page_id", page.id)
-        .eq("section_key", "grid")
+        .eq("section_key", sectionKey)
         .single();
       const items = ((section?.content as { items?: unknown[] } | undefined)?.items ?? []) as Record<
         string,
         unknown
       >[];
-      if (!cancelled) {
-        setAvailable(
-          items.map((item) => ({
-            id: item.id as string,
-            title: ((item.title as Translatable | undefined)?.en as string) || (item.id as string),
-            imageUrl: (item.image as ImageValue | undefined)?.url ?? "",
-          })),
-        );
-      }
+      if (!cancelled) setAvailable(items.map(extract));
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `extract` is a fresh closure per render by design (callers pass an inline fn); re-running the fetch on identity change would be wasteful and pageSlug/sectionKey are what actually vary
+  }, [pageSlug, sectionKey]);
 
   function toggle(id: string) {
     onChange(selected.includes(id) ? selected.filter((x) => x !== id) : [...selected, id]);
@@ -145,33 +151,35 @@ function ArticleRefsField({
     [copy[index], copy[target]] = [copy[target]!, copy[index]!];
     onChange(copy);
   }
-  function findArticle(id: string) {
+  function findItem(id: string) {
     return available?.find((a) => a.id === id);
   }
 
   return (
     <div className="sm:col-span-2">
-      <FieldLabel>{humanize(fieldKey)} (featured articles - source: Articles page)</FieldLabel>
+      <FieldLabel>
+        {humanize(fieldKey)} (featured items - source: {sourceLabel})
+      </FieldLabel>
       {available === null ? (
-        <p className="text-xs text-slate-400">Loading articles...</p>
+        <p className="text-xs text-slate-400">Loading...</p>
       ) : (
         <>
           {selected.length > 0 && (
             <div className="space-y-2 mb-3">
               {selected.map((id, index) => {
-                const article = findArticle(id);
+                const item = findItem(id);
                 return (
                   <div
                     className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2"
                     key={id}
                   >
-                    {article?.imageUrl ? (
+                    {item?.imageUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img alt="" className="w-10 h-10 object-cover rounded-md shrink-0" src={article.imageUrl} />
+                      <img alt="" className="w-10 h-10 object-cover rounded-md shrink-0" src={item.imageUrl} />
                     ) : (
                       <div className="w-10 h-10 rounded-md bg-slate-100 shrink-0" />
                     )}
-                    <span className="flex-1 text-sm text-slate-800 truncate">{article?.title ?? id}</span>
+                    <span className="flex-1 text-sm text-slate-800 truncate">{item?.title ?? id}</span>
                     <button
                       className="text-xs px-2 py-1 rounded hover:bg-slate-200 text-slate-600 disabled:opacity-30"
                       disabled={index === 0}
@@ -201,27 +209,27 @@ function ArticleRefsField({
             </div>
           )}
           <details>
-            <summary className="text-xs font-medium text-teal-700 cursor-pointer">+ Add an article</summary>
+            <summary className="text-xs font-medium text-teal-700 cursor-pointer">+ Add an item</summary>
             <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
               {available
                 .filter((a) => !selected.includes(a.id))
-                .map((article) => (
+                .map((item) => (
                   <button
                     className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 hover:border-teal-400 text-start"
-                    key={article.id}
-                    onClick={() => toggle(article.id)}
+                    key={item.id}
+                    onClick={() => toggle(item.id)}
                     type="button"
                   >
-                    {article.imageUrl ? (
+                    {item.imageUrl ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img alt="" className="w-8 h-8 object-cover rounded-md shrink-0" src={article.imageUrl} />
+                      <img alt="" className="w-8 h-8 object-cover rounded-md shrink-0" src={item.imageUrl} />
                     ) : (
                       <div className="w-8 h-8 rounded-md bg-slate-100 shrink-0" />
                     )}
-                    <span className="text-xs text-slate-700 truncate">{article.title}</span>
+                    <span className="text-xs text-slate-700 truncate">{item.title}</span>
                   </button>
                 ))}
-              {available.length === 0 && <p className="text-xs text-slate-400">No articles found.</p>}
+              {available.length === 0 && <p className="text-xs text-slate-400">No items found.</p>}
             </div>
           </details>
         </>
@@ -375,7 +383,40 @@ export default function FieldEditor({ fieldKey, schema, value, locale, onChange 
   }
 
   if (schema === "articleRefs") {
-    return <ArticleRefsField fieldKey={fieldKey} onChange={onChange} value={(value as string[]) ?? []} />;
+    return (
+      <CollectionRefField
+        extract={(item) => ({
+          id: item.id as string,
+          title: ((item.title as Translatable | undefined)?.en as string) || (item.id as string),
+          imageUrl: (item.image as ImageValue | undefined)?.url,
+        })}
+        fieldKey={fieldKey}
+        onChange={onChange}
+        pageSlug="articles"
+        sectionKey="grid"
+        sourceLabel="Articles page"
+        value={(value as string[]) ?? []}
+      />
+    );
+  }
+
+  if (schema === "reviewRefs") {
+    return (
+      <CollectionRefField
+        extract={(item) => {
+          const name = ((item.name as Translatable | undefined)?.en as string) || (item.id as string);
+          const quote = ((item.quote as Translatable | undefined)?.en as string) || "";
+          const snippet = quote.length > 40 ? `${quote.slice(0, 40)}...` : quote;
+          return { id: item.id as string, title: snippet ? `${name} - "${snippet}"` : name };
+        }}
+        fieldKey={fieldKey}
+        onChange={onChange}
+        pageSlug="reviews"
+        sectionKey="gallery"
+        sourceLabel="Reviews page"
+        value={(value as string[]) ?? []}
+      />
+    );
   }
 
   if (typeof schema === "object" && schema.type === "array") {

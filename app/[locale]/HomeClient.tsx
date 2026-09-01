@@ -4,10 +4,12 @@ import { useState } from "react";
 import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
 import ArticleModal, { type OpenArticle } from "@/components/ArticleModal";
+import Stars from "@/components/Stars";
 
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
 type ArticleItem = { id: string; image: ImageContent; tag: string; title: string; body: string };
+type ReviewItem = { id: string; tag: string; quote: string; name: string; rating: number };
 
 export type HomeContent = {
   hero: {
@@ -44,8 +46,9 @@ export type HomeContent = {
     eyebrow: string;
     title: string;
     subtitle: string;
+    verifiedLabel: string;
     cta: ButtonContent;
-    items: { id: string; quote: string; name: string; tag: string }[];
+    items: ReviewItem[];
   };
   whyUs: {
     eyebrow: string;
@@ -73,14 +76,18 @@ export type HomeContent = {
   cta: { eyebrow: string; title: string; subtitle: string; bookAppointment: ButtonContent; whatsappUs: ButtonContent };
 };
 
-const STORY_SHAPES: Record<string, string> = {
-  sarahJohnson: "rounded-full",
-  michaelChen: "rounded-t-full rounded-b-3xl",
-  ahmedHassan: "rounded-[100px]",
-  elenaRodriguez: "rounded-b-[80px] rounded-t-3xl",
-  robertTaylor: "rounded-[40px]",
-  fatimaAlSayed: "rounded-tl-[100px] rounded-br-[100px] rounded-tr-3xl rounded-bl-3xl",
-};
+// Cycled by position rather than keyed by id, since which reviews are
+// featured here is now editable from the dashboard (see reviewRefs) - the
+// varied blob shapes are a Home-specific visual flourish independent of
+// which review happens to be shown in which slot.
+const STORY_SHAPES = [
+  "rounded-full",
+  "rounded-t-full rounded-b-3xl",
+  "rounded-[100px]",
+  "rounded-b-[80px] rounded-t-3xl",
+  "rounded-[40px]",
+  "rounded-tl-[100px] rounded-br-[100px] rounded-tr-3xl rounded-bl-3xl",
+];
 
 export default function HomeClient({
   content,
@@ -374,31 +381,32 @@ export default function HomeClient({
             <div className="w-32 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-4 opacity-40"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 perspective-container">
-            {patientStories.items.map((story) => (
+            {patientStories.items.map((story, i) => (
               <div
                 key={story.id}
-                className={`glass-capsule group relative h-[450px] ${STORY_SHAPES[story.id] ?? "rounded-[40px]"} flex flex-col items-center justify-center p-8 text-center transition-all duration-500 border-white/40 shadow-[0_20px_50px_rgba(0,107,91,0.2)]`}
+                className={`glass-capsule group relative h-[450px] ${STORY_SHAPES[i % STORY_SHAPES.length]} flex flex-col items-center justify-center p-8 text-center transition-all duration-500 border-white/40 shadow-[0_20px_50px_rgba(0,107,91,0.2)]`}
               >
                 <span className="material-symbols-outlined absolute top-12 text-6xl opacity-10 text-primary group-hover:-translate-z-10 transition-transform duration-500">
                   format_quote
                 </span>
                 <div className="relative z-20 group-hover:translate-z-20 transition-transform duration-500">
-                  <div className="flex justify-center gap-1 mb-4">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span
-                        key={i}
-                        className="material-symbols-outlined text-primary text-sm"
-                        style={{ fontVariationSettings: '"FILL" 1' }}
-                      >
-                        star
-                      </span>
-                    ))}
+                  <div className="flex justify-center mb-4">
+                    <Stars count={story.rating} />
                   </div>
                   <p className="font-body-md text-on-surface-variant italic mb-6 px-4">&quot;{story.quote}&quot;</p>
                   <h4 className="font-card-title text-primary text-xl">{story.name}</h4>
                   <span className="font-label-sm text-secondary uppercase tracking-widest mt-2 block">
                     {story.tag}
                   </span>
+                  <p className="font-label-sm text-label-sm text-primary flex items-center justify-center gap-1 text-[10px] mt-2">
+                    <span
+                      className="material-symbols-outlined text-[12px]"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      verified
+                    </span>
+                    {patientStories.verifiedLabel}
+                  </p>
                 </div>
               </div>
             ))}

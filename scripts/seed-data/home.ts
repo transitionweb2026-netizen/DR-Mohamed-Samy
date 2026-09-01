@@ -149,22 +149,21 @@ export const homeSections: SectionDef[] = [
       eyebrow: "text",
       title: "text",
       subtitle: "text",
+      verifiedLabel: "text",
       cta: "button",
-      items: { type: "array", itemSchema: { quote: "textarea", name: "text", tag: "text" } },
+      // References into the Reviews page's own `gallery.items` (single
+      // source of truth) rather than duplicated quote/name/tag content -
+      // see lib/cms/queries.ts's reviewRefs resolution. Editing one of
+      // these reviews on the Reviews page updates this preview too.
+      items: "reviewRefs",
     },
     {
       eyebrow: text("home.patientStories.eyebrow"),
       title: text("home.patientStories.title"),
       subtitle: text("home.patientStories.subtitle"),
+      verifiedLabel: text("reviews.gallery.verifiedPatient"),
       cta: button(text("home.patientStories.cta"), "/reviews"),
-      items: ["sarahJohnson", "michaelChen", "ahmedHassan", "elenaRodriguez", "robertTaylor", "fatimaAlSayed"].map(
-        (id) => ({
-          id,
-          quote: text(`home.patientStories.items.${id}.quote`),
-          name: text(`home.patientStories.items.${id}.name`),
-          tag: text(`home.patientStories.items.${id}.tag`),
-        }),
-      ),
+      items: ["ahmedHassan", "sarahM", "tarekE", "omarR", "lailaK", "hassanB"],
     },
   ),
   section(

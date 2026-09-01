@@ -4,6 +4,7 @@ import { localeAlternates } from "@/i18n/alternates";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
+import Stars from "@/components/Stars";
 import { getGlobalContent, getPageContent, getPageSeo } from "@/lib/cms/queries";
 import type { Locale } from "@/lib/cms/types";
 
@@ -35,32 +36,6 @@ type ReviewsContent = {
     whatsappUs: ButtonContent;
   };
 };
-
-function Stars({ count }: { count: number }) {
-  const full = Math.floor(count);
-  const half = count % 1 !== 0;
-  return (
-    <div className="flex text-tertiary-container">
-      {Array.from({ length: full }).map((_, i) => (
-        <span
-          key={`full-${i}`}
-          className="material-symbols-outlined text-[16px]"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          star
-        </span>
-      ))}
-      {half && (
-        <span
-          className="material-symbols-outlined text-[16px]"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          star_half
-        </span>
-      )}
-    </div>
-  );
-}
 
 export async function generateMetadata({
   params,
