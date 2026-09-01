@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
+import ArticleModal, { type OpenArticle } from "@/components/ArticleModal";
 
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
+type ArticleItem = { id: string; image: ImageContent; tag: string; title: string; body: string };
 
 export type HomeContent = {
   hero: {
@@ -62,8 +65,9 @@ export type HomeContent = {
   insights: {
     eyebrow: string;
     title: string;
+    readArticle: string;
     articlesCta: ButtonContent;
-    articles: { id: string; image: ImageContent; title: string }[];
+    articles: ArticleItem[];
     faq: { id: string; q: string; a: string }[];
   };
   cta: { eyebrow: string; title: string; subtitle: string; bookAppointment: ButtonContent; whatsappUs: ButtonContent };
@@ -87,6 +91,7 @@ export default function HomeClient({
 }) {
   const { hero, stats, meetDoctor, majorSurgeries, majorTreatments, patientStories, whyUs, videos, insights, cta } =
     content;
+  const [openArticle, setOpenArticle] = useState<OpenArticle | null>(null);
 
   return (
     <div className="route-home">
@@ -578,25 +583,41 @@ export default function HomeClient({
               <div className="w-full lg:w-1/2 flex flex-col gap-8">
                 <div className="grid grid-cols-2 gap-6">
                   {insights.articles.map((article) => (
-                    <div
+                    <button
+                      className="group block text-start w-full"
                       key={article.id}
-                      className="glass-panel group relative aspect-square rounded-[32px] overflow-hidden p-2 border-white/40 shadow-lg hover:shadow-[0_20px_40px_rgba(24,213,184,0.3)] transition-all duration-500"
+                      onClick={() =>
+                        setOpenArticle({ tag: article.tag, title: article.title, body: article.body, image: article.image })
+                      }
+                      type="button"
                     >
-                      <div className="w-full h-full rounded-[24px] overflow-hidden relative">
-                        <img
-                          alt={article.image.alt}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          src={article.image.url}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                        <div className="absolute bottom-4 start-4 end-4">
-                          <h4 className="font-card-title text-white text-lg leading-tight group-hover:-translate-y-1 transition-transform">
+                      <div className="glass-panel rounded-xl overflow-hidden hover-lift h-full flex flex-col border-s-4 border-s-primary/50 hover:border-s-primary transition-all">
+                        <div className="relative h-32 overflow-hidden p-2">
+                          <div className="w-full h-full rounded-lg overflow-hidden relative">
+                            <img
+                              alt={article.image.alt}
+                              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                              src={article.image.url}
+                            />
+                            <div className="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+                          </div>
+                        </div>
+                        <div className="p-4 flex-grow flex flex-col">
+                          <span className="font-label-sm text-secondary uppercase tracking-widest mb-1 text-[10px]">
+                            {article.tag}
+                          </span>
+                          <h4 className="font-card-title text-on-surface text-sm mb-2 group-hover:text-primary transition-colors line-clamp-2">
                             {article.title}
                           </h4>
+                          <div className="mt-auto flex items-center text-xs text-outline group-hover:text-secondary transition-colors pt-2 border-t border-white/20">
+                            {insights.readArticle}{" "}
+                            <span className="material-symbols-outlined icon-rtl-flip text-[14px] ms-1">
+                              chevron_right
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-white/5 pointer-events-none"></div>
-                    </div>
+                    </button>
                   ))}
                 </div>
                 <a
@@ -641,6 +662,8 @@ export default function HomeClient({
           phone={heroContactBarContent.phone}
         />
       </main>
+
+      <ArticleModal article={openArticle} onClose={() => setOpenArticle(null)} />
     </div>
   );
 }

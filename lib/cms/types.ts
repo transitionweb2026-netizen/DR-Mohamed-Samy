@@ -26,7 +26,11 @@ export type ButtonValue = {
  * `image`/`video` are stored as ImageValue; `button` is a ButtonValue (a
  * translatable label + a non-translatable href, edited together as one
  * widget in the dashboard since that's how nearly every CTA on the site is
- * shaped). */
+ * shaped). `articleRefs` is stored as `string[]` of article ids (see
+ * scripts/seed-data/articles.ts's `grid.items[].id`) - used where a section
+ * on one page needs to feature a chosen subset of the real articles
+ * defined on the Articles page, without duplicating their content. Editing
+ * an article on the Articles page updates it everywhere it's referenced. */
 export type FieldType =
   | "text"
   | "textarea"
@@ -35,7 +39,8 @@ export type FieldType =
   | "icon"
   | "link"
   | "number"
-  | "button";
+  | "button"
+  | "articleRefs";
 
 export type FieldSchema = FieldType | { type: "array"; itemSchema: SectionSchema };
 
@@ -82,6 +87,17 @@ export type PageSeoRow = {
   structured_data: Record<string, unknown> | null;
   updated_at: string;
   updated_by: string | null;
+};
+
+/** The resolved shape of one entry in the Articles page's `grid.items` -
+ * what an `articleRefs` field expands each referenced id into (see
+ * lib/cms/queries.ts). */
+export type ResolvedArticle = {
+  id: string;
+  image: { url: string; mediaId: string | null; alt: string };
+  tag: string;
+  title: string;
+  body: string;
 };
 
 export type AppRole = "admin" | "editor";

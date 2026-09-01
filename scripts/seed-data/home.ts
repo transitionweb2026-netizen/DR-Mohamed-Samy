@@ -222,24 +222,21 @@ export const homeSections: SectionDef[] = [
     {
       eyebrow: "text",
       title: "text",
+      readArticle: "text",
       articlesCta: "button",
-      articles: { type: "array", itemSchema: { image: "image", title: "text" } },
+      // References into the Articles page's own `grid.items` (single
+      // source of truth) rather than duplicated title/image content - see
+      // lib/cms/queries.ts's articleRefs resolution. Editing one of these
+      // articles on the Articles page updates this preview automatically.
+      articles: "articleRefs",
       faq: { type: "array", itemSchema: { q: "text", a: "textarea" } },
     },
     {
       eyebrow: text("home.insights.eyebrow"),
       title: text("home.insights.title"),
+      readArticle: text("common.readArticle"),
       articlesCta: button(text("home.insights.articlesCta"), "/articles"),
-      articles: ["postSurgeryNutrition", "liverRegeneration", "roboticSurgeryBenefits", "livingDonorInformation"].map(
-        (id) => ({
-          id,
-          image: image(
-            { postSurgeryNutrition: IMG.advancedCirrhosis, liverRegeneration: IMG.liverTumors, roboticSurgeryBenefits: IMG.biliaryObstructions, livingDonorInformation: IMG.metabolicLiverDisease }[id]!,
-            text(`home.insights.articles.${id}`),
-          ),
-          title: text(`home.insights.articles.${id}`),
-        }),
-      ),
+      articles: ["understandingYourLiver", "roadToRecovery", "roboticAssistance", "futureOfHepatology"],
       faq: ["recovery", "successRates", "roboticSurgery", "internationalPatients", "insurance", "scheduleConsultation"].map(
         (id) => ({ id, q: text(`home.insights.faq.${id}.q`), a: text(`home.insights.faq.${id}.a`) }),
       ),

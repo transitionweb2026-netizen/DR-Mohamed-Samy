@@ -18,6 +18,12 @@ function resolveField(schema: FieldSchema, value: unknown, locale: Locale): unkn
   if (schema === "icon" || schema === "link" || schema === "number") {
     return value ?? null;
   }
+  if (schema === "articleRefs") {
+    // Just the chosen article ids - not translatable. lib/cms/queries.ts
+    // expands these into full article objects after this section-level
+    // resolve pass, since that requires reading a different page's data.
+    return (value as string[] | undefined) ?? [];
+  }
   if (schema === "image" || schema === "video") {
     const v = value as ImageValue | undefined;
     return { url: v?.url ?? "", mediaId: v?.mediaId ?? null, alt: v?.alt?.[locale] ?? "" };

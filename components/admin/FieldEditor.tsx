@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { uploadMedia } from "@/lib/cms/media-client";
+import { createClient } from "@/lib/supabase/client";
 import type {
   ButtonValue,
   FieldSchema,
@@ -24,6 +25,7 @@ export function defaultValueForField(schema: FieldSchema): unknown {
   if (schema === "image") return { url: "", mediaId: null, alt: { en: "", ar: "", fr: "" } };
   if (schema === "video") return { url: "", mediaId: null };
   if (schema === "button") return { label: { en: "", ar: "", fr: "" }, href: "" };
+  if (schema === "articleRefs") return [];
   if (typeof schema === "object" && schema.type === "array") return [];
   return null;
 }
@@ -76,6 +78,154 @@ function UploadButton({ accept, onUploaded }: { accept: string; onUploaded: (u: 
         {busy ? "Uploading..." : "Upload / Replace"}
       </button>
       {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
+    </div>
+  );
+}
+
+type AvailableArticle = { id: string; title: string; imageUrl: string };
+
+/** Picker for `articleRefs` fields: lets an editor choose (and order) which
+ * of the real articles - defined once on the Articles page's grid section -
+ * get featured here. Stores only ids, so editing an article's title/image/
+ * body on the Articles page is instantly reflected everywhere it's
+ * referenced, with nothing to keep in sync manually. */
+function ArticleRefsField({
+  fieldKey,
+  value,
+  onChange,
+}: {
+  fieldKey: string;
+  value: string[];
+  onChange: (value: string[]) => void;
+}) {
+  const [available, setAvailable] = useState<AvailableArticle[] | null>(null);
+  const selected = value ?? [];
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const supabase = createClient();
+      const { data: page } = await supabase.from("pages").select("id").eq("slug", "articles").single();
+      if (!page) {
+        if (!cancelled) setAvailable([]);
+        return;
+      }
+      const { data: section } = await supabase
+        .from("page_sections")
+        .select("content")
+        .eq("page_id", page.id)
+        .eq("section_key", "grid")
+        .single();
+      const items = ((section?.content as { items?: unknown[] } | undefined)?.items ?? []) as Record<
+        string,
+        unknown
+      >[];
+      if (!cancelled) {
+        setAvailable(
+          items.map((item) => ({
+            id: item.id as string,
+            title: ((item.title as Translatable | undefined)?.en as string) || (item.id as string),
+            imageUrl: (item.image as ImageValue | undefined)?.url ?? "",
+          })),
+        );
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  function toggle(id: string) {
+    onChange(selected.includes(id) ? selected.filter((x) => x !== id) : [...selected, id]);
+  }
+  function move(index: number, dir: -1 | 1) {
+    const target = index + dir;
+    if (target < 0 || target >= selected.length) return;
+    const copy = selected.slice();
+    [copy[index], copy[target]] = [copy[target]!, copy[index]!];
+    onChange(copy);
+  }
+  function findArticle(id: string) {
+    return available?.find((a) => a.id === id);
+  }
+
+  return (
+    <div className="sm:col-span-2">
+      <FieldLabel>{humanize(fieldKey)} (featured articles - source: Articles page)</FieldLabel>
+      {available === null ? (
+        <p className="text-xs text-slate-400">Loading articles...</p>
+      ) : (
+        <>
+          {selected.length > 0 && (
+            <div className="space-y-2 mb-3">
+              {selected.map((id, index) => {
+                const article = findArticle(id);
+                return (
+                  <div
+                    className="flex items-center gap-3 rounded-lg border border-slate-200 bg-white px-3 py-2"
+                    key={id}
+                  >
+                    {article?.imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img alt="" className="w-10 h-10 object-cover rounded-md shrink-0" src={article.imageUrl} />
+                    ) : (
+                      <div className="w-10 h-10 rounded-md bg-slate-100 shrink-0" />
+                    )}
+                    <span className="flex-1 text-sm text-slate-800 truncate">{article?.title ?? id}</span>
+                    <button
+                      className="text-xs px-2 py-1 rounded hover:bg-slate-200 text-slate-600 disabled:opacity-30"
+                      disabled={index === 0}
+                      onClick={() => move(index, -1)}
+                      type="button"
+                    >
+                      ↑
+                    </button>
+                    <button
+                      className="text-xs px-2 py-1 rounded hover:bg-slate-200 text-slate-600 disabled:opacity-30"
+                      disabled={index === selected.length - 1}
+                      onClick={() => move(index, 1)}
+                      type="button"
+                    >
+                      ↓
+                    </button>
+                    <button
+                      className="text-xs px-2 py-1 rounded hover:bg-red-100 text-red-600"
+                      onClick={() => toggle(id)}
+                      type="button"
+                    >
+                      Remove
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          <details>
+            <summary className="text-xs font-medium text-teal-700 cursor-pointer">+ Add an article</summary>
+            <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {available
+                .filter((a) => !selected.includes(a.id))
+                .map((article) => (
+                  <button
+                    className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 hover:border-teal-400 text-start"
+                    key={article.id}
+                    onClick={() => toggle(article.id)}
+                    type="button"
+                  >
+                    {article.imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img alt="" className="w-8 h-8 object-cover rounded-md shrink-0" src={article.imageUrl} />
+                    ) : (
+                      <div className="w-8 h-8 rounded-md bg-slate-100 shrink-0" />
+                    )}
+                    <span className="text-xs text-slate-700 truncate">{article.title}</span>
+                  </button>
+                ))}
+              {available.length === 0 && <p className="text-xs text-slate-400">No articles found.</p>}
+            </div>
+          </details>
+        </>
+      )}
     </div>
   );
 }
@@ -222,6 +372,10 @@ export default function FieldEditor({ fieldKey, schema, value, locale, onChange 
         />
       </div>
     );
+  }
+
+  if (schema === "articleRefs") {
+    return <ArticleRefsField fieldKey={fieldKey} onChange={onChange} value={(value as string[]) ?? []} />;
   }
 
   if (typeof schema === "object" && schema.type === "array") {

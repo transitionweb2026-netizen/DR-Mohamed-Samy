@@ -1,7 +1,7 @@
 import { cache } from "react";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { resolveSection } from "./resolve";
-import type { Locale, PageSeoRow, SectionRow } from "./types";
+import type { Locale, PageSeoRow, ResolvedArticle, SectionRow } from "./types";
 
 /** Fetches every section of a page and resolves each one to the given
  * locale, keyed by section_key - e.g. getPageContent("home", "ar").hero.title.
@@ -34,13 +34,39 @@ export const getPageContent = cache(async function getPageContent(
     throw new Error(`CMS: failed to load sections for "${slug}": ${sectionsError.message}`);
   }
 
+  const rows = (sections ?? []) as Pick<SectionRow, "section_key" | "schema" | "content">[];
   const result: Record<string, Record<string, unknown>> = {};
-  for (const section of (sections ?? []) as Pick<
-    SectionRow,
-    "section_key" | "schema" | "content"
-  >[]) {
+  for (const section of rows) {
     result[section.section_key] = resolveSection(section.schema, section.content, locale);
   }
+
+  // Expand any `articleRefs` fields (stored as just an array of article
+  // ids) into the full article objects they point at, by cross-referencing
+  // the Articles page's own `grid.items` - the single source of truth for
+  // article content. This is generic (works for any section on any page
+  // that declares an `articleRefs` field), not special-cased to Home: it's
+  // how "feature N of the real articles here" stays a real reference
+  // instead of a duplicated copy, so editing an article on the Articles
+  // page updates every page that features it.
+  const refFields = rows.flatMap((section) =>
+    Object.keys(section.schema)
+      .filter((key) => section.schema[key] === "articleRefs")
+      .map((fieldKey) => ({ sectionKey: section.section_key, fieldKey })),
+  );
+  if (refFields.length > 0 && slug !== "articles") {
+    const articlesContent = await getPageContent("articles", locale);
+    const allArticles = ((articlesContent.grid?.items as ResolvedArticle[]) ?? []).filter(
+      (a) => a && typeof a === "object",
+    );
+    const byId = new Map(allArticles.map((a) => [a.id, a]));
+    for (const { sectionKey, fieldKey } of refFields) {
+      const ids = (result[sectionKey]?.[fieldKey] as string[]) ?? [];
+      result[sectionKey]![fieldKey] = ids
+        .map((id) => byId.get(id))
+        .filter((a): a is ResolvedArticle => !!a);
+    }
+  }
+
   return result;
 });
 
