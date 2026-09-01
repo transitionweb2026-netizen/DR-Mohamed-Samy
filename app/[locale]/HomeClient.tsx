@@ -9,7 +9,7 @@ import Stars from "@/components/Stars";
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
 type ArticleItem = { id: string; image: ImageContent; tag: string; title: string; body: string };
-type ReviewItem = { id: string; tag: string; quote: string; name: string; rating: number };
+type ReviewItem = { id: string; image: ImageContent; tag: string; quote: string; name: string; rating: number };
 
 export type HomeContent = {
   hero: {
@@ -394,6 +394,13 @@ export default function HomeClient({
                     <Stars count={story.rating} />
                   </div>
                   <p className="font-body-md text-on-surface-variant italic mb-6 px-4">&quot;{story.quote}&quot;</p>
+                  {story.image.url && (
+                    <img
+                      alt={story.image.alt}
+                      className="w-12 h-12 rounded-full object-cover border border-white/40 mx-auto mb-2"
+                      src={story.image.url}
+                    />
+                  )}
                   <h4 className="font-card-title text-primary text-xl">{story.name}</h4>
                   <span className="font-label-sm text-secondary uppercase tracking-widest mt-2 block">
                     {story.tag}

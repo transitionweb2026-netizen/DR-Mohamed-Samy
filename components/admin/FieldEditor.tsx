@@ -407,7 +407,11 @@ export default function FieldEditor({ fieldKey, schema, value, locale, onChange 
           const name = ((item.name as Translatable | undefined)?.en as string) || (item.id as string);
           const quote = ((item.quote as Translatable | undefined)?.en as string) || "";
           const snippet = quote.length > 40 ? `${quote.slice(0, 40)}...` : quote;
-          return { id: item.id as string, title: snippet ? `${name} - "${snippet}"` : name };
+          return {
+            id: item.id as string,
+            title: snippet ? `${name} - "${snippet}"` : name,
+            imageUrl: (item.image as ImageValue | undefined)?.url,
+          };
         }}
         fieldKey={fieldKey}
         onChange={onChange}

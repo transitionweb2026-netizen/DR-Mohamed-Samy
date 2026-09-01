@@ -30,7 +30,10 @@ export const reviewsSections: SectionDef[] = [
       title: "text",
       verifiedPatient: "text",
       loadMore: "button",
-      items: { type: "array", itemSchema: { tag: "text", quote: "textarea", name: "text", rating: "number" } },
+      items: {
+        type: "array",
+        itemSchema: { image: "image", tag: "text", quote: "textarea", name: "text", rating: "number" },
+      },
     },
     {
       eyebrow: text("reviews.gallery.eyebrow"),
@@ -39,6 +42,11 @@ export const reviewsSections: SectionDef[] = [
       loadMore: button(text("reviews.gallery.loadMore"), "#"),
       items: Object.keys(STARS).map((id) => ({
         id,
+        // No real patient photos exist yet - left empty rather than using a
+        // stock photo of a stranger under a real reviewer's name. The
+        // dashboard's image field lets the clinic upload a real, consented
+        // photo per review whenever they have one.
+        image: image("", { en: "", ar: "", fr: "" }),
         tag: text(`reviews.gallery.items.${id}.tag`),
         quote: text(`reviews.gallery.items.${id}.quote`),
         name: text(`reviews.gallery.items.${id}.name`),

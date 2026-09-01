@@ -106,6 +106,7 @@ export type ResolvedArticle = {
  * lib/cms/queries.ts). */
 export type ResolvedReview = {
   id: string;
+  image: { url: string; mediaId: string | null; alt: string };
   tag: string;
   quote: string;
   name: string;

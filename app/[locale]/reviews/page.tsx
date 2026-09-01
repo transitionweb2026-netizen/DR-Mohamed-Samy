@@ -10,7 +10,7 @@ import type { Locale } from "@/lib/cms/types";
 
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
-type ReviewItem = { id: string; tag: string; quote: string; name: string; rating: number };
+type ReviewItem = { id: string; image: ImageContent; tag: string; quote: string; name: string; rating: number };
 
 type ReviewsContent = {
   hero: {
@@ -145,19 +145,28 @@ export default async function ReviewsPage({
                   </p>
                 </div>
                 <div className="relative z-10 mt-auto pt-4 border-t border-white/30 flex items-center justify-between">
-                  <div>
-                    <p className="font-card-title text-card-title text-on-surface text-sm">
-                      {item.name}
-                    </p>
-                    <p className="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]">
-                      <span
-                        className="material-symbols-outlined text-[12px]"
-                        style={{ fontVariationSettings: "'FILL' 1" }}
-                      >
-                        verified
-                      </span>{" "}
-                      {gallery.verifiedPatient}
-                    </p>
+                  <div className="flex items-center gap-3">
+                    {item.image.url && (
+                      <img
+                        alt={item.image.alt}
+                        className="w-10 h-10 rounded-full object-cover border border-white/40 shrink-0"
+                        src={item.image.url}
+                      />
+                    )}
+                    <div>
+                      <p className="font-card-title text-card-title text-on-surface text-sm">
+                        {item.name}
+                      </p>
+                      <p className="font-label-sm text-label-sm text-primary flex items-center gap-1 text-[10px]">
+                        <span
+                          className="material-symbols-outlined text-[12px]"
+                          style={{ fontVariationSettings: "'FILL' 1" }}
+                        >
+                          verified
+                        </span>{" "}
+                        {gallery.verifiedPatient}
+                      </p>
+                    </div>
                   </div>
                   <Stars count={item.rating} />
                 </div>
