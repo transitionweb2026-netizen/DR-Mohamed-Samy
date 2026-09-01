@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { requireUser } from "@/lib/cms/auth";
 import SectionCard from "@/components/admin/SectionCard";
-import { saveSectionContent } from "./actions";
+import { getSectionHistory, restoreSectionVersion, saveSectionContent } from "./actions";
 import type { SectionSchema } from "@/lib/cms/types";
 
 export default async function PageEditorPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -47,6 +47,8 @@ export default async function PageEditorPage({ params }: { params: Promise<{ slu
             initialContent={section.content as Record<string, unknown>}
             key={section.id}
             label={section.label}
+            onGetHistory={getSectionHistory}
+            onRestore={restoreSectionVersion}
             onSave={saveSectionContent}
             schema={section.schema as SectionSchema}
             sectionId={section.id}

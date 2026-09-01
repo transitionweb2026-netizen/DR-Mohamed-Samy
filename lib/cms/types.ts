@@ -112,6 +112,19 @@ export type ResolvedReview = {
   rating: number;
 };
 
+/** One snapshot of a section's content/schema, taken automatically right
+ * before it was overwritten (see supabase/migrations/0002_content_history.sql's
+ * BEFORE UPDATE trigger). This is what makes an edit undoable - browsed
+ * and restored from a page's editor in /admin. */
+export type SectionHistoryRow = {
+  id: string;
+  section_id: string;
+  content: Record<string, unknown>;
+  schema: SectionSchema;
+  changed_at: string;
+  changed_by: string | null;
+};
+
 export type AppRole = "admin" | "editor";
 
 export type Profile = {
