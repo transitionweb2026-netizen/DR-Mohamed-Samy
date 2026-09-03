@@ -40,6 +40,10 @@ const TREATMENT_IMG: Record<string, string> = {
 
 const heroBgAlt = { en: "", ar: "", fr: "" };
 
+// Fresh copy: cards now open a popup to show the full description, so this
+// label reflects that instead of the original "Explore".
+const exploreLabel = { en: "Click for more", ar: "اضغط للمزيد", fr: "Cliquez pour en savoir plus" };
+
 function procedureItem(id: string, key: "surgicalProcedures" | "specializedTreatments", imgMap: Record<string, string>) {
   return {
     id,
@@ -79,7 +83,7 @@ export const servicesSections: SectionDef[] = [
     {
       title: text("services.surgicalProcedures.title"),
       subtitle: text("services.surgicalProcedures.subtitle"),
-      exploreLabel: text("services.surgicalProcedures.explore"),
+      exploreLabel,
       items: Object.keys(SURGICAL_IMG).map((id) => procedureItem(id, "surgicalProcedures", SURGICAL_IMG)),
     },
   ),
