@@ -4,10 +4,12 @@ import { useState } from "react";
 import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
 import ArticleModal, { type OpenArticle } from "@/components/ArticleModal";
+import VideoModal, { type OpenVideo } from "@/components/VideoModal";
 import Stars from "@/components/Stars";
 
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
+type VideoContent = { url: string; mediaId: string | null };
 type ArticleItem = { id: string; image: ImageContent; tag: string; title: string; body: string };
 type ReviewItem = { id: string; image: ImageContent; tag: string; quote: string; name: string; rating: number };
 
@@ -25,6 +27,8 @@ export type HomeContent = {
     eyebrow: string;
     title: string;
     image: ImageContent;
+    video: VideoContent;
+    videoLoadingText: string;
     name: string;
     role: string;
     bio: string;
@@ -63,7 +67,8 @@ export type HomeContent = {
     eyebrow: string;
     title: string;
     cta: ButtonContent;
-    items: { id: string; image: ImageContent; tag: string; title: string }[];
+    modalLoading: string;
+    items: { id: string; image: ImageContent; video: VideoContent; tag: string; title: string }[];
   };
   insights: {
     eyebrow: string;
@@ -99,6 +104,7 @@ export default function HomeClient({
   const { hero, stats, meetDoctor, majorSurgeries, majorTreatments, patientStories, whyUs, videos, insights, cta } =
     content;
   const [openArticle, setOpenArticle] = useState<OpenArticle | null>(null);
+  const [openVideo, setOpenVideo] = useState<OpenVideo | null>(null);
 
   return (
     <div className="route-home">
@@ -230,7 +236,13 @@ export default function HomeClient({
             <div className="w-full lg:w-1/2 relative overflow-hidden lg:overflow-visible">
               <div className="absolute -inset-10 border border-primary/10 rounded-[40px] animate-[spin_20s_linear_infinite] opacity-30 pointer-events-none"></div>
               <div className="absolute -inset-6 border-2 border-primary/5 rounded-[50px] animate-[spin_30s_linear_infinite_reverse] opacity-20 pointer-events-none"></div>
-              <div className="glass-panel p-3 rounded-[32px] aspect-video relative overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,107,91,0.2)] border-white/40">
+              <button
+                className="glass-panel p-3 rounded-[32px] aspect-video relative overflow-hidden group cursor-pointer shadow-[0_20px_50px_rgba(0,107,91,0.2)] border-white/40 w-full text-start"
+                onClick={() =>
+                  setOpenVideo({ title: meetDoctor.name, videoUrl: meetDoctor.video.url, loadingText: meetDoctor.videoLoadingText })
+                }
+                type="button"
+              >
                 <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
                 <img
                   alt={meetDoctor.image.alt}
@@ -248,7 +260,7 @@ export default function HomeClient({
                     </span>
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
             <div className="w-full lg:w-1/2 flex flex-col gap-6 items-start">
               <div className="flex flex-col gap-1">
@@ -531,9 +543,13 @@ export default function HomeClient({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
               {videos.items.map((video) => (
-                <div
+                <button
+                  className="group relative aspect-[9/16] rounded-[50px] glass-panel p-2 overflow-hidden shadow-[0_20px_50px_rgba(0,107,91,0.2)] border-white/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(24,213,184,0.3)] text-start"
                   key={video.id}
-                  className="group relative aspect-[9/16] rounded-[50px] glass-panel p-2 overflow-hidden shadow-[0_20px_50px_rgba(0,107,91,0.2)] border-white/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(24,213,184,0.3)]"
+                  onClick={() =>
+                    setOpenVideo({ title: video.title, videoUrl: video.video.url, loadingText: videos.modalLoading })
+                  }
+                  type="button"
                 >
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/10 pointer-events-none z-20 transition-opacity duration-500 group-hover:opacity-100 opacity-60"></div>
                   <div className="w-full h-full rounded-[40px] overflow-hidden relative">
@@ -560,7 +576,7 @@ export default function HomeClient({
                       <h4 className="font-card-title text-xl">{video.title}</h4>
                     </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
             <div className="flex justify-center mt-16">
@@ -679,6 +695,7 @@ export default function HomeClient({
       </main>
 
       <ArticleModal article={openArticle} onClose={() => setOpenArticle(null)} />
+      <VideoModal onClose={() => setOpenVideo(null)} video={openVideo} />
     </div>
   );
 }

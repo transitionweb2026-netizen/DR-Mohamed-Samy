@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
+import VideoModal, { type OpenVideo } from "@/components/VideoModal";
 import CertificateGallery, { type CertificateItem } from "./CertificateGallery";
 
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
+type VideoContent = { url: string; mediaId: string | null };
 type CareerItem = { id: string; period: string; role: string; place: string };
 type ConferenceItem = { id: string; image: ImageContent; title: string; location: string };
 
@@ -21,7 +23,16 @@ export type AboutContent = {
     watchVideos: ButtonContent;
   };
   certificates: { items: CertificateItem[] };
-  meetDoctor: { eyebrow: string; title: string; name: string; role: string; bio: string; cta: ButtonContent };
+  meetDoctor: {
+    eyebrow: string;
+    title: string;
+    video: VideoContent;
+    videoLoadingText: string;
+    name: string;
+    role: string;
+    bio: string;
+    cta: ButtonContent;
+  };
   career: { eyebrow: string; title: string; items: CareerItem[] };
   conferences: {
     eyebrow: string;
@@ -69,6 +80,7 @@ export default function AboutClient({
 }) {
   const { hero, certificates, meetDoctor, career, conferences, philosophy, cta } = content;
   const [activeConference, setActiveConference] = useState<ConferenceItem | null>(null);
+  const [openVideo, setOpenVideo] = useState<OpenVideo | null>(null);
   useEffect(() => {
     document.body.style.overflow = activeConference ? "hidden" : "";
     return () => {
@@ -185,14 +197,20 @@ export default function AboutClient({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 bg-gradient-to-r from-transparent via-primary/10 to-transparent blur-3xl pointer-events-none z-0"></div>
             <div className="relative z-10">
-              <div className="aspect-[16/9] rounded-2xl overflow-hidden border-[8px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] relative group">
+              <button
+                className="aspect-[16/9] rounded-2xl overflow-hidden border-[8px] border-white/40 backdrop-blur-md shadow-[0_20px_50px_rgba(0,107,91,0.2),inset_0_0_40px_rgba(24,213,184,0.2)] relative group w-full"
+                onClick={() =>
+                  setOpenVideo({ title: meetDoctor.name, videoUrl: meetDoctor.video.url, loadingText: meetDoctor.videoLoadingText })
+                }
+                type="button"
+              >
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
                 <div className="w-full h-full bg-surface-container-highest flex items-center justify-center">
                   <span className="material-symbols-outlined text-primary text-6xl opacity-40 group-hover:scale-110 transition-transform duration-500">
                     play_circle
                   </span>
                 </div>
-              </div>
+              </button>
             </div>
             <div className="relative z-10 flex flex-col items-start">
               <h3 className="font-hero-headline text-3xl text-primary mb-2">{meetDoctor.name}</h3>
@@ -429,6 +447,8 @@ export default function AboutClient({
         whatsappLabel={cta.whatsappUs.label}
         phone={heroContactBarContent.phone}
       />
+
+      <VideoModal onClose={() => setOpenVideo(null)} video={openVideo} />
     </div>
   );
 }

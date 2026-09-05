@@ -3,10 +3,12 @@
 import { useState } from "react";
 import HeroContactBar, { type HeroContactBarContent } from "@/components/HeroContactBar";
 import CtaBanner from "@/components/CtaBanner";
+import VideoModal, { type OpenVideo } from "@/components/VideoModal";
 
 type ButtonContent = { label: string; href: string };
 type ImageContent = { url: string; mediaId: string | null; alt: string };
-type VideoItem = { id: string; image: ImageContent; title: string; desc: string };
+type VideoContent = { url: string; mediaId: string | null };
+type VideoItem = { id: string; image: ImageContent; video: VideoContent; title: string; desc: string };
 
 export type VideosContent = {
   hero: {
@@ -30,7 +32,7 @@ export default function VideosClient({
   heroContactBarContent: HeroContactBarContent;
 }) {
   const { hero, grid, cta, modal } = content;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openVideo, setOpenVideo] = useState<OpenVideo | null>(null);
 
   return (
     <div className="route-videos font-body-md text-on-surface antialiased flex flex-col min-h-screen">
@@ -109,7 +111,7 @@ export default function VideosClient({
             <div
               key={item.id}
               className="video-pod glass-card rounded-2xl overflow-hidden aspect-[9/16] relative cursor-pointer group"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => setOpenVideo({ title: item.title, videoUrl: item.video.url, loadingText: modal.loading })}
             >
               <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-black/5 transition-colors"></div>
               <img
@@ -143,24 +145,7 @@ export default function VideosClient({
         phone={heroContactBarContent.phone}
       />
 
-      {/* Video Modal */}
-      <div
-        className={`fixed inset-0 z-[100] flex items-center justify-center p-4 bg-on-background/80 backdrop-blur-sm transition-opacity duration-300 ${isModalOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-      >
-        <div
-          className={`glass-card w-full max-w-4xl rounded-3xl p-2 relative shadow-2xl transition-all duration-300 ${isModalOpen ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
-        >
-          <button
-            className="absolute -top-4 -end-4 w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary shadow-lg hover:scale-110 transition-transform z-10"
-            onClick={() => setIsModalOpen(false)}
-          >
-            <span className="material-symbols-outlined">close</span>
-          </button>
-          <div className="w-full aspect-video bg-black rounded-2xl flex items-center justify-center overflow-hidden">
-            <span className="text-white/50 font-body-md">{modal.loading}</span>
-          </div>
-        </div>
-      </div>
+      <VideoModal onClose={() => setOpenVideo(null)} video={openVideo} />
     </div>
   );
 }

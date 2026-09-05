@@ -70,10 +70,21 @@ export const aboutSections: SectionDef[] = [
   section(
     "meetDoctor",
     "Meet the Doctor",
-    { eyebrow: "text", title: "text", name: "text", role: "text", bio: "text", cta: "button" },
+    {
+      eyebrow: "text",
+      title: "text",
+      video: "video",
+      videoLoadingText: "text",
+      name: "text",
+      role: "text",
+      bio: "text",
+      cta: "button",
+    },
     {
       eyebrow: text("about.meetDoctor.eyebrow"),
       title: text("about.meetDoctor.title"),
+      video: { url: "", mediaId: null },
+      videoLoadingText: text("videos.modal.loading"),
       name: text("about.meetDoctor.name"),
       role: text("about.meetDoctor.role"),
       bio: text("about.meetDoctor.bio"),
