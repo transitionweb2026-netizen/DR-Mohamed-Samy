@@ -107,12 +107,22 @@ export const aboutSections: SectionDef[] = [
         "consultantHepatobiliarySurgeon",
         "seniorSurgicalFellow",
         "surgicalResidency",
-      ].map((id) => ({
-        id,
-        period: text(`about.career.items.${id}.period`),
-        role: text(`about.career.items.${id}.role`),
-        place: text(`about.career.items.${id}.place`),
-      })),
+      ].map((id) => {
+        // Original copy is "01 | 2020 - Present" - keep just the number,
+        // per request to drop the date range from these cards.
+        const full = text(`about.career.items.${id}.period`);
+        const numberOnly = {
+          en: full.en.split("|")[0]!.trim(),
+          ar: full.ar.split("|")[0]!.trim(),
+          fr: full.fr.split("|")[0]!.trim(),
+        };
+        return {
+          id,
+          period: numberOnly,
+          role: text(`about.career.items.${id}.role`),
+          place: text(`about.career.items.${id}.place`),
+        };
+      }),
     },
   ),
   section(
