@@ -36,7 +36,7 @@ export default function CtaBanner({
   primaryLabel,
   primaryHref = "/contact",
   whatsappLabel,
-  whatsappHref = "https://wa.me/201234567890",
+  whatsappHref = "https://wa.me/201006272425",
   showPhone = true,
   phone,
   children,

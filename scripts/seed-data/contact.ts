@@ -1,4 +1,5 @@
-import { button, image, section, text, type SectionDef } from "../seed-helpers";
+import { button, image, same, section, text, type SectionDef } from "../seed-helpers";
+import { REAL_PHONE_DISPLAY, REAL_WHATSAPP_HREF } from "./global";
 
 const COUNTRY_CODES: { id: string; flag: string; code: string }[] = [
   { id: "eg", flag: "🇪🇬", code: "+20" },
@@ -54,7 +55,7 @@ export const contactSections: SectionDef[] = [
         heroBgAlt,
       ),
       sendInquiry: button(text("contact.hero.sendInquiry"), "#form"),
-      whatsappUs: button(text("contact.hero.whatsappUs"), "https://wa.me/201234567890"),
+      whatsappUs: button(text("contact.hero.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),
   section(
@@ -81,7 +82,7 @@ export const contactSections: SectionDef[] = [
       cards: [
         { id: "address", icon: "location_on", label: text("contact.connect.address.label"), value: text("contact.connect.address.value"), value2: { en: "", ar: "", fr: "" } },
         { id: "workingHours", icon: "schedule", label: text("contact.connect.workingHours.label"), value: text("contact.connect.workingHours.value"), value2: text("contact.connect.workingHours.value2") },
-        { id: "phone", icon: "call", label: text("contact.connect.phone.label"), value: text("contact.connect.phone.value"), value2: { en: "", ar: "", fr: "" } },
+        { id: "phone", icon: "call", label: text("contact.connect.phone.label"), value: same(REAL_PHONE_DISPLAY), value2: { en: "", ar: "", fr: "" } },
         { id: "email", icon: "mail", label: text("contact.connect.email.label"), value: text("contact.connect.email.value"), value2: { en: "", ar: "", fr: "" } },
       ],
       internationalNoteTitle: text("contact.connect.internationalNote.title"),
@@ -147,7 +148,7 @@ export const contactSections: SectionDef[] = [
       uploadSupports: text("contact.form.uploadSupports"),
       sampleFileName: text("contact.form.sampleFileName"),
       sendViaEmail: text("contact.form.sendViaEmail"),
-      whatsapp: button(text("contact.form.whatsapp"), "https://wa.me/201234567890"),
+      whatsapp: button(text("contact.form.whatsapp"), REAL_WHATSAPP_HREF),
     },
   ),
   section(
@@ -157,8 +158,8 @@ export const contactSections: SectionDef[] = [
     {
       label: text("contact.cta.label"),
       title: text("contact.cta.title"),
-      callTheClinic: button(text("contact.cta.callTheClinic"), "tel:+201234567890"),
-      whatsappUs: button(text("contact.cta.whatsappUs"), "https://wa.me/201234567890"),
+      callTheClinic: button(text("contact.cta.callTheClinic"), "tel:+201006272425"),
+      whatsappUs: button(text("contact.cta.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),
 ];

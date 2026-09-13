@@ -1,4 +1,5 @@
 import { button, image, joinText, section, text, type SectionDef } from "../seed-helpers";
+import { REAL_WHATSAPP_HREF } from "./global";
 
 const ARTICLE_IMG: Record<string, string> = {
   understandingYourLiver:
@@ -146,7 +147,7 @@ export const articlesSections: SectionDef[] = [
       label: text("articles.cta.label"),
       title: joinText(text("articles.cta.titleLine1"), text("articles.cta.titleLine2")),
       cta: button(text("articles.cta.cta"), "/contact"),
-      whatsappUs: button(text("common.whatsappUs"), "https://wa.me/201234567890"),
+      whatsappUs: button(text("common.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),
 ];

@@ -1,4 +1,5 @@
 import { button, image, section, text, type SectionDef } from "../seed-helpers";
+import { REAL_WHATSAPP_HREF } from "./global";
 
 const STARS: Record<string, number> = {
   ahmedHassan: 5, sarahM: 5, tarekE: 4.5, omarR: 5, lailaK: 5, hassanB: 5,
@@ -61,7 +62,7 @@ export const reviewsSections: SectionDef[] = [
       title: text("reviews.cta.title"),
       subtitle: text("reviews.cta.subtitle"),
       bookAppointment: button(text("reviews.cta.bookAppointment"), "/contact"),
-      whatsappUs: button(text("reviews.cta.whatsappUs"), "https://wa.me/201234567890"),
+      whatsappUs: button(text("reviews.cta.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),
 ];

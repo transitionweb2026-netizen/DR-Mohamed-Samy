@@ -1,4 +1,5 @@
 import { button, image, same, section, text, type SectionDef } from "../seed-helpers";
+import { REAL_WHATSAPP_HREF } from "./global";
 
 const IMG = {
   heroBg:
@@ -262,7 +263,7 @@ export const homeSections: SectionDef[] = [
       title: text("home.cta.title"),
       subtitle: text("home.cta.subtitle"),
       bookAppointment: button(text("home.cta.bookAppointment"), "/contact"),
-      whatsappUs: button(text("home.cta.whatsappUs"), "https://wa.me/201234567890"),
+      whatsappUs: button(text("home.cta.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),
 ];

@@ -1,4 +1,5 @@
 import { button, image, joinText, section, text, type SectionDef } from "../seed-helpers";
+import { REAL_WHATSAPP_HREF } from "./global";
 
 const SURGICAL_IMG: Record<string, string> = {
   liverTransplantation:
@@ -115,7 +116,7 @@ export const servicesSections: SectionDef[] = [
       eyebrow: text("services.hero.badge"),
       title: joinText(text("services.cta.titleLine1"), text("services.cta.titleLine2")),
       bookAppointment: button(text("common.bookAppointment"), "/contact"),
-      whatsappUs: button(text("common.whatsappUs"), "https://wa.me/201234567890"),
+      whatsappUs: button(text("common.whatsappUs"), REAL_WHATSAPP_HREF),
       options: [
         { id: "option1", number: { en: "01", ar: "01", fr: "01" }, label: text("services.cta.option1") },
         { id: "option2", number: { en: "02", ar: "02", fr: "02" }, label: text("services.cta.option2") },

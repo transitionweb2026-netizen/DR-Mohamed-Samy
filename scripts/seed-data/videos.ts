@@ -1,4 +1,5 @@
 import { button, image, section, text, type SectionDef } from "../seed-helpers";
+import { REAL_WHATSAPP_HREF } from "./global";
 
 const IMG: Record<string, string> = {
   liverRegeneration:
@@ -72,7 +73,7 @@ export const videosSections: SectionDef[] = [
       badge: text("videos.cta.badge"),
       title: text("videos.cta.title"),
       bookAppointment: button(text("videos.cta.bookAppointment"), "/contact"),
-      whatsappUs: button(text("videos.cta.whatsappUs"), "https://wa.me/201234567890"),
+      whatsappUs: button(text("videos.cta.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),
   section("modal", "Video Modal", { loading: "text" }, { loading: text("videos.modal.loading") }),
