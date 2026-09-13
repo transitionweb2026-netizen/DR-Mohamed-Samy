@@ -25,12 +25,21 @@ export const videosSections: SectionDef[] = [
   section(
     "hero",
     "Hero",
-    { badge: "text", titleLine1: "text", titleLine2: "text", subtitle: "text", watchLatest: "button", bookAppointment: "button" },
+    {
+      badge: "text",
+      titleLine1: "text",
+      titleLine2: "text",
+      subtitle: "text",
+      image: "image",
+      watchLatest: "button",
+      bookAppointment: "button",
+    },
     {
       badge: text("videos.hero.badge"),
       titleLine1: text("videos.hero.titleLine1"),
       titleLine2: text("videos.hero.titleLine2"),
       subtitle: text("videos.hero.subtitle"),
+      image: image("", { en: "", ar: "", fr: "" }),
       watchLatest: button(text("videos.hero.watchLatest"), "#videos-grid"),
       bookAppointment: button(text("videos.hero.bookAppointment"), "/contact"),
     },

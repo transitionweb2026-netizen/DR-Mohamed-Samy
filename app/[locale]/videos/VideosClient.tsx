@@ -16,6 +16,7 @@ export type VideosContent = {
     titleLine1: string;
     titleLine2: string;
     subtitle: string;
+    image: ImageContent;
     watchLatest: ButtonContent;
     bookAppointment: ButtonContent;
   };
@@ -75,13 +76,23 @@ export default function VideosClient({
         </div>
         <div className="w-full md:w-1/2 flex justify-center z-10 relative">
           <div className="w-full max-w-md aspect-square rounded-full glass-card flex items-center justify-center relative overflow-hidden border-2 border-white/60 p-4">
-            <div className="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-dim opacity-50"></div>
-            <span
-              className="material-symbols-outlined text-[120px] text-primary/30 absolute z-0"
-              style={{ fontVariationSettings: "'FILL' 1" }}
-            >
-              medical_information
-            </span>
+            {hero.image.url ? (
+              <img
+                alt={hero.image.alt}
+                className="absolute inset-0 w-full h-full object-cover rounded-full"
+                src={hero.image.url}
+              />
+            ) : (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-dim opacity-50"></div>
+                <span
+                  className="material-symbols-outlined text-[120px] text-primary/30 absolute z-0"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
+                  medical_information
+                </span>
+              </>
+            )}
             <div className="w-3/4 h-3/4 rounded-full bg-white/20 backdrop-blur-md border border-white/40 shadow-inner flex items-center justify-center z-10 relative animate-pulse">
               <span
                 className="material-symbols-outlined text-[80px] text-primary-container drop-shadow-[0_0_15px_rgba(24,213,184,0.8)]"
