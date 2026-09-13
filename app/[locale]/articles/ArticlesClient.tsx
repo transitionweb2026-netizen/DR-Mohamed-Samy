@@ -121,7 +121,7 @@ export default function ArticlesClient({
                   </div>
                 </button>
               </div>
-              <div className="lg:col-span-5 lg:-ms-24 relative z-20">
+              <div className="lg:col-span-5 relative z-20">
                 <div className="space-y-6 transition-transform duration-500 hover:translate-x-2">
                   <span className="inline-block bg-primary-container/30 text-primary px-4 py-1 rounded-full font-label-sm uppercase tracking-wider border border-primary/20">
                     {featured.tag}

@@ -25,7 +25,6 @@ type ReviewsContent = {
     eyebrow: string;
     title: string;
     verifiedPatient: string;
-    loadMore: ButtonContent;
     items: ReviewItem[];
   };
   cta: {
@@ -137,9 +136,11 @@ export default async function ReviewsPage({
                 <div className="waveform-bg"></div>
                 <div className="hologram-quote">&quot;</div>
                 <div className="relative z-10 flex-grow">
-                  <div className="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">
-                    {item.tag}
-                  </div>
+                  {item.tag && (
+                    <div className="inline-block px-3 py-1 bg-surface-container-high rounded-full border border-white/40 font-label-sm text-[10px] text-secondary mb-4">
+                      {item.tag}
+                    </div>
+                  )}
                   <p className="font-body-md text-body-md text-on-surface-variant italic mb-6">
                     &quot;{item.quote}&quot;
                   </p>
@@ -172,11 +173,6 @@ export default async function ReviewsPage({
                 </div>
               </div>
             ))}
-          </div>
-          <div className="mt-12 text-center reveal-on-scroll is-visible">
-            <a className="btn-secondary font-label-sm text-label-sm px-6 py-2 rounded-full inline-block" href={gallery.loadMore.href}>
-              {gallery.loadMore.label}
-            </a>
           </div>
         </section>
 

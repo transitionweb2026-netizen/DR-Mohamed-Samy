@@ -414,9 +414,11 @@ export default function HomeClient({
                     />
                   )}
                   <h4 className="font-card-title text-primary text-xl">{story.name}</h4>
-                  <span className="font-label-sm text-secondary uppercase tracking-widest mt-2 block">
-                    {story.tag}
-                  </span>
+                  {story.tag && (
+                    <span className="font-label-sm text-secondary uppercase tracking-widest mt-2 block">
+                      {story.tag}
+                    </span>
+                  )}
                   <p className="font-label-sm text-label-sm text-primary flex items-center justify-center gap-1 text-[10px] mt-2">
                     <span
                       className="material-symbols-outlined text-[12px]"

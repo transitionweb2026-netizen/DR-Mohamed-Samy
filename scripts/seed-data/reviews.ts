@@ -29,7 +29,6 @@ export const reviewsSections: SectionDef[] = [
       eyebrow: "text",
       title: "text",
       verifiedPatient: "text",
-      loadMore: "button",
       items: {
         type: "array",
         itemSchema: { image: "image", tag: "text", quote: "textarea", name: "text", rating: "number" },
@@ -39,7 +38,6 @@ export const reviewsSections: SectionDef[] = [
       eyebrow: text("reviews.gallery.eyebrow"),
       title: text("reviews.gallery.title"),
       verifiedPatient: text("reviews.gallery.verifiedPatient"),
-      loadMore: button(text("reviews.gallery.loadMore"), "#"),
       items: Object.keys(STARS).map((id) => ({
         id,
         // No real patient photos exist yet - left empty rather than using a
