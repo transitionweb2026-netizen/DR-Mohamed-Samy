@@ -113,7 +113,7 @@ export default function AboutClient({
               <br />
               {hero.titleLine2}
             </h1>
-            <p className="font-body-lg text-body-lg text-surface-container-lowest mb-10 max-w-2xl opacity-90">
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl opacity-90">
               {hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -311,7 +311,7 @@ export default function AboutClient({
                   <h3 className="font-card-title text-lg text-primary mb-1 group-hover:text-white transition-colors duration-300">
                     {conf.title}
                   </h3>
-                  <p className="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-surface-container-lowest">
+                  <p className="font-label-sm text-xs group-hover:text-white/80 transition-colors duration-300 text-on-surface-variant">
                     {conf.location}
                   </p>
                 </div>
@@ -435,7 +435,7 @@ export default function AboutClient({
                 <div className="mt-auto">
                   <div className="h-px w-32 bg-gradient-to-r from-primary to-transparent mb-4"></div>
                   <p className="font-hero-headline text-2xl text-primary">{philosophy.name}</p>
-                  <p className="font-label-sm text-label-sm text-surface-container-lowest uppercase tracking-widest">
+                  <p className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">
                     {philosophy.role}
                   </p>
                 </div>
