@@ -74,6 +74,7 @@ export const aboutSections: SectionDef[] = [
     {
       eyebrow: "text",
       title: "text",
+      coverImage: "image",
       video: "video",
       videoLoadingText: "text",
       name: "text",
@@ -84,6 +85,7 @@ export const aboutSections: SectionDef[] = [
     {
       eyebrow: text("about.meetDoctor.eyebrow"),
       title: text("about.meetDoctor.title"),
+      coverImage: image("", { en: "", ar: "", fr: "" }),
       video: { url: "", mediaId: null },
       videoLoadingText: text("videos.modal.loading"),
       name: text("about.meetDoctor.name"),

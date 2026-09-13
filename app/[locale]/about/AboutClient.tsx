@@ -26,6 +26,7 @@ export type AboutContent = {
   meetDoctor: {
     eyebrow: string;
     title: string;
+    coverImage: ImageContent;
     video: VideoContent;
     videoLoadingText: string;
     name: string;
@@ -205,8 +206,17 @@ export default function AboutClient({
                 type="button"
               >
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/30 pointer-events-none z-10"></div>
-                <div className="w-full h-full bg-surface-container-highest flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary text-6xl opacity-40 group-hover:scale-110 transition-transform duration-500">
+                {meetDoctor.coverImage.url ? (
+                  <img
+                    alt={meetDoctor.coverImage.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    src={meetDoctor.coverImage.url}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-surface-container-highest" />
+                )}
+                <div className="absolute inset-0 flex items-center justify-center bg-background/10 group-hover:bg-background/5 transition-colors z-20">
+                  <span className="material-symbols-outlined text-primary text-6xl opacity-90 group-hover:scale-110 transition-transform duration-500 drop-shadow-lg">
                     play_circle
                   </span>
                 </div>
