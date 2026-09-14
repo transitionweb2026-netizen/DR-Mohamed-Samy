@@ -38,68 +38,50 @@ export default function VideosClient({
   return (
     <div className="route-videos font-body-md text-on-surface antialiased flex flex-col min-h-screen">
       {/* Videos Hero */}
-      <header className="relative pt-[120px] pb-16 px-4 md:px-8 max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12 mt-4">
-        <div className="absolute inset-0 z-[-1] overflow-hidden rounded-3xl opacity-20">
-          <div className="absolute w-[800px] h-[800px] bg-primary-container/30 rounded-full blur-[100px] -top-[200px] -end-[200px]"></div>
-          <div className="absolute w-[600px] h-[600px] bg-tertiary-container/20 rounded-full blur-[80px] bottom-0 start-0"></div>
+      <header className="relative min-h-screen flex items-center pt-32 pb-section-gap px-4 md:px-8 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          {hero.image.url ? (
+            <img
+              alt={hero.image.alt}
+              className="w-full h-full object-cover mix-blend-overlay opacity-80"
+              src={hero.image.url}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-dim opacity-50"></div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background/40"></div>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col items-start z-10">
-          <span className="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 glass-card px-4 py-2 rounded-full inline-block">
-            {hero.badge}
-          </span>
-          <h1 className="font-hero-headline-mobile md:font-hero-headline text-hero-headline-mobile md:text-hero-headline text-primary mb-6 glow-text">
-            {hero.titleLine1}
-            <br />
-            {hero.titleLine2}
-          </h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md">{hero.subtitle}</p>
-          <div className="flex flex-wrap gap-4 mb-8">
-            <a
-              className="bg-gradient-to-r from-secondary to-primary text-on-primary px-8 py-3 rounded-full font-label-sm text-label-sm shadow-[0_0_20px_rgba(24,213,184,0.3)] border-t border-white/50 hover:scale-105 transition-transform flex items-center gap-2"
-              href={hero.watchLatest.href}
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontVariationSettings: "'FILL' 1" }}
+        <div className="max-w-container-max mx-auto w-full relative z-10">
+          <div className="max-w-2xl flex flex-col items-start">
+            <span className="font-label-sm text-label-sm text-secondary tracking-widest uppercase mb-4 glass-card px-4 py-2 rounded-full inline-block">
+              {hero.badge}
+            </span>
+            <h1 className="font-hero-headline-mobile md:font-hero-headline text-hero-headline-mobile md:text-hero-headline text-primary mb-6 glow-text">
+              {hero.titleLine1}
+              <br />
+              {hero.titleLine2}
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md">{hero.subtitle}</p>
+            <div className="flex flex-wrap gap-4 mb-8">
+              <a
+                className="bg-gradient-to-r from-secondary to-primary text-on-primary px-8 py-3 rounded-full font-label-sm text-label-sm shadow-[0_0_20px_rgba(24,213,184,0.3)] border-t border-white/50 hover:scale-105 transition-transform flex items-center gap-2"
+                href={hero.watchLatest.href}
               >
-                play_circle
-              </span>
-              {hero.watchLatest.label}
-            </a>
-            <a
-              className="glass-card text-secondary px-8 py-3 rounded-full font-label-sm text-label-sm hover:bg-white/50 transition-colors"
-              href={hero.bookAppointment.href}
-            >
-              {hero.bookAppointment.label}
-            </a>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 flex justify-center z-10 relative">
-          <div className="w-full max-w-md aspect-square rounded-full glass-card flex items-center justify-center relative overflow-hidden border-2 border-white/60 p-4">
-            {hero.image.url ? (
-              <img
-                alt={hero.image.alt}
-                className="absolute inset-0 w-full h-full object-cover rounded-full"
-                src={hero.image.url}
-              />
-            ) : (
-              <>
-                <div className="absolute inset-0 bg-gradient-to-br from-surface-container to-surface-dim opacity-50"></div>
                 <span
-                  className="material-symbols-outlined text-[120px] text-primary/30 absolute z-0"
+                  className="material-symbols-outlined"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
-                  medical_information
+                  play_circle
                 </span>
-              </>
-            )}
-            <div className="w-3/4 h-3/4 rounded-full bg-white/20 backdrop-blur-md border border-white/40 shadow-inner flex items-center justify-center z-10 relative animate-pulse">
-              <span
-                className="material-symbols-outlined text-[80px] text-primary-container drop-shadow-[0_0_15px_rgba(24,213,184,0.8)]"
-                style={{ fontVariationSettings: "'FILL' 1" }}
+                {hero.watchLatest.label}
+              </a>
+              <a
+                className="glass-card text-secondary px-8 py-3 rounded-full font-label-sm text-label-sm hover:bg-white/50 transition-colors"
+                href={hero.bookAppointment.href}
               >
-                play_arrow
-              </span>
+                {hero.bookAppointment.label}
+              </a>
             </div>
           </div>
         </div>
