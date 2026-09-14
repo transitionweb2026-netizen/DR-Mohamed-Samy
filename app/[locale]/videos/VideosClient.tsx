@@ -43,7 +43,7 @@ export default function VideosClient({
           {hero.image.url ? (
             <img
               alt={hero.image.alt}
-              className="w-full h-full object-cover mix-blend-overlay opacity-80"
+              className="w-full h-full object-cover object-[center_18%] mix-blend-overlay opacity-80"
               src={hero.image.url}
             />
           ) : (
