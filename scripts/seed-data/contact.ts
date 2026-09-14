@@ -1,5 +1,5 @@
 import { button, image, same, section, text, type SectionDef } from "../seed-helpers";
-import { REAL_PHONE_DISPLAY, REAL_WHATSAPP_HREF } from "./global";
+import { REAL_EMAIL, REAL_PHONE_DISPLAY, REAL_PHONE_TEL, REAL_WHATSAPP_HREF } from "./global";
 
 const COUNTRY_CODES: { id: string; flag: string; code: string }[] = [
   { id: "eg", flag: "🇪🇬", code: "+20" },
@@ -83,7 +83,7 @@ export const contactSections: SectionDef[] = [
         { id: "address", icon: "location_on", label: text("contact.connect.address.label"), value: text("contact.connect.address.value"), value2: { en: "", ar: "", fr: "" } },
         { id: "workingHours", icon: "schedule", label: text("contact.connect.workingHours.label"), value: text("contact.connect.workingHours.value"), value2: text("contact.connect.workingHours.value2") },
         { id: "phone", icon: "call", label: text("contact.connect.phone.label"), value: same(REAL_PHONE_DISPLAY), value2: { en: "", ar: "", fr: "" } },
-        { id: "email", icon: "mail", label: text("contact.connect.email.label"), value: text("contact.connect.email.value"), value2: { en: "", ar: "", fr: "" } },
+        { id: "email", icon: "mail", label: text("contact.connect.email.label"), value: same(REAL_EMAIL), value2: { en: "", ar: "", fr: "" } },
       ],
       internationalNoteTitle: text("contact.connect.internationalNote.title"),
       internationalNoteBody: text("contact.connect.internationalNote.body"),
@@ -158,7 +158,7 @@ export const contactSections: SectionDef[] = [
     {
       label: text("contact.cta.label"),
       title: text("contact.cta.title"),
-      callTheClinic: button(text("contact.cta.callTheClinic"), "tel:+201006272425"),
+      callTheClinic: button(text("contact.cta.callTheClinic"), REAL_PHONE_TEL),
       whatsappUs: button(text("contact.cta.whatsappUs"), REAL_WHATSAPP_HREF),
     },
   ),

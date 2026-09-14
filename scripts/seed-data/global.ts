@@ -3,10 +3,12 @@ import { same, section, text, type SectionDef } from "../seed-helpers";
 // Real clinic contact details, used everywhere a phone/WhatsApp/social
 // link appears sitewide (HeroContactBar, FloatingContactButtons, every
 // page's Final CTA, and the Contact page itself).
-export const REAL_PHONE_DISPLAY = "+20 100 627 2425";
-export const REAL_WHATSAPP_HREF = "https://wa.me/201006272425";
+export const REAL_PHONE_DISPLAY = "+20 111 911 7122";
+export const REAL_PHONE_TEL = "tel:+201119117122";
+export const REAL_WHATSAPP_HREF = "https://wa.me/201119117122";
 export const REAL_FACEBOOK_HREF = "https://www.facebook.com/profile.php?id=61553751736892&sk=reels_tab";
 export const REAL_INSTAGRAM_HREF = "https://www.instagram.com/drmohamedsamiabdelwahed?stkn=OXVsd3dtODI1YXZi";
+export const REAL_EMAIL = "Donsamicci@gmail.com";
 
 const NAV_LINKS: { id: string; href: string; labelKey: string }[] = [
   { id: "home", href: "/", labelKey: "home" },
